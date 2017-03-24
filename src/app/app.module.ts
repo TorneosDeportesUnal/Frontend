@@ -10,13 +10,17 @@ import { AlertModule } from 'ng2-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { PageRollerComponent } from './page-roller/page-roller.component';
+import { BoxThingComponent } from './box-thing/box-thing.component';
+import { HeaderContentPaneComponent } from './header-content-pane/header-content-pane.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     PageHeaderComponent,
-    PageRollerComponent
+    PageRollerComponent,
+    BoxThingComponent,
+    HeaderContentPaneComponent
   ],
   imports: [
     BrowserModule,
