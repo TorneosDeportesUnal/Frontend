@@ -1,0 +1,9 @@
+.my-home-header{
+    height: 100%;
+    background-image: url('/assets/images/fondo.jpg');
+    background-position: left center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 20px!important;
+    padding-bottom: 0px!important;
+}
