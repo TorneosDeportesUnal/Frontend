@@ -2,8 +2,8 @@
     display: block;
     height: 10%;
     background-image: url('/assets/images/fondo.jpg');
-    background-position: left center;
-    background-size: cover;
+    background-position: left-center;
+    background-size:  cover;
     background-repeat: no-repeat;
     padding-top: 0px!important;
     padding-bottom: 0px!important;

@@ -18,6 +18,7 @@ import { HeaderContentPaneComponent } from './header-content-pane/header-content
 
 
 import { ContactComponent } from './contact/contact.component';
+import { AdministratorComponent } from './administrator/administrator.component';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -29,7 +30,8 @@ import { HomeComponent } from './home/home.component';
     BoxThingComponent,
     HeaderContentPaneComponent,
     ContactComponent,
-    HomeComponent
+    HomeComponent,
+    AdministratorComponent
   ],
   imports: [
     BrowserModule,
