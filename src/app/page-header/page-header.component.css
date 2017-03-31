@@ -1,9 +1,9 @@
 .my-home-header{
     display: block;
-    height: 10%;
-    background-image: url('/assets/images/fondo.jpg');
+    height: 2%;
+    background-image: url('/assets/images/balones.jpg');
     background-position: left-center;
-    background-size:  cover;
+    background-size:  1200px 300px;
     background-repeat: no-repeat;
     padding-top: 0px!important;
     padding-bottom: 0px!important;
