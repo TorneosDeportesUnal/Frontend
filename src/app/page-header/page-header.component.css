@@ -1,0 +1,18 @@
+.my-home-header{
+    display: block;
+    height: 2%;
+    background-image: url('/assets/images/balones.jpg');
+    background-position: left-center;
+    background-size:  1200px 300px;
+    background-repeat: no-repeat;
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
+}
+app-hearder-content-pane{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: 0%;
+    transform: translate(-50%, -50%)
+}

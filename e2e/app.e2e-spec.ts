@@ -1,10 +1,12 @@
-import { CoreUIPage } from './app.po';
 
-describe('core-ui App', function() {
-  let page: CoreUIPage;
+import { TorneosUnalAppPage } from './app.po';
+
+describe('torneos-unal-app App', () => {
+  let page: TorneosUnalAppPage;
 
   beforeEach(() => {
-    page = new CoreUIPage();
+    page = new TorneosUnalAppPage();
+
   });
 
   it('should display message saying app works', () => {
