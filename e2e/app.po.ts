@@ -1,6 +1,8 @@
+
 import { browser, element, by } from 'protractor';
 
 export class TorneosUnalAppPage {
+
   navigateTo() {
     return browser.get('/');
   }

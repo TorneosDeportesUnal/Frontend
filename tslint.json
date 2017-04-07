@@ -46,7 +46,11 @@
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
+<<<<<<< HEAD
     "no-inferrable-types": [true, "ignore-params"],
+=======
+    "no-inferrable-types": [false, "ignore-params"],
+>>>>>>> c218fc27b3fc7f3847864be650493ac42859b1af
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-string-throw": true,
@@ -109,7 +113,11 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
+<<<<<<< HEAD
     "no-access-missing-member": true,
+=======
+    "no-access-missing-member": false,
+>>>>>>> c218fc27b3fc7f3847864be650493ac42859b1af
     "templates-use-public": true,
     "invoke-injectable": true
   }

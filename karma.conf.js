@@ -29,6 +29,10 @@ module.exports = function (config) {
       fixWebpackSourcePaths: true
     },
     angularCli: {
+<<<<<<< HEAD
+=======
+      config: './.angular-cli.json',
+>>>>>>> c218fc27b3fc7f3847864be650493ac42859b1af
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage

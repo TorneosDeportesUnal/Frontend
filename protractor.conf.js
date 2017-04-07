@@ -1,6 +1,10 @@
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
+<<<<<<< HEAD
+=======
+/*global jasmine */
+>>>>>>> c218fc27b3fc7f3847864be650493ac42859b1af
 const { SpecReporter } = require('jasmine-spec-reporter');
 
 exports.config = {
@@ -21,7 +25,11 @@ exports.config = {
   },
   beforeLaunch: function() {
     require('ts-node').register({
+<<<<<<< HEAD
       project: 'e2e/tsconfig.e2e.json'
+=======
+      project: 'e2e'
+>>>>>>> c218fc27b3fc7f3847864be650493ac42859b1af
     });
   },
   onPrepare() {
