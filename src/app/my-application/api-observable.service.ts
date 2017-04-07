@@ -13,5 +13,9 @@ export class ApiObservableService {
     const url = 'http://localhost:3000/players';
     return this.http.get(url).map((response: Response) => response.json());
   }
+  getTeams(){
+    const url = 'http://localhost:3000/teams';
+    return this.http.get(url).map((response: Response) => response.json());
+  }
 
 }

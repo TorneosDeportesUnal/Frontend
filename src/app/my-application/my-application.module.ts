@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 //components
 import { MyApplicationRoutingModule } from './my-application-routing.module';
 import { PlayerListComponent } from './player-list/player-list.component';
+import { TeamListComponent } from './team-list/team-list.component';
 
 //services
 import {ApiObservableService} from './api-observable.service';
@@ -26,6 +27,6 @@ import {ApiObservableService} from './api-observable.service';
   providers: [
     ApiObservableService
   ],
-  declarations: [PlayerListComponent, DataFilterPipe]
+  declarations: [PlayerListComponent, TeamListComponent, DataFilterPipe]
 })
 export class MyApplicationModule { }

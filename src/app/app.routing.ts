@@ -80,6 +80,21 @@ export const routes: Routes = [
         loadChildren: './my-application/my-application.module#MyApplicationModule',
       }
     ]
+  },
+
+  
+  {
+    path: '',
+    component: FullLayoutComponent,
+    data: {
+      title: 'teams'
+    },
+    children: [
+      {
+        path: 'teams',
+        loadChildren: './my-application/my-application.module#MyApplicationModule',
+      }
+    ]
   }
 ];
 
