@@ -7,8 +7,13 @@ import { HttpModule } from '@angular/http';
 import { DataFilterPipe } from './datafilterpipe';
 import { FormsModule } from '@angular/forms';
 
+//components
 import { MyApplicationRoutingModule } from './my-application-routing.module';
 import { PlayerListComponent } from './player-list/player-list.component';
+
+//services
+import {ApiObservableService} from './api-observable.service';
+
 
 @NgModule({
   imports: [
@@ -17,6 +22,9 @@ import { PlayerListComponent } from './player-list/player-list.component';
     HttpModule,
     FormsModule,
     DataTableModule
+  ],
+  providers: [
+    ApiObservableService
   ],
   declarations: [PlayerListComponent, DataFilterPipe]
 })
