@@ -1,5 +1,8 @@
 export class Tournament{
 	id_tournament: number;
-	begin_date:number;
-	end_date:number;
+	name:string;
+	begin_date:Date;
+	end_date:Date;
+	gender:string;
+	discipline:string;
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
 
 import { PlayerListComponent } from './player-list/player-list.component';
 
@@ -20,8 +20,8 @@ const routes: Routes = [
         }
       },
       {
-        path: 'list23',
-        component: PlayerListComponent,
+        path: 'tournament',
+        component: TournamentCreationComponent,
         data: {
           title: 'Simple Line Icons'
         }

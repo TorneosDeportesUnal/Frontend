@@ -13,6 +13,10 @@ import { PlayerListComponent } from './player-list/player-list.component';
 
 //services
 import {ApiObservableService} from './api-observable.service';
+import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
+
+//forms
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,11 +25,12 @@ import {ApiObservableService} from './api-observable.service';
     MyApplicationRoutingModule,
     HttpModule,
     FormsModule,
-    DataTableModule
+    DataTableModule,
+    ReactiveFormsModule
   ],
   providers: [
     ApiObservableService
   ],
-  declarations: [PlayerListComponent, DataFilterPipe]
+  declarations: [PlayerListComponent, DataFilterPipe, TournamentCreationComponent]
 })
 export class MyApplicationModule { }
