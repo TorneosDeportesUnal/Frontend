@@ -13,6 +13,9 @@ import { PlayerListComponent } from './player-list/player-list.component';
 
 //services
 import {ApiObservableService} from './api-observable.service';
+import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
+import { TournamentListComponent } from './tournament-list/tournament-list.component';
+import { TeamCreationComponent } from './team-creation/team-creation.component';
 
 
 @NgModule({
@@ -26,6 +29,6 @@ import {ApiObservableService} from './api-observable.service';
   providers: [
     ApiObservableService
   ],
-  declarations: [PlayerListComponent, DataFilterPipe]
+  declarations: [PlayerListComponent, DataFilterPipe, TournamentCreationComponent, TournamentListComponent, TeamCreationComponent]
 })
 export class MyApplicationModule { }

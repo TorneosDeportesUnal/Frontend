@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { PlayerListComponent } from './player-list/player-list.component';
+import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
+
 
 const routes: Routes = [
 
@@ -19,13 +21,17 @@ const routes: Routes = [
           title: 'Font Awesome'
         }
       },
+      
       {
-        path: 'list23',
-        component: PlayerListComponent,
+        path: 'tournament',
+        component: TournamentCreationComponent,
         data: {
-          title: 'Simple Line Icons'
+          title: 'Creation'
         }
+        
       }
+      
+      
     ]
   }
 

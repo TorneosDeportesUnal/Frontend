@@ -51,7 +51,13 @@ export const routes: Routes = [
       {
         path: 'uikits',
         loadChildren: './uikits/uikits.module#UIKitsModule'
+      },
+      
+      {
+        path: 'players',
+        loadChildren: './my-application/my-application.module#MyApplicationModule',
       }
+      
     ]
   },
   {
@@ -71,6 +77,7 @@ export const routes: Routes = [
   {
     path: '',
     component: FullLayoutComponent,
+    
     data: {
       title: 'players'
     },
