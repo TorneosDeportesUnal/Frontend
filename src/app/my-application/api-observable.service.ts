@@ -42,9 +42,10 @@ export class ApiObservableService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    const url = 'https://torneos-api-arka160.c9users.io/tournaments';
+    const url = 'http://localhost:3000/tournaments';
+	    let id = 12334;
 
-    return this.http.post(url, { begin_date, end_date, gender, discipline }, options)
+    return this.http.post(url, { gender, discipline, begin_date, end_date}, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

@@ -223,6 +223,35 @@
   <div class="sidebar">
     <nav class="sidebar-nav">
       <ul class="nav">
+
+      <li class="nav-title text-center">
+          <span>CRUD</span>
+        </li>
+         <li class="nav-item nav-dropdown" routerLinkActive="open">
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> Edición</a>
+          <ul class="nav-dropdown-items">
+
+            <!--opcion 1-->
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/tournament']"><i class="icon-puzzle"></i> Torneo</a>
+            </li>
+            <!--opcion 2-->
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/forms']"><i class="icon-puzzle"></i> Grupos</a>
+            </li>
+            <!--opcion 3-->
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/forms']"><i class="icon-puzzle"></i> Equipos</a>
+            </li>
+            <!--opcion 4-->
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/forms']"><i class="icon-puzzle"></i> Jugadores</a>
+            </li>
+
+          </ul>
+       
+        <li class="divider"></li>
+
         <li class="nav-title text-center">
           <span>Dashboard</span>
         </li>
