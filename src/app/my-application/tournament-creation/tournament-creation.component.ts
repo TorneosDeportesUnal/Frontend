@@ -19,12 +19,12 @@ export class TournamentCreationComponent implements OnInit {
 
   public createTourForm = this.fb.group({
 
-    name: ["", Validators.required],
-    discipline: ["", Validators.required],
-    gender: ["", Validators.required],
-    begin_date: ["", Validators.required],
-    end_date: ["", Validators.required]
-    
+    name: ['', Validators.required],
+    discipline: ['', Validators.required],
+    gender: ['', Validators.required],
+    begin_date: ['', Validators.required],
+    end_date: ['', Validators.required]
+
   });
   constructor(public fb: FormBuilder, private apiService: ApiObservableService ) {}
 
@@ -33,7 +33,7 @@ export class TournamentCreationComponent implements OnInit {
     console.log(event);
     console.log(this.createTourForm.value);
     console.log(this.createTourForm.value.name);
-    this.addTournament(this.createTourForm.value.name, 
+    this.addTournament(this.createTourForm.value.name,
     this.createTourForm.value.begin_date,
     this.createTourForm.value.end_date,
     this.createTourForm.value.gender,

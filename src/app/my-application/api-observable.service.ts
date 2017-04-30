@@ -3,6 +3,7 @@ import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Rx';
 import { Headers, RequestOptions } from '@angular/http';
+import {Team} from './classes/team';
 
 
 @Injectable()
@@ -15,7 +16,7 @@ export class ApiObservableService {
     let body = res.json();
     return body.data || { };
   }
-  
+
   private handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
@@ -51,6 +52,17 @@ export class ApiObservableService {
   }
 
 
+  createTeam(team: Team): Observable<Team> {
 
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
 
+    const url = 'https://torneos-api-arka160.c9users.io/teams';
+
+    console.log(JSON.stringify(team));
+    return this.http.post(url, JSON.stringify( team ) , options)
+      .map(this.extractData)
+      .catch(this.handleError);
+
+  }
 }
