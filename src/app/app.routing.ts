@@ -21,6 +21,10 @@ export const routes: Routes = [
     },
     children: [
       {
+        path: 'crud',
+        loadChildren: './crud/crud.module#CrudModule'
+      },
+      {
         path: 'dashboard',
         loadChildren: './dashboard/dashboard.module#DashboardModule'
       },

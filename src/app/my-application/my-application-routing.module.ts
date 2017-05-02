@@ -20,7 +20,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'tournament',
+        path: 'tournaments',
         component: TournamentCreationComponent,
         data: {
           title: 'Simple Line Icons'
