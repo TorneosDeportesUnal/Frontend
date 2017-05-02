@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
 
+import { TeamCreationComponent } from './team-creation/team-creation.component';
+
 import { PlayerListComponent } from './player-list/player-list.component';
 
 const routes: Routes = [
@@ -9,7 +11,7 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Icons'
+      title: 'Torneos'
     },
     children: [
       {
@@ -23,7 +25,14 @@ const routes: Routes = [
         path: 'tournaments',
         component: TournamentCreationComponent,
         data: {
-          title: 'Simple Line Icons'
+          title: 'Nuevo Torneo'
+        }
+      },
+      {
+        path: 'team',
+        component: TeamCreationComponent,
+        data: {
+          title: 'Nuevo Equipo'
         }
       }
     ]

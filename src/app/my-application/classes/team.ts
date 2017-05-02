@@ -1,9 +1,10 @@
-export class Team{
-	id_team: number;
-	name:string;
-	delegate:string;
-	captain:string;
-	uniform_color:string;
+export class Team {
+  id: number;
+  tournament_id: number;
+  name: string;
+  delegate:string;
+  captain:string;
+  uniform_color:string;
 	goals_against:number;
 	goals_in_favor:number;
 	goals_difference:number;
