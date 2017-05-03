@@ -5,6 +5,7 @@ import { TournamentCreationComponent } from './tournament-creation/tournament-cr
 import { TeamCreationComponent } from './team-creation/team-creation.component';
 
 import { PlayerListComponent } from './player-list/player-list.component';
+import { PhaseGroupCreationComponent } from './phase-group-creation/phase-group-creation.component';
 
 const routes: Routes = [
 
@@ -33,6 +34,13 @@ const routes: Routes = [
         component: TeamCreationComponent,
         data: {
           title: 'Nuevo Equipo'
+        }
+      },
+      {
+        path: 'phase',
+        component: PhaseGroupCreationComponent,
+        data: {
+          title: 'Sorteo de equipos'
         }
       }
     ]
