@@ -224,31 +224,28 @@
     <nav class="sidebar-nav">
       <ul class="nav">
 
-      <li class="nav-title text-center">
+      <li class="divider m-h"></li>
+        <li class="nav-title text-center">
           <span>CRUD</span>
         </li>
-         <li class="nav-item nav-dropdown" routerLinkActive="open">
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> Edición</a>
+
+        <li class="nav-item nav-dropdown" routerLinkActive="open">
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-note"></i> Modificación</a>
           <ul class="nav-dropdown-items">
-
-            <!--opcion 1-->
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/tournament']"><i class="icon-puzzle"></i> Torneo</a>
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/crud/tournaments-crud']"><i class="icon-note"></i> Torneos</a>
             </li>
-            <!--opcion 2-->
+             <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/crud/groups-crud']"><i class="icon-note"></i> Grupos</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/crud/teams-crud']"><i class="icon-note"></i> Equipos</a>
+            </li>
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/forms']"><i class="icon-puzzle"></i> Grupos</a>
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/crud/players-crud']"><i class="icon-note"></i> Jugadores</a>
             </li>
-            <!--opcion 3-->
-            <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/forms']"><i class="icon-puzzle"></i> Equipos</a>
-            </li>
-            <!--opcion 4-->
-            <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/forms']"><i class="icon-puzzle"></i> Jugadores</a>
-            </li>
-
           </ul>
+        </li>
        
         <li class="divider"></li>
 

@@ -22,7 +22,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'tournament',
+        path: 'tournaments',
         component: TournamentCreationComponent,
         data: {
           title: 'Nuevo Torneo'
