@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
 
@@ -23,7 +23,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'tournament',
+        path: 'tournaments',
         component: TournamentCreationComponent,
         data: {
           title: 'Nuevo Torneo'
