@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {ApiObservableService} from '../api-observable.service';
 import {TournamentPhase} from '../classes/tournament_phase';
+import {Team} from '../classes/team';
 
 
 
@@ -15,6 +16,8 @@ export class PhaseCreationComponent implements OnInit {
   phase: TournamentPhase;
   // let groupNumber: number;
   groupArr_num  = Array;
+
+  public teams: Team[];
 
   public errorMessage: string;
 
@@ -37,6 +40,14 @@ export class PhaseCreationComponent implements OnInit {
     this.phase = this.prepareSave();
     console.log(this.phase);
     this.add(this.phase);
+
+    console.log(this.teams);
+    console.log(this.teams[11].id);
+    this.teams.splice(11, 1);
+    console.log(this.teams);
+    console.log(this.teams[11].id);
+
+
 
 
   }
@@ -67,8 +78,24 @@ export class PhaseCreationComponent implements OnInit {
     //   .subscribe(error =>  this.errorMessage = <any>error);
   }
 
+  getTeams() {
+    this.apiService.getTeams()
+      .subscribe(
+        teams => {
+          return this.teams = teams;
+        },
+        error =>  this.errorMessage = <any>error);
+
+    // this.apiService.getTeams().subscribe(
+    //   playerList =>  {this.teams = playerList; } ,
+    //   error => console.log(error)
+    // );
+  }
+
 
   ngOnInit() {
+    this.getTeams();
+    console.log(this.teams);
   }
 
 }

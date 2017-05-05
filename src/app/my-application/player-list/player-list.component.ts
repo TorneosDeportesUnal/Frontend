@@ -38,7 +38,7 @@ export class PlayerListComponent implements OnInit {
   }
 
 
-  getPlayers(){
+  getPlayers() {
     this.apiService.getPlayers().subscribe(
       playerList =>  {this.data = playerList},
       error => console.log(error)
