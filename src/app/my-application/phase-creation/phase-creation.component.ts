@@ -45,7 +45,7 @@ export class PhaseCreationComponent implements OnInit {
     console.log(this.groups.length);
     let teams_copy: Team[] = this.teams.slice(0);
     let iterator = 0;
-    for (let i of this.groups) {
+    for (let i = 0; i < this.form.value.group_number; i++) {
 
       let ids: number[] = new Array();
       for (let num = 0; num < this.groupArr_num[iterator]; num++) {
@@ -57,7 +57,7 @@ export class PhaseCreationComponent implements OnInit {
         ids.push( temp[0].id ) ;
 
       }
-      i = {
+      let toAdd: Group = {
         id: null,
         active: true,
         group_winners_number: 1,
@@ -66,7 +66,10 @@ export class PhaseCreationComponent implements OnInit {
         team_ids: ids
 
       };
-      console.log(i);
+
+      this.groups[i] = toAdd;
+
+      console.log(this.groups[i]);
       iterator++;
     }
   }
@@ -78,8 +81,8 @@ export class PhaseCreationComponent implements OnInit {
     console.log(this.phase);
     this.add(this.phase);
     //
-    console.log(this.teams);
-    console.log(this.teams[1].id);
+    // console.log(this.teams);
+    // console.log(this.teams[1].id);
 
 
 
@@ -96,7 +99,7 @@ export class PhaseCreationComponent implements OnInit {
     const saveElem: TournamentPhase = {
 
       id: null,
-      tournament_id: 11,
+      tournament_id: 1,
       phase_number : formModel.phase_number as number,
       phase_type: formModel.phase_type as string,
       active: true,
@@ -109,8 +112,8 @@ export class PhaseCreationComponent implements OnInit {
 
   add(phase: TournamentPhase) {
 
-    // this.apiService.createTournamentPhase(phase)
-    //   .subscribe(error =>  this.errorMessage = <any>error);
+    this.apiService.createTournamentPhase(phase)
+      .subscribe(error =>  this.errorMessage = <any>error);
   }
 
   getTeams() {
