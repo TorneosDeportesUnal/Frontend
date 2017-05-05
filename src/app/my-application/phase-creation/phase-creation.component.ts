@@ -42,7 +42,8 @@ export class PhaseCreationComponent implements OnInit {
   sortTeamsInGroups() {
 
     this.groups = new Array(this.form.value.group_number);
-    //console.log(this.groups.length);
+    console.log(this.groups.length);
+    let teams_copy: Team[] = this.teams.slice(0);
     let iterator = 0;
     for (let i of this.groups) {
 
@@ -50,8 +51,8 @@ export class PhaseCreationComponent implements OnInit {
       for (let num = 0; num < this.groupArr_num[iterator]; num++) {
 
         console.log(this.groupArr_num[iterator]);
-        const rand = this.getRandomInt(0, this.teams.length - 1);
-        const temp: Team[] = this.teams.splice(rand, 1);
+        const rand = this.getRandomInt(0, teams_copy.length - 1);
+        const temp: Team[] = teams_copy.splice(rand, 1);
         console.log(temp[0].id);
         ids.push( temp[0].id ) ;
 
@@ -99,7 +100,7 @@ export class PhaseCreationComponent implements OnInit {
       phase_number : formModel.phase_number as number,
       phase_type: formModel.phase_type as string,
       active: true,
-      groups_attributes: []
+      groups_attributes: this.groups
 
     };
     return saveElem;
