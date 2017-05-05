@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, group, OnInit} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {ApiObservableService} from '../api-observable.service';
 import {TournamentPhase} from '../classes/tournament_phase';
 import {Team} from '../classes/team';
+import {Group} from '../classes/group';
 
 
 
@@ -18,6 +19,7 @@ export class PhaseCreationComponent implements OnInit {
   groupArr_num  = Array;
 
   public teams: Team[];
+  groups: Group[];
 
   public errorMessage: string;
 
@@ -36,16 +38,38 @@ export class PhaseCreationComponent implements OnInit {
 
   onSubmit(event) {
 
-    console.log(event);
-    this.phase = this.prepareSave();
-    console.log(this.phase);
-    this.add(this.phase);
+    this.groups = new Array(this.form.value.group_number);
+    //console.log(this.groups.length);
+    const iterator = 0;
+    for (let i of this.groups) {
+      for (let num = 0; num < this.groupArr_num[iterator]; num++) {
 
-    console.log(this.teams);
-    console.log(this.teams[11].id);
-    this.teams.splice(11, 1);
-    console.log(this.teams);
-    console.log(this.teams[11].id);
+        console.log(this.groupArr_num[iterator]);
+
+
+      }
+
+
+        i = {
+          id: null,
+          active: true,
+          group_winners_number: 3,
+          group_name: iterator.toString() as string,
+          tournament_phase_id: null,
+          team_ids: []
+
+        };
+    }
+    console.log(event);
+    // this.phase = this.prepareSave();
+    // console.log(this.phase);
+    // this.add(this.phase);
+    //
+    // console.log(this.teams);
+    // console.log(this.teams[11].id);
+    // this.teams.splice(11, 1);
+    // console.log(this.teams);
+    // console.log(this.teams[11].id);
 
 
 
@@ -65,7 +89,8 @@ export class PhaseCreationComponent implements OnInit {
       tournament_id: 11,
       phase_number : formModel.phase_number as number,
       phase_type: formModel.phase_type as string,
-      active: true
+      active: true,
+      groups_attributes: []
 
     };
     return saveElem;
