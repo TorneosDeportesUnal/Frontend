@@ -35,31 +35,41 @@ export class PhaseCreationComponent implements OnInit {
 
   constructor(public fb: FormBuilder, private apiService: ApiObservableService ) {}
 
+  getRandomInt(min, max): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
-  onSubmit(event) {
+  sortTeamsInGroups() {
 
     this.groups = new Array(this.form.value.group_number);
     //console.log(this.groups.length);
     const iterator = 0;
     for (let i of this.groups) {
+
+      let ids: number[] = new Array();
       for (let num = 0; num < this.groupArr_num[iterator]; num++) {
 
         console.log(this.groupArr_num[iterator]);
-
+        const rand = this.getRandomInt(0, this.teams.length);
+        const temp: Team[] = this.teams.splice(rand, 1);
+        console.log(temp[0].id);
+        ids.push( temp[0].id ) ;
 
       }
+      i = {
+        id: null,
+        active: true,
+        group_winners_number: 1,
+        group_name: iterator.toString() as string,
+        tournament_phase_id: null,
+        team_ids: ids
 
-
-        i = {
-          id: null,
-          active: true,
-          group_winners_number: 3,
-          group_name: iterator.toString() as string,
-          tournament_phase_id: null,
-          team_ids: []
-
-        };
+      };
     }
+  }
+  onSubmit(event) {
+
+
     console.log(event);
     // this.phase = this.prepareSave();
     // console.log(this.phase);
