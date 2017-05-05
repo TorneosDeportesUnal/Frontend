@@ -18,6 +18,7 @@ import { TournamentCreationComponent } from './tournament-creation/tournament-cr
 //forms
 import { ReactiveFormsModule } from '@angular/forms';
 import { TeamCreationComponent } from './team-creation/team-creation.component';
+import { PhaseCreationComponent } from './phase-creation/phase-creation.component';
 
 
 @NgModule({
@@ -32,6 +33,6 @@ import { TeamCreationComponent } from './team-creation/team-creation.component';
   providers: [
     ApiObservableService
   ],
-  declarations: [PlayerListComponent, DataFilterPipe, TournamentCreationComponent, TeamCreationComponent]
+  declarations: [PlayerListComponent, DataFilterPipe, TournamentCreationComponent, TeamCreationComponent, PhaseCreationComponent]
 })
 export class MyApplicationModule { }
