@@ -51,7 +51,7 @@
 </div>
 
 <div class="row" *ngIf="form.value.phase_type==='Groups' && form.value.group_number ">
-  <div class="col-sm-4" *ngFor=" let i of groupArr_num( form.value.group_number ).fill(0); let i = index " >
+  <div class="col-sm-4" *ngFor=" let j of groupArr_num( form.value.group_number ).fill(0); let i = index " >
     <div class="card card-inverse card-success ">
       <div class="card-header" style=" display: flex;justify-content: center;">
         GRUPO {{i+1}}
@@ -63,8 +63,14 @@
           <div class="col-sm-6">
             <input [(ngModel)]="groupArr_num[i]" class="form-control input-sm" id="input-small" name="input-small" placeholder="#" type="number">
           </div>
-        </div>
-          yeeees {{groupArr_num[i]}}
+        </div >
+
+        <!--<div *ngIf="groups[i].team_ids" >-->
+          <!--<div  *ngFor="let id of groups[i].team_ids">-->
+            <!--faaack{{id}}-->
+          <!--</div>-->
+        <!--</div>-->
+
       </div>
     </div>
   </div>
