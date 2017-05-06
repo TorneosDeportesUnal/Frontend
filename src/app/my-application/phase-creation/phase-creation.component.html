@@ -1,0 +1,77 @@
+
+<div class="card">
+  <div class="card-header">
+    <i class="fa fa-check"></i>Card with icon
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit($event); reset()">
+  <div class="card-block">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="name">Tipo de Fase</label>
+          <select  formControlName="phase_type" id="select" name="select" class="form-control" size="1">
+
+            <option value="Groups">Grupos</option>
+            <option value="Eliminations">Eliminatorias</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="name">Número de Fase</label>
+          <input formControlName="phase_number"  type="number" class="form-control" id="number" placeholder="Ingrese el Número de la Fase">
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="form.value.phase_type==='Groups'">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="name">Número de Grupos</label>
+          <input formControlName="group_number" type="number" class="form-control" id="group_number" placeholder="Ingrese el Número de grupos en la fase">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+  </div>
+
+  </form>
+    <button (click)="sortTeamsInGroups()" class="btn btn-sm btn-success"><i class="fa fa-sort"></i> Sortear</button>
+
+
+</div>
+
+<div class="row" *ngIf="form.value.phase_type==='Groups' && form.value.group_number ">
+  <div class="col-sm-4" *ngFor=" let j of groupArr_num( form.value.group_number ).fill(0); let i = index " >
+    <div class="card card-inverse card-success ">
+      <div class="card-header" style=" display: flex;justify-content: center;">
+        GRUPO {{i+1}}
+      </div>
+      <div class="card-block">
+
+        <div class="form-group row">
+          <label class="col-sm-6 form-control-label" for="input-small">Número de Equipos</label>
+          <div class="col-sm-6">
+            <input [(ngModel)]="groupArr_num[i]" class="form-control input-sm" id="input-small" name="input-small" placeholder="#" type="number">
+          </div>
+        </div >
+
+        <!--<div *ngIf="groups[i].team_ids" >-->
+          <!--<div  *ngFor="let id of groups[i].team_ids">-->
+            <!--faaack{{id}}-->
+          <!--</div>-->
+        <!--</div>-->
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,8 @@ import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Rx';
 import { Headers, RequestOptions } from '@angular/http';
 import {Team} from './classes/team';
+import {observableToBeFn} from 'rxjs/testing/TestScheduler';
+import {TournamentPhase} from './classes/tournament_phase';
 
 
 @Injectable()
@@ -64,5 +66,33 @@ export class ApiObservableService {
       .map(this.extractData)
       .catch(this.handleError);
 
+  }
+
+  // getTeams(): Observable<Team> {
+  //
+  //   const temporal_URL = 'https://torneos-api-arka160.c9users.io/teams';
+  //
+  //   return this.http.get(temporal_URL)
+  //     .map(this.extractData)
+  //     .catch(this.handleError);
+  // }
+
+  getTeams() {
+    const temporal_URL = 'https://torneos-api-arka160.c9users.io/teams';
+    return this.http.get(temporal_URL).map((response: Response) => response.json() as Team[]);
+  }
+
+
+  createTournamentPhase(phase: TournamentPhase): Observable<TournamentPhase> {
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    const url = 'https://torneos-api-arka160.c9users.io/tournament_phases';
+
+    console.log(JSON.stringify(phase));
+    return this.http.post(url, JSON.stringify( phase ) , options)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 }

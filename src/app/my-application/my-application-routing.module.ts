@@ -6,6 +6,8 @@ import { TeamCreationComponent } from './team-creation/team-creation.component';
 
 import { PlayerListComponent } from './player-list/player-list.component';
 
+import { PhaseCreationComponent } from './phase-creation/phase-creation.component';
+
 const routes: Routes = [
 
   {
@@ -33,6 +35,13 @@ const routes: Routes = [
         component: TeamCreationComponent,
         data: {
           title: 'Nuevo Equipo'
+        }
+      },
+      {
+        path: 'phase',
+        component: PhaseCreationComponent,
+        data: {
+          title: 'Nuevo fase'
         }
       }
     ]
