@@ -10,6 +10,8 @@ import { PhaseCreationComponent } from './phase-creation/phase-creation.componen
 
 import { TournamentListComponent } from './tournament-list/tournament-list.component';
 
+import { TournamentViewComponent } from './tournament-view/tournament-view.component';
+
 const routes: Routes = [
 
   {
@@ -18,6 +20,13 @@ const routes: Routes = [
       title: 'Torneos'
     },
     children: [
+       {
+        path: 'teams-by-tournament',
+        component: TournamentViewComponent,
+        data: {
+          title: 'Lista Equipos del Torneo'
+        }
+      },
       {
         path: 'list-tournament',
         component: TournamentListComponent,

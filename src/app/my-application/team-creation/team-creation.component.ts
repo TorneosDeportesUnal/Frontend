@@ -48,7 +48,7 @@ export class TeamCreationComponent implements OnInit {
 
     const saveElem: Team = {
       id: null,
-      tournament_id: 11,
+      tournament_id: 1,
       name: formModel.name as string,
       delegate: formModel.delegate as string,
       captain: formModel.captain as string,

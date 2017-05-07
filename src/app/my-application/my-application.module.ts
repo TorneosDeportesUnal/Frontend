@@ -22,6 +22,7 @@ import { PhaseCreationComponent } from './phase-creation/phase-creation.componen
 
 import { TournamentListComponent } from './tournament-list/tournament-list.component';
 
+import { TournamentViewComponent } from './tournament-view/tournament-view.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,6 @@ import { TournamentListComponent } from './tournament-list/tournament-list.compo
   providers: [
     ApiObservableService
   ],
-  declarations: [PlayerListComponent, DataFilterPipe, TournamentCreationComponent, TeamCreationComponent, TournamentListComponent, PhaseCreationComponent]
+  declarations: [PlayerListComponent, DataFilterPipe, TournamentCreationComponent, TeamCreationComponent, TournamentListComponent, PhaseCreationComponent, TournamentViewComponent]
 })
 export class MyApplicationModule { }

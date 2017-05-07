@@ -14,16 +14,16 @@
         <thead>
         <tr>
           <th style="width: 20%">
-            <mfDefaultSorter by="name">Name</mfDefaultSorter>
+            <mfDefaultSorter by="name">Nombre</mfDefaultSorter>
           </th>
           <th style="width: 50%">
-            <mfDefaultSorter by="email">Genero</mfDefaultSorter>
+            <mfDefaultSorter by="email">Capitan</mfDefaultSorter>
           </th>
           <th style="width: 10%">
             <mfDefaultSorter by="age">Id</mfDefaultSorter>
           </th>
           <th style="width: 20%">
-            <mfDefaultSorter by="city">Disciplina</mfDefaultSorter>
+            <mfDefaultSorter by="city">City</mfDefaultSorter>
           </th>
         </tr>
         </thead>
@@ -32,7 +32,7 @@
           <td>{{item.name}}</td>
           <td>{{item.captain}}</td>
           <td class="text-right">{{item.id}}</td>
-          <td>{{item.coach_name | uppercase}}</td>
+          <td>{{item.career | uppercase}}</td>
         </tr>
         </tbody>
         <tfoot>

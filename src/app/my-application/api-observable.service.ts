@@ -7,6 +7,9 @@ import {Team} from './classes/team';
 import {observableToBeFn} from 'rxjs/testing/TestScheduler';
 import {TournamentPhase} from './classes/tournament_phase';
 
+//para enviar parametros en la url
+import { URLSearchParams } from '@angular/http';
+
 
 @Injectable()
 export class ApiObservableService {
@@ -99,6 +102,16 @@ export class ApiObservableService {
   getTournaments(){
     const url = 'http://localhost:3000/tournaments';
     return this.http.get(url).map((response: Response) => response.json());
+  }
+
+  //servicio
+  getTeamsByTournamentId(id: string){
+
+    let params = new URLSearchParams();
+    params.set('id', id );
+
+    const url = 'http://localhost:3000/teams_by_tournament';
+    return this.http.get(url, { search: params }).map((response: Response) => response.json());
   }
 
 }
