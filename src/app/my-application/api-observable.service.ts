@@ -48,7 +48,7 @@ export class ApiObservableService {
     const url = 'http://localhost:3000/tournaments';
 	    let id = 12334;
 
-    return this.http.post(url, { gender, discipline, begin_date, end_date}, options)
+    return this.http.post(url, { name, gender, discipline, begin_date, end_date}, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
@@ -59,7 +59,7 @@ export class ApiObservableService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    const url = 'https://torneos-api-arka160.c9users.io/teams';
+    const url = 'http://localhost:3000/teams';
 
     console.log(JSON.stringify(team));
     return this.http.post(url, JSON.stringify( team ) , options)
@@ -70,7 +70,7 @@ export class ApiObservableService {
 
   // getTeams(): Observable<Team> {
   //
-  //   const temporal_URL = 'https://torneos-api-arka160.c9users.io/teams';
+  //   const temporal_URL = 'localhost:3000/teams';
   //
   //   return this.http.get(temporal_URL)
   //     .map(this.extractData)
@@ -78,7 +78,7 @@ export class ApiObservableService {
   // }
 
   getTeams() {
-    const temporal_URL = 'https://torneos-api-arka160.c9users.io/teams';
+    const temporal_URL = 'localhost:3000/teams';
     return this.http.get(temporal_URL).map((response: Response) => response.json() as Team[]);
   }
 
@@ -95,4 +95,10 @@ export class ApiObservableService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  getTournaments(){
+    const url = 'http://localhost:3000/tournaments';
+    return this.http.get(url).map((response: Response) => response.json());
+  }
+
 }

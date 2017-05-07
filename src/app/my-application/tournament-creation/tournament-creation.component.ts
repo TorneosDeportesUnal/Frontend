@@ -3,6 +3,9 @@ import { Tournament } from '../classes/tournament';
 import { FormBuilder, Validators } from '@angular/forms';
 import {ApiObservableService} from '../api-observable.service';
 
+//test redirigir
+import { Router } from '@angular/router'; 
+
 @Component({
   selector: 'app-tournament-creation',
   templateUrl: './tournament-creation.component.html',
@@ -26,7 +29,7 @@ export class TournamentCreationComponent implements OnInit {
     end_date: ['', Validators.required]
 
   });
-  constructor(public fb: FormBuilder, private apiService: ApiObservableService ) {}
+  constructor(public fb: FormBuilder, private apiService: ApiObservableService,  private router: Router ) {}
 
 
   save(event) {
@@ -50,10 +53,12 @@ export class TournamentCreationComponent implements OnInit {
 	gender:string,
 	discipline:string) {
   		//if (!name) { return; }
-  		this.apiService.createTournament(name,  begin_date, end_date, gender, discipline)
+  		this.apiService.createTournament( name, begin_date, end_date, gender, discipline )
                    .subscribe(
-                    // hero  => this.heroes.push(hero),
-                     error =>  this.errorMessage = <any>error);
+                      tournament  => console.log("onNext"),
+                      error => console.log("ERROR: ", error),
+                      () => { this.router.navigate(["/players/list-tournament"])}
+                      );
 }
 
 }

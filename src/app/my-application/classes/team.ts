@@ -2,7 +2,7 @@ export class Team {
   id: number;
   tournament_id: number;
   name: string;
-  delegate:string;
+  coach_name: string;
   captain:string;
   uniform_color:string;
 	goals_against:number;

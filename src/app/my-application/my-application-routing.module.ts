@@ -8,6 +8,8 @@ import { PlayerListComponent } from './player-list/player-list.component';
 
 import { PhaseCreationComponent } from './phase-creation/phase-creation.component';
 
+import { TournamentListComponent } from './tournament-list/tournament-list.component';
+
 const routes: Routes = [
 
   {
@@ -16,6 +18,13 @@ const routes: Routes = [
       title: 'Torneos'
     },
     children: [
+      {
+        path: 'list-tournament',
+        component: TournamentListComponent,
+        data: {
+          title: 'Lista Torneos'
+        }
+      },
       {
         path: 'list',
         component: PlayerListComponent,
