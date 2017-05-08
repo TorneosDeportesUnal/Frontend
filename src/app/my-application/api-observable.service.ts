@@ -36,12 +36,12 @@ export class ApiObservableService {
     return Observable.throw(errMsg);
   }
 
-  getPlayers(){
+  getPlayers() {
     const url = 'http://localhost:3000/players';
     return this.http.get(url).map((response: Response) => response.json());
   }
 
-  createTournament(name: string, begin_date:Date,
+  createTournament(name: string, begin_date: Date,
 	end_date:Date,
 	gender:string,
 	discipline:string): Observable<any> {
@@ -64,8 +64,10 @@ export class ApiObservableService {
 
     const url = 'http://localhost:3000/teams';
 
+    console.log(team, 'Team');
+
     console.log(JSON.stringify(team));
-    return this.http.post(url, JSON.stringify( team ) , options)
+    return this.http.post(url, team, options)
       .map(this.extractData)
       .catch(this.handleError);
 

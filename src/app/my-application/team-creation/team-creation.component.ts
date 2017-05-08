@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
 import {ApiObservableService} from '../api-observable.service';
 import {Team} from '../classes/team';
+import {TournamentService} from '../services/tournament.service';
 
 
 @Component({
@@ -12,6 +13,9 @@ import {Team} from '../classes/team';
 export class TeamCreationComponent implements OnInit {
 
   public errorMessage: string;
+  public tournaments: any;
+  public popUp: boolean = false;
+  public textPopUp: string;
 
   team: Team;
 
@@ -20,59 +24,66 @@ export class TeamCreationComponent implements OnInit {
     name: ['', Validators.required],
     delegate: ['', Validators.required],
     captain: ['', Validators.required],
+    tournament: ['', Validators.required ],
     uniform_color: ['', Validators.required]
 
 
   });
 
 
-  constructor(public fb: FormBuilder, private apiService: ApiObservableService ) {}
+  constructor(public fb: FormBuilder, private apiService: ApiObservableService, private tournamentService: TournamentService) {
+  }
 
-
-  onSubmit(event) {
-
-    console.log(event);
-    this.team = this.prepareSave();
-    console.log(this.team);
-    this.add(this.team);
-
-
+  ngOnInit() {
+    this.tournamentService.getTournaments()
+      .subscribe( tournaments => {
+        this.tournaments = tournaments;
+      });
   }
 
   reset() {
     this.form.reset();
   }
 
-  prepareSave(): Team {
+  createTeam(event) {
     const formModel = this.form.value;
 
     const saveElem: Team = {
       id: null,
-      tournament_id: 1,
+      tournament_id: formModel.tournament as number,
       name: formModel.name as string,
-      delegate: formModel.delegate as string,
+      coach_name: null,
       captain: formModel.captain as string,
       uniform_color: formModel.uniform_color as string,
-      draws: null,
+      goals_against: null,
+      goals_in_favor: null,
+      goals_difference: null,
+      games_played: null,
       wins: null,
       loses: null,
-      games_played: null,
-      goals_against: null,
-      goals_difference: null,
-      goals_in_favor: null
+      draws: null
     };
-    return saveElem;
+
+    this.changePopUp();
+    this.add(saveElem);
   }
 
+  changePopUp() {
+    this.popUp = !this.popUp;
+  }
 
   add(team: Team) {
 
     this.apiService.createTeam(team)
-      .subscribe(error =>  this.errorMessage = <any>error);
+      .subscribe( (data: any) => {
+          this.textPopUp = data;
+        },
+        error => {
+          this.textPopUp = error + 'AQUIIII';
+        },
+            () => console.log('Lo intente')
+        );
   }
 
-
-  ngOnInit() {
-  }
 
 }

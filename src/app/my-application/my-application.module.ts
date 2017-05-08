@@ -10,10 +10,11 @@ import { FormsModule } from '@angular/forms';
 //components
 import { MyApplicationRoutingModule } from './my-application-routing.module';
 import { PlayerListComponent } from './player-list/player-list.component';
+import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
 
 //services
-import {ApiObservableService} from './api-observable.service';
-import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
+import { ApiObservableService } from './api-observable.service';
+import { TournamentService } from './services/tournament.service';
 
 //forms
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +24,7 @@ import { PhaseCreationComponent } from './phase-creation/phase-creation.componen
 import { TournamentListComponent } from './tournament-list/tournament-list.component';
 
 import { TournamentViewComponent } from './tournament-view/tournament-view.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @NgModule({
   imports: [
@@ -34,8 +36,9 @@ import { TournamentViewComponent } from './tournament-view/tournament-view.compo
     ReactiveFormsModule
   ],
   providers: [
-    ApiObservableService
+    ApiObservableService,
+    TournamentService
   ],
-  declarations: [PlayerListComponent, DataFilterPipe, TournamentCreationComponent, TeamCreationComponent, TournamentListComponent, PhaseCreationComponent, TournamentViewComponent]
+  declarations: [PlayerListComponent, DataFilterPipe, TournamentCreationComponent, TeamCreationComponent, TournamentListComponent, PhaseCreationComponent, TournamentViewComponent, PopUpComponent]
 })
 export class MyApplicationModule { }

@@ -5,8 +5,21 @@
     <small>Form</small>
   </div>
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit($event); reset()">
+  <form [formGroup]="form" (ngSubmit)="createTeam($event); reset()">
+
     <div class="card-block">
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="name">Torneo</label>
+            <select formControlName="tournament" id="tournament" name="tournament" class="form-control" size="1">
+              <option *ngFor="let tournament of tournaments" [value]="tournament.id">{{tournament.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
@@ -53,4 +66,6 @@
   </form>
 
 </div>
+
+<app-pop-up [text]="textPopUp" (close)="changePopUp()" *ngIf="popUp"></app-pop-up>
 
