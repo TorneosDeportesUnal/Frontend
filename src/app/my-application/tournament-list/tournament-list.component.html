@@ -33,6 +33,7 @@
           <td>{{item.captain}}</td>
           <td class="text-right">{{item.id}}</td>
           <td>{{item.coach_name | uppercase}}</td>
+          <td><a [routerLink]="['/players/teams-by-tournament', item.id]">View Detail</a></td>
         </tr>
         </tbody>
         <tfoot>

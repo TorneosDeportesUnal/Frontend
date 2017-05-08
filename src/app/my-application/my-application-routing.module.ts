@@ -21,7 +21,7 @@ const routes: Routes = [
     },
     children: [
        {
-        path: 'teams-by-tournament',
+        path: 'teams-by-tournament/:id',
         component: TournamentViewComponent,
         data: {
           title: 'Lista Equipos del Torneo'
