@@ -2,11 +2,7 @@
   <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">&#9776;</button>
   <a class="navbar-brand" href="#"></a>
 
-  <ul class="nav navbar-nav hidden-md-down b-r-1">
-    <li class="nav-item">
-      <a class="nav-link navbar-toggler sidebar-toggler" href="#">&#9776;</a>
-    </li>
-  </ul>
+  
   <form class="form-inline b-r-1 px-2 hidden-md-down">
 
 
@@ -16,7 +12,7 @@
 
     <li class="nav-item dropdown" dropdown>
       <a class="nav-link nav-pill avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>
-        <img src="assets/img/avatars/admin.png" class="img-avatar" alt="admin@bootstrapmaster.com">
+        <img src="assets/img/avatars/img_avatar2.png" class="img-avatar" alt="admin@bootstrapmaster.com">
 
       </a>
       <div class="dropdown-menu dropdown-menu-right" dropdownMenu aria-labelledby="simple-dropdown">
@@ -47,6 +43,12 @@
           <ul class="nav-dropdown-items">
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/tournaments']"><i class="icon-note"></i> Torneos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list-tournament']"><i class="icon-note"></i> Lista de Torneos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/teams-by-tournament/:id']"><i class="icon-note"></i> Vista de Torneos</a>
             </li>
              <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/crud/groups-crud']"><i class="icon-note"></i> Grupos</a>
