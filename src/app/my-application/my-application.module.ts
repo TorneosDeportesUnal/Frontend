@@ -25,6 +25,10 @@ import { TournamentListComponent } from './tournament-list/tournament-list.compo
 
 import { TournamentViewComponent } from './tournament-view/tournament-view.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
+import { TeamViewComponent } from './team-view/team-view.component';
+import { PlayerCreationComponent } from './player-creation/player-creation.component';
+import {PlayerService} from './services/player.service';
+import {TeamService} from './services/team.service';
 
 @NgModule({
   imports: [
@@ -37,8 +41,15 @@ import { PopUpComponent } from './pop-up/pop-up.component';
   ],
   providers: [
     ApiObservableService,
-    TournamentService
+    TournamentService,
+    PlayerService,
+    TeamService
   ],
-  declarations: [PlayerListComponent, DataFilterPipe, TournamentCreationComponent, TeamCreationComponent, TournamentListComponent, PhaseCreationComponent, TournamentViewComponent, PopUpComponent]
+  declarations: [PlayerListComponent,
+    DataFilterPipe,
+    TournamentCreationComponent,
+    TeamCreationComponent,
+    TournamentListComponent,
+    PhaseCreationComponent, TournamentViewComponent, PopUpComponent, TeamViewComponent, PlayerCreationComponent]
 })
 export class MyApplicationModule { }

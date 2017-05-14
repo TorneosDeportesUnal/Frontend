@@ -12,6 +12,9 @@ import { TournamentListComponent } from './tournament-list/tournament-list.compo
 
 import { TournamentViewComponent } from './tournament-view/tournament-view.component';
 
+import { TeamViewComponent } from './team-view/team-view.component';
+import {PlayerCreationComponent} from "./player-creation/player-creation.component";
+
 const routes: Routes = [
 
   {
@@ -20,6 +23,20 @@ const routes: Routes = [
       title: 'Torneos'
     },
     children: [
+      {
+        path: 'player-creation',
+        component: PlayerCreationComponent,
+        data: {
+          title: 'Crear Jugador'
+        }
+      },
+      {
+        path: 'team-view',
+        component: TeamViewComponent,
+        data: {
+          title: 'Lista Jugadores por Equipo'
+        }
+      },
        {
         path: 'teams-by-tournament/:id',
         component: TournamentViewComponent,
