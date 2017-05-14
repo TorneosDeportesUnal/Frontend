@@ -7,6 +7,9 @@ import {Team} from './classes/team';
 import {observableToBeFn} from 'rxjs/testing/TestScheduler';
 import {TournamentPhase} from './classes/tournament_phase';
 
+//para enviar parametros en la url
+import { URLSearchParams } from '@angular/http';
+
 
 @Injectable()
 export class ApiObservableService {
@@ -33,12 +36,12 @@ export class ApiObservableService {
     return Observable.throw(errMsg);
   }
 
-  getPlayers(){
+  getPlayers() {
     const url = 'http://localhost:3000/players';
     return this.http.get(url).map((response: Response) => response.json());
   }
 
-  createTournament(name: string, begin_date:Date,
+  createTournament(name: string, begin_date: Date,
 	end_date:Date,
 	gender:string,
 	discipline:string): Observable<any> {
@@ -59,10 +62,12 @@ export class ApiObservableService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    const url = 'https://torneos-api-arka160.c9users.io/teams';
+    const url = 'http://localhost:3000/teams';
+
+    console.log(team, 'Team');
 
     console.log(JSON.stringify(team));
-    return this.http.post(url, JSON.stringify( team ) , options)
+    return this.http.post(url, team, options)
       .map(this.extractData)
       .catch(this.handleError);
 
@@ -70,7 +75,7 @@ export class ApiObservableService {
 
   // getTeams(): Observable<Team> {
   //
-  //   const temporal_URL = 'https://torneos-api-arka160.c9users.io/teams';
+  //   const temporal_URL = 'localhost:3000/teams';
   //
   //   return this.http.get(temporal_URL)
   //     .map(this.extractData)
@@ -78,7 +83,7 @@ export class ApiObservableService {
   // }
 
   getTeams() {
-    const temporal_URL = 'https://torneos-api-arka160.c9users.io/teams';
+    const temporal_URL = 'localhost:3000/teams';
     return this.http.get(temporal_URL).map((response: Response) => response.json() as Team[]);
   }
 
@@ -99,4 +104,20 @@ export class ApiObservableService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  getTournaments(){
+    const url = 'http://localhost:3000/tournaments';
+    return this.http.get(url).map((response: Response) => response.json());
+  }
+
+  //servicio
+  getTeamsByTournamentId(id: string){
+
+    let params = new URLSearchParams();
+    params.set('id', id );
+
+    const url = 'http://localhost:3000/teams_by_tournament';
+    return this.http.get(url, { search: params }).map((response: Response) => response.json());
+  }
+
 }

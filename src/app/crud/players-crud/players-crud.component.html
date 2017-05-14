@@ -1,0 +1,65 @@
+<div class="card-header">
+          <strong>Formulario para Jugadores</strong>
+          
+</div>
+<div class="card-block">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="name">Nombre(s)</label>
+          <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter your name" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="name">Apellido(s)</label>
+          <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter your lastname" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label>Número de Identificación</label>
+            <div class="input-group">
+             
+              <input formControlName="identificacion" type="num" class="form-control" id="identificacion" placeholder="Enter your id" />
+            </div>
+            <small class="text-muted">Ej. 1033663673</small>
+        </div>
+      </div>
+    </div>              
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="name">Género</label>
+          <select formControlName="gender" id="select" name="select" class="form-control" size="1">
+            <option value="0">Please select</option>
+            <option value="1">Masculino</option>
+            <option value="2">Femenino</option>
+          </select>
+        </div>
+      </div>
+    </div>
+   
+ 	<div class="form-group">
+              <label for="nf-email">Correo Electronico</label>
+              <input type="email" id="nf-email" name="nf-email" class="form-control" placeholder="Enter Email..">
+              <span class="help-block">Please enter your email</span>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="name">Edad</label>
+          <input formControlName="name" type="number" class="form-control" name="edad" min="15" max="80" placeholder="Enter age"/>
+        </div>
+      </div>
+    </div>
+  <div class="card-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Guardar</button>
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Limpiar</button>
+  </div>

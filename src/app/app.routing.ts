@@ -10,16 +10,20 @@ import { TablesComponent } from './components/tables.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'main',
     pathMatch: 'full',
   },
-  {
+  { 
     path: '',
     component: FullLayoutComponent,
     data: {
       title: 'Home'
     },
     children: [
+      {
+        path: 'crud',
+        loadChildren: './crud/crud.module#CrudModule'
+      },
       {
         path: 'dashboard',
         loadChildren: './dashboard/dashboard.module#DashboardModule'
@@ -31,6 +35,10 @@ export const routes: Routes = [
       {
         path: 'icons',
         loadChildren: './icons/icons.module#IconsModule'
+      },
+      {
+        path: 'main',
+        loadChildren: './main/main.module#MainModule'
       },
       {
         path: 'forms',

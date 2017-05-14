@@ -8,6 +8,13 @@ import { PlayerListComponent } from './player-list/player-list.component';
 
 import { PhaseCreationComponent } from './phase-creation/phase-creation.component';
 
+import { TournamentListComponent } from './tournament-list/tournament-list.component';
+
+import { TournamentViewComponent } from './tournament-view/tournament-view.component';
+
+import { TeamViewComponent } from './team-view/team-view.component';
+import {PlayerCreationComponent} from "./player-creation/player-creation.component";
+
 const routes: Routes = [
 
   {
@@ -17,6 +24,34 @@ const routes: Routes = [
     },
     children: [
       {
+        path: 'player-creation',
+        component: PlayerCreationComponent,
+        data: {
+          title: 'Crear Jugador'
+        }
+      },
+      {
+        path: 'team-view',
+        component: TeamViewComponent,
+        data: {
+          title: 'Lista Jugadores por Equipo'
+        }
+      },
+       {
+        path: 'teams-by-tournament/:id',
+        component: TournamentViewComponent,
+        data: {
+          title: 'Lista Equipos del Torneo'
+        }
+      },
+      {
+        path: 'list-tournament',
+        component: TournamentListComponent,
+        data: {
+          title: 'Lista Torneos'
+        }
+      },
+      {
         path: 'list',
         component: PlayerListComponent,
         data: {
@@ -24,7 +59,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'tournament',
+        path: 'tournaments',
         component: TournamentCreationComponent,
         data: {
           title: 'Nuevo Torneo'
