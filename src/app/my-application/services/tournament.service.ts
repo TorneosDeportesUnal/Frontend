@@ -19,7 +19,7 @@ export class TournamentService {
     const params = new URLSearchParams();
     params.set('id', id );
 
-    const url = 'http://localhost:3000/tournaments';
+    const url = 'http://localhost:3000/tournaments_by_id';
     return this.http.get(url, { search: params }).map((response: Response) => response.json());
   }
 }

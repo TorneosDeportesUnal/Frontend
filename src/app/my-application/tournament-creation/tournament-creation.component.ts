@@ -4,7 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import {ApiObservableService} from '../api-observable.service';
 
 //test redirigir
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tournament-creation',
@@ -48,16 +48,15 @@ export class TournamentCreationComponent implements OnInit {
 	}
 
 
-	addTournament(name: string, begin_date:Date,
-	end_date:Date,
-	gender:string,
-	discipline:string) {
-  		//if (!name) { return; }
+	addTournament(name: string, begin_date: Date,
+	end_date: Date,
+	gender: string,
+	discipline: string) {
   		this.apiService.createTournament( name, begin_date, end_date, gender, discipline )
                    .subscribe(
-                      tournament  => console.log("onNext"),
-                      error => console.log("ERROR: ", error),
-                      () => { this.router.navigate(["/players/list-tournament"])}
+                      tournament  => console.log('onNext'),
+                      error => console.log('ERROR: ', error),
+                      () => { this.router.navigate(['/players/list-tournament'])}
                       );
 }
 

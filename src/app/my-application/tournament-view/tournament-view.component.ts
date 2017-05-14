@@ -6,6 +6,7 @@ import {ApiObservableService} from '../api-observable.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {TournamentService} from '../services/tournament.service';
+import {Tournament} from '../classes/tournament';
 
 @Component({
   selector: 'app-player-list',
@@ -18,7 +19,7 @@ export class TournamentViewComponent implements OnInit {
   public filterQuery = '';
   public tournament: any;
 
-  //read parameters
+  // read parameters
   id: string;
   private sub: any;
 
@@ -34,6 +35,7 @@ export class TournamentViewComponent implements OnInit {
 
     this.getTeams();
     this.getDetailsTournament();
+    console.log(this.tournament);
     console.log(this.data);
   }
 
@@ -49,7 +51,7 @@ export class TournamentViewComponent implements OnInit {
     this.route.params
     // (+) converts string 'id' to a number
       .switchMap((params: Params) => this.tournamentService.getTournamentById(params['id'])).subscribe(
-      tournamentDetails =>  {this.tournament = tournamentDetails; },
+      tournamentDetails =>  {this.tournament = tournamentDetails; console.log('debug tourdetails', tournamentDetails); },
       error => console.log(error)
     );
   }
