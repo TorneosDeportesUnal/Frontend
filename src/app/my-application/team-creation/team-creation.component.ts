@@ -15,6 +15,8 @@ export class TeamCreationComponent implements OnInit {
 
   public errorMessage: string;
   public tournaments: any;
+  public popUp: boolean = false;
+  public textPopUp: string;
 
   team: Team;
 
@@ -64,19 +66,28 @@ export class TeamCreationComponent implements OnInit {
       loses: null,
       draws: null
     };
+
+    this.changePopUp();
     this.add(saveElem);
   }
+
+  changePopUp() {
+    this.popUp = !this.popUp;
+  }
+
   add(team: Team) {
 
     this.apiService.createTeam(team)
       .subscribe(
-        () => {
-          this.router.navigate(['/players/teams-by-tournament', team.tournament_id]);
-        },
+        () => { this.router.navigate(['/players/teams-by-tournament', team.tournament_id])
+        }
+        ,
         error => {
-          console.log('ERROR | ', error);
+          this.textPopUp = error + 'AQUIIII';
         },
-          () => console.log('Lo intente')
+            () => console.log('Lo intente')
         );
   }
+
+
 }

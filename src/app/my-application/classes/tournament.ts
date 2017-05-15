@@ -1,5 +1,5 @@
-export class Tournament{
-	id_tournament: number;
+export class Tournament {
+	id: number;
 	name: string;
 	begin_date: Date;
 	end_date: Date;

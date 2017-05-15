@@ -6,7 +6,19 @@ import { Response } from '@angular/http';
 @Injectable()
 export class TournamentService {
 
-  constructor( private http: Http) { }
+  private _currentTournament: any;
+
+  constructor( private http: Http ) {
+    console.log('initttttttttt');
+  }
+
+  get currentTournament() {
+    return this._currentTournament;
+  }
+
+  setCurrentTournament(tournament) {
+    this._currentTournament = tournament;
+  }
 
   getTournaments() {
     const url = 'http://localhost:3000/tournaments';
@@ -14,7 +26,7 @@ export class TournamentService {
       .map(response => response.json());
   }
 
-  getTournamentById(id: string){
+  getTournamentById(id: string) {
 
     const params = new URLSearchParams();
     params.set('id', id );

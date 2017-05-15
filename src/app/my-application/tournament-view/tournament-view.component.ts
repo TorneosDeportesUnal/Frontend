@@ -7,6 +7,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {TournamentService} from '../services/tournament.service';
 import {Tournament} from '../classes/tournament';
+import {isNullOrUndefined, isUndefined} from "util";
 
 @Component({
   selector: 'app-player-list',
@@ -29,14 +30,9 @@ export class TournamentViewComponent implements OnInit {
               private tournamentService: TournamentService,
               private router: Router) {}
 
-  ngOnInit(): void {
-
-    console.log('hola julian');
-
+  ngOnInit() {
     this.getTeams();
     this.getDetailsTournament();
-    console.log(this.tournament);
-    console.log(this.data);
   }
 
   public toInt(num: string) {
@@ -47,13 +43,19 @@ export class TournamentViewComponent implements OnInit {
     return a.name.length;
   }
 
-  getDetailsTournament(){
+  getDetailsTournament() {
     this.route.params
-    // (+) converts string 'id' to a number
-      .switchMap((params: Params) => this.tournamentService.getTournamentById(params['id'])).subscribe(
-      tournamentDetails =>  {this.tournament = tournamentDetails; console.log('debug tourdetails', tournamentDetails); },
-      error => console.log(error)
-    );
+      // (+) converts string 'id' to a number
+        .flatMap( (params: Params) => this.tournamentService.getTournamentById(params['id']))
+        .subscribe( tournamentDetails => {
+          if (!isNullOrUndefined(tournamentDetails)) {
+            this.tournament = tournamentDetails;
+            this.tournamentService.setCurrentTournament(this.tournament);
+            console.log('debug tourdetails', tournamentDetails);
+          }
+          },
+          error => console.log(error)
+        );
   }
 
   getTeams() {
@@ -63,11 +65,6 @@ export class TournamentViewComponent implements OnInit {
       teamsList =>  {this.data = teamsList; },
       error => console.log(error)
     );
-  }
-
-  goToCreateTeam(event){
-    console.log('HOLA JULI goToCreateTeam', event);
-    this.router.navigate(["/players/team"]);
   }
 }
 

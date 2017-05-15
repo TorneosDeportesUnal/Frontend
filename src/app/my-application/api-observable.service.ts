@@ -101,7 +101,7 @@ export class ApiObservableService {
       .catch(this.handleError);
   }
 
-  getTournaments(){
+  getTournaments() {
     const url = 'http://localhost:3000/tournaments';
     return this.http.get(url).map((response: Response) => response.json());
   }
