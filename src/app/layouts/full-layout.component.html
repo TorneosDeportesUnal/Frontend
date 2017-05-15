@@ -2,7 +2,11 @@
   <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">&#9776;</button>
   <a class="navbar-brand" href="#"></a>
 
-  
+  <ul class="nav navbar-nav hidden-md-down b-r-1">
+  <li class="nav-item">
+  <a class="nav-link navbar-toggler sidebar-toggler" href="#">&#9776;</a>
+  </li>
+  </ul>
   <form class="form-inline b-r-1 px-2 hidden-md-down">
 
 
@@ -44,12 +48,14 @@
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/tournaments']"><i class="icon-note"></i> Torneos</a>
             </li>
+            <!--
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list-tournament']"><i class="icon-note"></i> Lista de Torneos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/teams-by-tournament/:id']"><i class="icon-note"></i> Vista de Torneos</a>
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/teams-by-tournament/:id']"><i class="icon-note"></i> Lista de equipos</a>
             </li>
+            -->
              <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/crud/groups-crud']"><i class="icon-note"></i> Grupos</a>
             </li>
@@ -57,7 +63,7 @@
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/team']"><i class="icon-note"></i> Equipos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list']"><i class="icon-note"></i> Jugadores</a>
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/player-creation']"><i class="icon-note"></i> Jugadores</a>
             </li>
           </ul>
         </li>
@@ -231,16 +237,40 @@
 -->
         <li class="divider m-h"></li>
         <li class="nav-title text-center">
-          <span>Jugador</span>
+          <span>Torneos</span>
+        </li>
+        <li class="nav-item nav-dropdown">
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-male fa-lg"></i> Torneos </a>
+          <ul class="nav-dropdown-items">
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list-tournament']"><i class="fa fa-list-ol fa-lg"></i> Lista de Torneos</a>
+            </li>
+          </ul>
         </li>
 
+        <li class="divider m-h"></li>
+        <li class="nav-title text-center">
+          <span>Equipos</span>
+        </li>
+        <li class="nav-item nav-dropdown">
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-male fa-lg"></i> Equipos </a>
+          <ul class="nav-dropdown-items">
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/teams-by-tournament/:id']"><i class="fa fa-list-ol fa-lg"></i> Lista de Equipos</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="divider m-h"></li>
+        <li class="nav-title text-center">
+          <span>Jugadores</span>
+        </li>
         <li class="nav-item nav-dropdown">
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-male fa-lg"></i> Jugadores </a>
           <ul class="nav-dropdown-items">
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list']"><i class="fa fa-list-ol fa-lg"></i> Lista de Todos los Jugadores</a>
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list']"><i class="fa fa-list-ol fa-lg"></i> Lista de Jugadores</a>
             </li>
-
           </ul>
         </li>
 

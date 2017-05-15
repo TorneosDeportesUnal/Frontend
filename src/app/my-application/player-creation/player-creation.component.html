@@ -9,18 +9,31 @@
 
     <div class="card-block">
 
-      <!--
+
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <label for="name">Torneo</label>
-            <select formControlName="tournament" id="tournament" name="tournament" class="form-control" size="1">
-              <option *ngFor="let tournament of tournaments" [value]="tournament.id">{{tournament.name}}</option>
+            <label for="last_name">Equipo</label>
+            <select formControlName="team" id="team" name="team" class="form-control" size="1">
+              <option *ngFor="let team of teams " [value]="team.id">{{team.name}}</option>
             </select>
           </div>
         </div>
       </div>
-      -->
+
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="document">Tipo de Documento</label>
+            <select formControlName="document_type" id="document_type" name="document_type" class="form-control" size="1">
+              <option value="0">Please select</option>
+              <option value="1">T.I.</option>
+              <option value="2">C.C.</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-sm-12">
@@ -45,6 +58,103 @@
           <div class="form-group">
             <label for="last_name">Apellido</label>
             <input formControlName="last_name" type="text" class="form-control" id="last_name" placeholder="Enter a last_name " />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="last_name">Correo</label>
+            <input formControlName="email" type="text" class="form-control" id="email" placeholder="Enter a email " />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="first_name">Semestre</label>
+            <input formControlName="semester" type="number" class="form-control" name="semester" min="1" max="20" placeholder="Enter a number"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="last_name">Carrera</label>
+            <select formControlName="career" id="career" name="career" class="form-control" size="1">
+              <option value="0">Please select</option>
+              <option value="1">Ingeniería Agrícola</option>
+              <option value="2">Ingeniería Agronómica</option>
+              <option value="3">Ingeniería Civil</option>
+              <option value="4">Ingeniería de Sistemas y Computación</option>
+              <option value="5">Ingeniería Eléctrica</option>
+              <option value="6">Ingeniería Electrónica</option>
+              <option value="7">Ingeniería Industrial</option>
+              <option value="8">Ingeniería Mecánica</option>
+              <option value="9">Ingeniería Mecatrónica</option>
+              <option value="10">Ingeniería Química</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="first_name">Genero</label>
+            <select formControlName="gender" id="gender" name="gender" class="form-control" size="1">
+              <option value="0">Please select</option>
+              <option value="1">Femenino</option>
+              <option value="2">Masculino</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="first_name">Edad</label>
+            <input formControlName="age" type="number" class="form-control" name="age" min="15" max="70" placeholder="Enter age"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="last_name">Número de contacto</label>
+            <input formControlName="contact_phone" type="number" class="form-control" id="contact_phone" min="1" placeholder="Enter a contact phone " />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="last_name">EPS</label>
+            <input formControlName="eps" type="text" class="form-control" id="eps" placeholder="Enter a EPS " />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="last_name">Nombre de contacto de emergencia</label>
+            <input formControlName="contact_emergency_name" type="text" class="form-control" id="contact_emergency_name" placeholder="Enter a name " />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="last_name">Número de contacto de emergencia</label>
+            <input formControlName="contact_emergency_phone" type="number" class="form-control" id="contact_emergency_phone" min="1" placeholder="Enter a contact phone " />
           </div>
         </div>
       </div>
