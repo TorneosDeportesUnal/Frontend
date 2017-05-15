@@ -31,7 +31,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'team-view',
+        path: 'team-view/:id',
         component: TeamViewComponent,
         data: {
           title: 'Lista Jugadores por Equipo'

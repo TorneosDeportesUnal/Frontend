@@ -1,3 +1,63 @@
-<p>
-  player-creation works!
-</p>
+<div class="card">
+
+  <div class="card-header">
+    <strong>Crear Jugador</strong>
+    <small>Form</small>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="createPlayer($event); reset()">
+
+    <div class="card-block">
+
+      <!--
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="name">Torneo</label>
+            <select formControlName="tournament" id="tournament" name="tournament" class="form-control" size="1">
+              <option *ngFor="let tournament of tournaments" [value]="tournament.id">{{tournament.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      -->
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="document">Documento</label>
+            <input formControlName="document"  type="text" class="form-control" id="document" placeholder="Ingrese documento">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="first_name">Nombre</label>
+            <input formControlName="first_name"  type="text" class="form-control" id="first_name" placeholder="Ingrese nombre">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="last_name">Apellido</label>
+            <input formControlName="last_name" type="text" class="form-control" id="last_name" placeholder="Enter a last_name " />
+          </div>
+        </div>
+      </div>
+
+
+
+    </div> <!--end card-block-->
+
+    <div class="card-footer">
+      <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    </div>
+  </form>
+
+</div>
+

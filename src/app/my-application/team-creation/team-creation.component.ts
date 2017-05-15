@@ -3,6 +3,7 @@ import {FormBuilder, Validators} from '@angular/forms';
 import {ApiObservableService} from '../api-observable.service';
 import {Team} from '../classes/team';
 import {TournamentService} from '../services/tournament.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,8 +15,6 @@ export class TeamCreationComponent implements OnInit {
 
   public errorMessage: string;
   public tournaments: any;
-  public popUp: boolean = false;
-  public textPopUp: string;
 
   team: Team;
 
@@ -31,7 +30,10 @@ export class TeamCreationComponent implements OnInit {
   });
 
 
-  constructor(public fb: FormBuilder, private apiService: ApiObservableService, private tournamentService: TournamentService) {
+  constructor(public fb: FormBuilder,
+              private apiService: ApiObservableService,
+              private tournamentService: TournamentService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -47,7 +49,6 @@ export class TeamCreationComponent implements OnInit {
 
   createTeam(event) {
     const formModel = this.form.value;
-
     const saveElem: Team = {
       id: null,
       tournament_id: formModel.tournament as number,
@@ -63,27 +64,19 @@ export class TeamCreationComponent implements OnInit {
       loses: null,
       draws: null
     };
-
-    this.changePopUp();
     this.add(saveElem);
   }
-
-  changePopUp() {
-    this.popUp = !this.popUp;
-  }
-
   add(team: Team) {
 
     this.apiService.createTeam(team)
-      .subscribe( (data: any) => {
-          this.textPopUp = data;
+      .subscribe(
+        () => {
+          this.router.navigate(['/players/teams-by-tournament', team.tournament_id]);
         },
         error => {
-          this.textPopUp = error + 'AQUIIII';
+          console.log('ERROR | ', error);
         },
-            () => console.log('Lo intente')
+          () => console.log('Lo intente')
         );
   }
-
-
 }

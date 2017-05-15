@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TeamService} from '../services/team.service';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-team-view',
@@ -12,7 +12,8 @@ export class TeamViewComponent implements OnInit {
   public players: any;
 
   constructor( private teamService: TeamService,
-               private route: ActivatedRoute) { }
+               private route: ActivatedRoute,
+               private router: Router) { }
 
   ngOnInit() {
     this.getPlayers();
@@ -25,6 +26,11 @@ export class TeamViewComponent implements OnInit {
       playersList =>  {this.players = playersList; },
       error => console.log(error)
     );
+  }
+
+  goToCreatePlayer(event) {
+    console.log('DEBUG | goToCreatePlayer()', event);
+    this.router.navigate(['/players/player-creation']);
   }
 
 }

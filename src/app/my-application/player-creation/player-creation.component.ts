@@ -11,8 +11,19 @@ import {PlayerService} from '../services/player.service';
 export class PlayerCreationComponent implements OnInit {
 
   public form = this.fb.group({
-    name: ['', Validators.required],
-    document: ['', Validators.required]
+    document: ['', Validators.required],
+    document_type: ['', Validators.required],
+    first_name: ['', Validators.required],
+    last_name: ['', Validators.required],
+    email: ['', Validators.required],
+    gender: ['', Validators.required],
+    semester: ['', Validators.required],
+    career: ['', Validators.required],
+    age: ['', Validators.required],
+    contact_phone: ['', Validators.required],
+    contact_emergency_phone: ['', Validators.required],
+    contact_emergency_name: ['', Validators.required],
+    eps: ['', Validators.required]
   });
 
   constructor(public fb: FormBuilder,
@@ -20,7 +31,7 @@ export class PlayerCreationComponent implements OnInit {
   }
 
   ngOnInit() {
-    //cargar equipo
+    // cargar equipo
   }
 
   createPlayer(event) {
@@ -31,15 +42,15 @@ export class PlayerCreationComponent implements OnInit {
 
       id_player: null,
       document: formModel.document as number,
-      document_type: formModel.document as string,
-      first_name: formModel.document as string,
-      last_name: formModel.document as string,
+      document_type: 'cc',
+      first_name: formModel.first_name as string,
+      last_name: formModel.last_name as string,
       email: formModel.document as string,
-      gender: formModel.document as string,
+      gender: 'masculino',
       semester: formModel.document as number,
       career: formModel.document as string,
-      age: formModel.document as number,
-      contact_phone: formModel.document as number,
+      age: 25,
+      contact_phone: 12345678,
       contact_emergency_phone: formModel.document as number,
       contact_emergency_name: formModel.document as string,
       eps: formModel.document as string
