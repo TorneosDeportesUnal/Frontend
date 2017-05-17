@@ -13,26 +13,34 @@
       <table class="table table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="10">
         <thead>
         <tr>
+          <th style="width: 10%">
+            <mfDefaultSorter by="id">Id</mfDefaultSorter>
+          </th>
           <th style="width: 20%">
-            <mfDefaultSorter by="name">Name</mfDefaultSorter>
+            <mfDefaultSorter by="name">Nombre</mfDefaultSorter>
           </th>
           <th style="width: 50%">
-            <mfDefaultSorter by="email">Genero</mfDefaultSorter>
-          </th>
-          <th style="width: 10%">
-            <mfDefaultSorter by="age">Id</mfDefaultSorter>
+            <mfDefaultSorter by="gender">Genero</mfDefaultSorter>
           </th>
           <th style="width: 20%">
-            <mfDefaultSorter by="city">Disciplina</mfDefaultSorter>
+            <mfDefaultSorter by="discipline">Disciplina</mfDefaultSorter>
+          </th>
+          <th style="width: 20%">
+            <mfDefaultSorter by="begin_date">Fecha de Inicio</mfDefaultSorter>
+          </th>
+          <th style="width: 20%">
+            <mfDefaultSorter by="end_date">Fecha Final</mfDefaultSorter>
           </th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let item of mf.data">
-          <td>{{item.name}}</td>
-          <td>{{item.captain}}</td>
           <td class="text-right">{{item.id}}</td>
-          <td>{{item.coach_name | uppercase}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.gender}}</td>
+          <td>{{item.discipline}}</td>
+          <td>{{item.begin_date}}</td>
+          <td>{{item.end_date}}</td>
           <td><a [routerLink]="['/players/teams-by-tournament', item.id]">View Detail</a></td>
         </tr>
         </tbody>

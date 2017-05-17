@@ -28,9 +28,6 @@ export class TeamViewComponent implements OnInit {
     );
   }
 
-  goToCreatePlayer(event) {
-    console.log('DEBUG | goToCreatePlayer()', event);
-    this.router.navigate(['/players/player-creation']);
-  }
+
 
 }

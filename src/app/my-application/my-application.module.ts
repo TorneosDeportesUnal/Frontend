@@ -29,6 +29,7 @@ import { TeamViewComponent } from './team-view/team-view.component';
 import { PlayerCreationComponent } from './player-creation/player-creation.component';
 import {PlayerService} from './services/player.service';
 import {TeamService} from './services/team.service';
+import { TeamListComponent } from './team-list/team-list.component';
 
 @NgModule({
   imports: [
@@ -50,6 +51,6 @@ import {TeamService} from './services/team.service';
     TournamentCreationComponent,
     TeamCreationComponent,
     TournamentListComponent,
-    PhaseCreationComponent, TournamentViewComponent, PopUpComponent, TeamViewComponent, PlayerCreationComponent]
+    PhaseCreationComponent, TournamentViewComponent, PopUpComponent, TeamViewComponent, PlayerCreationComponent, TeamListComponent]
 })
 export class MyApplicationModule { }

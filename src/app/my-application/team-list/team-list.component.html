@@ -1,0 +1,87 @@
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header">DataTable</div>
+    <div class="card-block">
+      <div class="row mb-1">
+        <div class="col-md-4 offset-md-8">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            <input type="text" class="form-control" [(ngModel)]="filterQuery" placeholder="Search by name"/>
+          </div>
+        </div>
+      </div>
+      <table class="table table-striped" [mfData]="teams | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="10">
+        <thead>
+        <tr>
+
+          <th >
+            <mfDefaultSorter by="id">Id</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="tournament_id">Id Torneo</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="name">Nombre</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="coach_name">Tecnico</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="delegate">Delegado</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="captain">Capitan</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="uniform_color">Color Uniforme</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="goals_in_favor">GF</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="goals_against">GC</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="goals_difference">GD</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="wins">PG</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="loses">PP</mfDefaultSorter>
+          </th>
+          <th >
+            <mfDefaultSorter by="draws">PE</mfDefaultSorter>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of mf.data">
+          <td>{{item.id}}</td>
+          <td>{{item.tournament_id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.coach_name}}</td>
+          <td>{{item.delegate}}</td>
+          <td>{{item.uniform_color}}</td>
+          <td>{{item.goals_in_favor}}</td>
+          <td>{{item.goals_against}}</td>
+          <td>{{item.goals_difference}}</td>
+          <td>{{item.wins}}</td>
+          <td>{{item.loses}}</td>
+          <td>{{item.draws}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="8">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="card-footer">
+      <button type="button" (click)="goToCreateTeam()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>Agregar Equipo</button>
+    </div>
+  </div>
+</div>

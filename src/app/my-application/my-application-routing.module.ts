@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TournamentCreationComponent } from './tournament-creation/tournament-creation.component';
-
 import { TeamCreationComponent } from './team-creation/team-creation.component';
+import {PlayerCreationComponent} from './player-creation/player-creation.component';
 
 import { PlayerListComponent } from './player-list/player-list.component';
+import { TournamentListComponent } from './tournament-list/tournament-list.component';
+import { TeamListComponent } from './team-list/team-list.component';
 
 import { PhaseCreationComponent } from './phase-creation/phase-creation.component';
-
-import { TournamentListComponent } from './tournament-list/tournament-list.component';
-
 import { TournamentViewComponent } from './tournament-view/tournament-view.component';
-
 import { TeamViewComponent } from './team-view/team-view.component';
-import {PlayerCreationComponent} from "./player-creation/player-creation.component";
 
 const routes: Routes = [
 
@@ -27,7 +24,7 @@ const routes: Routes = [
         path: 'player-creation',
         component: PlayerCreationComponent,
         data: {
-          title: 'Crear Jugador'
+          title: 'Nuevo Jugador'
         }
       },
       {
@@ -52,21 +49,28 @@ const routes: Routes = [
         }
       },
       {
-        path: 'list',
-        component: PlayerListComponent,
+        path: 'list-team',
+        component: TeamListComponent,
         data: {
-          title: 'Font Awesome'
+          title: 'Lista Equipos'
         }
       },
       {
-        path: 'tournaments',
+        path: 'list-player',
+        component: PlayerListComponent,
+        data: {
+          title: 'Lista Jugadores'
+        }
+      },
+      {
+        path: 'tournament-creation',
         component: TournamentCreationComponent,
         data: {
           title: 'Nuevo Torneo'
         }
       },
       {
-        path: 'team',
+        path: 'team-creation',
         component: TeamCreationComponent,
         data: {
           title: 'Nuevo Equipo'

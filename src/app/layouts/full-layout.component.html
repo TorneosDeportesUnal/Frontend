@@ -46,7 +46,7 @@
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-note"></i>Edición</a>
           <ul class="nav-dropdown-items">
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/tournaments']"><i class="icon-note"></i> Torneos</a>
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/tournament-creation']"><i class="icon-note"></i> Torneos</a>
             </li>
             <!--
             <li class="nav-item">
@@ -55,12 +55,13 @@
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/teams-by-tournament/:id']"><i class="icon-note"></i> Lista de equipos</a>
             </li>
-            -->
+
              <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/crud/groups-crud']"><i class="icon-note"></i> Grupos</a>
             </li>
+            -->
              <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/team']"><i class="icon-note"></i> Equipos</a>
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/team-creation']"><i class="icon-note"></i> Equipos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/player-creation']"><i class="icon-note"></i> Jugadores</a>
@@ -256,7 +257,7 @@
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-male fa-lg"></i> Equipos </a>
           <ul class="nav-dropdown-items">
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/teams-by-tournament/:id']"><i class="fa fa-list-ol fa-lg"></i> Lista de Equipos</a>
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list-team']"><i class="fa fa-list-ol fa-lg"></i> Lista de Equipos</a>
             </li>
           </ul>
         </li>
@@ -269,7 +270,7 @@
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-male fa-lg"></i> Jugadores </a>
           <ul class="nav-dropdown-items">
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list']"><i class="fa fa-list-ol fa-lg"></i> Lista de Jugadores</a>
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list-player']"><i class="fa fa-list-ol fa-lg"></i> Lista de Jugadores</a>
             </li>
           </ul>
         </li>
