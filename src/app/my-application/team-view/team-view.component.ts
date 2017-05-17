@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TeamService} from '../services/team.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {isNullOrUndefined} from 'util';
 
 @Component({
   selector: 'app-team-view',
@@ -10,13 +11,15 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 export class TeamViewComponent implements OnInit {
 
   public players: any;
+  public team: any;
 
-  constructor( private teamService: TeamService,
+  constructor ( private teamService: TeamService,
                private route: ActivatedRoute,
-               private router: Router) { }
+               private router: Router ) { }
 
   ngOnInit() {
     this.getPlayers();
+    this.getDetailsTeam();
   }
 
   getPlayers() {
@@ -28,6 +31,17 @@ export class TeamViewComponent implements OnInit {
     );
   }
 
-
-
+  getDetailsTeam() {
+    this.route.params
+    // (+) converts string 'id' to a number
+      .flatMap( (params: Params) => this.teamService.getTeamById(params['id']))
+      .subscribe( teamDetails => {
+          if (!isNullOrUndefined(teamDetails)) {
+            this.team = teamDetails;
+            console.log('debug | teamDetails', teamDetails);
+          }
+        },
+        error => console.log(error)
+      );
+  }
 }

@@ -13,7 +13,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="name">Torneo</label>
-            <select formControlName="tournament" id="tournament" name="tournament" class="form-control" size="1">
+            <select formControlName="tournament_id" id="tournament_id" class="form-control" size="1">
               <option *ngFor="let tournament of tournaments" [value]="tournament.id">{{tournament.name}}</option>
             </select>
           </div>

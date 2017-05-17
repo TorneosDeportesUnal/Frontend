@@ -7,7 +7,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {TournamentService} from '../services/tournament.service';
 import {Tournament} from '../classes/tournament';
-import {isNullOrUndefined, isUndefined} from "util";
+import {isNullOrUndefined, isUndefined} from 'util';
 
 @Component({
   selector: 'app-player-list',

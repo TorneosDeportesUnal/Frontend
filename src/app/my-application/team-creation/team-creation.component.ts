@@ -22,13 +22,19 @@ export class TeamCreationComponent implements OnInit {
 
   public form = this.fb.group({
 
+    id: ['', Validators.required],
+    tournament_id: ['', Validators.required],
     name: ['', Validators.required],
-    delegate: ['', Validators.required],
+    coach_name: ['', Validators.required],
     captain: ['', Validators.required],
-    tournament: ['', Validators.required ],
-    uniform_color: ['', Validators.required]
-
-
+    delegate: ['', Validators.required],
+    uniform_color: ['', Validators.required],
+    goals_against: ['', Validators.required],
+    goals_in_favor: ['', Validators.required],
+    goals_difference: ['', Validators.required],
+    wins: ['', Validators.required],
+    loses: ['', Validators.required],
+    draws: ['', Validators.required]
   });
 
 
@@ -53,15 +59,15 @@ export class TeamCreationComponent implements OnInit {
     const formModel = this.form.value;
     const saveElem: Team = {
       id: null,
-      tournament_id: formModel.tournament as number,
+      tournament_id: formModel.tournament_id as number,
       name: formModel.name as string,
       coach_name: null,
       captain: formModel.captain as string,
+      delegate: formModel.delegate as string,
       uniform_color: formModel.uniform_color as string,
       goals_against: null,
       goals_in_favor: null,
       goals_difference: null,
-      games_played: null,
       wins: null,
       loses: null,
       draws: null
@@ -79,7 +85,7 @@ export class TeamCreationComponent implements OnInit {
 
     this.apiService.createTeam(team)
       .subscribe(
-        () => { this.router.navigate(['/players/teams-by-tournament', team.tournament_id])
+        () => { this.router.navigate( ['/players/teams-by-tournament', team.tournament_id] );
         }
         ,
         error => {

@@ -21,7 +21,7 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'player-creation',
+        path: 'player-creation/:id',
         component: PlayerCreationComponent,
         data: {
           title: 'Nuevo Jugador'

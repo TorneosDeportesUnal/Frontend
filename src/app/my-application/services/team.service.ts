@@ -16,4 +16,13 @@ export class TeamService {
     return this.http.get(url, { search: params }).map((response: Response) => response.json());
   }
 
+  getTeamById(id: string) {
+
+    const params = new URLSearchParams();
+    params.set('id', id );
+
+    const url = 'http://localhost:3000/teams_by_id';
+    return this.http.get(url, { search: params }).map((response: Response) => response.json());
+  }
+
 }

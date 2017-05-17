@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Player} from '../classes/player';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PlayerService} from '../services/player.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-player-creation',
@@ -9,6 +10,8 @@ import {PlayerService} from '../services/player.service';
   styleUrls: ['./player-creation.component.scss']
 })
 export class PlayerCreationComponent implements OnInit {
+
+  public idTeam: string;
 
   public form = this.fb.group({
     document: ['', Validators.required],
@@ -23,15 +26,22 @@ export class PlayerCreationComponent implements OnInit {
     contact_phone: ['', Validators.required],
     contact_emergency_phone: ['', Validators.required],
     contact_emergency_name: ['', Validators.required],
-    eps: ['', Validators.required]
+    eps: ['', Validators.required],
+    team_ids: ['', Validators.required]
   });
 
   constructor(public fb: FormBuilder,
-  private playerService: PlayerService) {
+              private route: ActivatedRoute,
+              private playerService: PlayerService,
+              private router: Router) {
   }
 
   ngOnInit() {
     // cargar equipo
+    this.route.params
+    // (+) converts string 'id' to a number
+      .subscribe( params => { this.idTeam = params['id']; } );
+    console.log('Hola este es el id del equipo ' , this.idTeam);
   }
 
   createPlayer(event) {
@@ -53,7 +63,8 @@ export class PlayerCreationComponent implements OnInit {
       contact_phone: 12345678,
       contact_emergency_phone: formModel.document as number,
       contact_emergency_name: formModel.document as string,
-      eps: formModel.document as string
+      eps: formModel.document as string,
+      team_ids : [this.idTeam]
     };
 
     this.add(saveElem);
@@ -62,13 +73,16 @@ export class PlayerCreationComponent implements OnInit {
   add(player: Player) {
 
     this.playerService.createPlayer(player)
-      .subscribe((data: any) => {
-          data = data;
-        },
+      .subscribe(
+        () => {
+          this.router.navigate( ['/players/team-view', this.idTeam] );
+          console.log('hola entrando a succes de add()');
+          }
+      ,
         error => {
-         error = error + 'AQUIIII';
+         error = error + 'errror | add()';
         },
-        () => console.log('Lo intente')
+        () => console.log('Lo intente | add()')
       );
   }
 
