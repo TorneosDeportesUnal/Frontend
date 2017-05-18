@@ -40,15 +40,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of mf.data">
-          <td>{{item.first_name}}</td>
-          <td>{{item.last_name}}</td>
-          <td>{{item.team_ids}}</td>
-          <td>{{item.email}}</td>
-          <td class="text-right">{{item.age}}</td>
-          <td>{{item.gender}}</td>
-          <td>{{item.career | uppercase}}</td>
-          <td>{{item.semester}}</td>
+        <tr *ngFor="let player of players">
+          <td>{{player.first_name}}</td>
+          <td>{{player.last_name}}</td>
+          <td>{{player.team_ids}}</td>
+          <td>{{player.email}}</td>
+          <td class="text-right">{{player.age}}</td>
+          <td>{{player.gender}}</td>
+          <td>{{player.career | uppercase}}</td>
+          <td>{{player.semester}}</td>
+          <td><a (click)="openPlayer(player)" class="btn btn-green"> Editar</a></td>
         </tr>
         </tbody>
         <tfoot>
@@ -65,3 +66,5 @@
     </div>
   </div>
 </div>
+
+<app-player-detail *ngIf="showPlayer" [player]="selectedPlayer" (closeModal)="changeStatePopUp(false)"></app-player-detail>

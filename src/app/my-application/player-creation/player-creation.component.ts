@@ -11,7 +11,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 })
 export class PlayerCreationComponent implements OnInit {
 
-  public idTeam: string;
+  public idTeam: number;
 
   public form = this.fb.group({
     document: ['', Validators.required],
@@ -40,7 +40,7 @@ export class PlayerCreationComponent implements OnInit {
     // cargar equipo
     this.route.params
     // (+) converts string 'id' to a number
-      .subscribe( params => { this.idTeam = params['id']; } );
+      .subscribe( params => { this.idTeam = +params['id']; } );
     console.log('Hola este es el id del equipo ' , this.idTeam);
   }
 
@@ -48,23 +48,26 @@ export class PlayerCreationComponent implements OnInit {
 
     const formModel = this.form.value;
 
+    const ids: number[] = new Array();
+    ids.push( this.idTeam ) ;
+
     const saveElem: Player = {
 
       id_player: null,
-      document: formModel.document as number,
+      document: formModel.document as string,
       document_type: 'cc',
+      team_ids : ids,
       first_name: formModel.first_name as string,
       last_name: formModel.last_name as string,
       email: formModel.document as string,
       gender: 'masculino',
-      semester: formModel.document as number,
-      career: formModel.document as string,
+      semester: formModel.semester as number,
+      career: formModel.career as string,
       age: 25,
       contact_phone: 12345678,
-      contact_emergency_phone: formModel.document as number,
-      contact_emergency_name: formModel.document as string,
-      eps: formModel.document as string,
-      team_ids : [this.idTeam]
+      contact_emergency_phone: formModel.contact_emergency_phone as number,
+      contact_emergency_name: formModel.contact_emergency_name as string,
+      eps: formModel.eps as string
     };
 
     this.add(saveElem);

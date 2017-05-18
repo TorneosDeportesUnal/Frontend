@@ -34,7 +34,18 @@ export class PlayerService {
 
     console.log(player, 'Player');
     console.log(JSON.stringify(player));
-    return this.http.post(url, player, options)
+    return this.http.post(url, {player: player}, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  updatePlayer(player: Player): Observable<Player> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+
+    const url = 'http://localhost:3000/players/' + player.id_player;
+
+    return this.http.put(url, player, options)
       .map(this.extractData)
       .catch(this.handleError);
   }
