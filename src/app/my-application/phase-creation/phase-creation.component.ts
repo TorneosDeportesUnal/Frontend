@@ -23,6 +23,8 @@ export class PhaseCreationComponent implements OnInit {
 
   public errorMessage: string;
 
+  public sortedFlag: boolean = false;
+
   public form = this.fb.group({
 
     phase_number: ['', Validators.required],
@@ -40,6 +42,7 @@ export class PhaseCreationComponent implements OnInit {
   }
 
   sortTeamsInGroups() {
+
 
     this.groups = new Array(this.form.value.group_number);
     console.log(this.groups.length);
@@ -72,6 +75,11 @@ export class PhaseCreationComponent implements OnInit {
       console.log(this.groups[i]);
       iterator++;
     }
+
+    if (this.groups.length > 0) {
+      this.sortedFlag = true;
+    }
+
   }
   onSubmit(event) {
 

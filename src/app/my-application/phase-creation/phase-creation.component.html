@@ -65,11 +65,20 @@
           </div>
         </div >
 
-        <!--<div *ngIf="groups[i].team_ids" >-->
-          <!--<div  *ngFor="let id of groups[i].team_ids">-->
-            <!--faaack{{id}}-->
-          <!--</div>-->
-        <!--</div>-->
+        <div *ngIf="sortedFlag">
+          {{groups[i].team_ids}}
+
+          <div *ngFor="let id of groups[i].team_ids ">
+
+            <div *ngFor="let team of teams">
+              <div *ngIf="team.id == id">
+                <h2>{{team.id}}</h2>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
 
       </div>
     </div>
