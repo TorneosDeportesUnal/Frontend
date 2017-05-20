@@ -36,10 +36,7 @@ export class ApiObservableService {
     return Observable.throw(errMsg);
   }
 
-  getPlayers() {
-    const url = 'http://localhost:3000/players';
-    return this.http.get(url).map((response: Response) => response.json());
-  }
+
 
   createTournament(name: string, begin_date: Date,
 	end_date:Date,
@@ -48,7 +45,7 @@ export class ApiObservableService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    const url = 'https://torneos-api-arka160.c9users.io/tournaments';
+    const url = 'http://localhost:3000/tournaments';
 	    let id = 12334;
 
     return this.http.post(url, { name, gender, discipline, begin_date, end_date}, options)
@@ -110,6 +107,10 @@ export class ApiObservableService {
     return this.http.get(url).map((response: Response) => response.json());
   }
 
+  getPlayers() {
+    const url = 'http://localhost:3000/players';
+    return this.http.get(url).map((response: Response) => response.json());
+  }
   //servicio
   getTeamsByTournamentId(id: string){
 

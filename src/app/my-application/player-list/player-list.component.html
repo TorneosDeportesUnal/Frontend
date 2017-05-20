@@ -1,6 +1,6 @@
 <div class="animated fadeIn">
   <div class="card">
-    <div class="card-header">DataTable</div>
+    <div class="card-header">Registro de Jugadores</div>
     <div class="card-block">
       <div class="row mb-1">
         <div class="col-md-4 offset-md-8">
@@ -10,46 +10,19 @@
           </div>
         </div>
       </div>
-      <table class="table table-striped" [mfData]="players | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="10">
+      <table class="table table-striped" [mfData]="players | dataFilterFirstName : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="10">
         <thead>
         <tr>
-          <th >
-            <mfDefaultSorter by="name">Nombre</mfDefaultSorter>
-          </th>
-          <th >
-            <mfDefaultSorter by="last_name">Apellido</mfDefaultSorter>
-          </th>
-          <th >
-            <mfDefaultSorter by="team_ids:[]">Equipo</mfDefaultSorter>
-          </th>
-          <th >
-            <mfDefaultSorter by="email">Correo</mfDefaultSorter>
-          </th>
-          <th style="width: 5%" >
-            <mfDefaultSorter by="age">Edad</mfDefaultSorter>
-          </th>
-          <th >
-            <mfDefaultSorter by="gender">Genero</mfDefaultSorter>
-          </th>
-          <th >
-            <mfDefaultSorter by="career">Carrera</mfDefaultSorter>
-          </th>
-          <th style="width: 5%" >
-            <mfDefaultSorter by="semester">Semestre</mfDefaultSorter>
+          <th style="width: 10%">
+            Nombre
           </th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let player of players">
+        <tr *ngFor="let player of mf.data">
           <td>{{player.first_name}}</td>
-          <td>{{player.last_name}}</td>
-          <td>{{player.team_ids}}</td>
-          <td>{{player.email}}</td>
-          <td class="text-right">{{player.age}}</td>
-          <td>{{player.gender}}</td>
-          <td>{{player.career | uppercase}}</td>
-          <td>{{player.semester}}</td>
-          <td><a (click)="openPlayer(player)" class="btn btn-green"> Editar</a></td>
+          <td><button (click)="openPlayer(player)" class="btn btn-sm btn-secondary  "> Editar</button></td>
+          <td><button type="button" class="btn btn-sm btn-secondary">Eliminar</button></td>
         </tr>
         </tbody>
         <tfoot>

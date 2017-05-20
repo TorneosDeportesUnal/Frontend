@@ -31,6 +31,8 @@ import {PlayerService} from './services/player.service';
 import {TeamService} from './services/team.service';
 import { TeamListComponent } from './team-list/team-list.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
+import { WarningPopUpComponent } from './warning-pop-up/warning-pop-up.component';
+import {DataFilterPipeTest} from '../plugins/datatable/datafilterpipeFirstName';
 
 @NgModule({
   imports: [
@@ -52,6 +54,14 @@ import { PlayerDetailComponent } from './player-detail/player-detail.component';
     TournamentCreationComponent,
     TeamCreationComponent,
     TournamentListComponent,
-    PhaseCreationComponent, TournamentViewComponent, PopUpComponent, TeamViewComponent, PlayerCreationComponent, TeamListComponent, PlayerDetailComponent]
+    PhaseCreationComponent,
+    TournamentViewComponent,
+    PopUpComponent,
+    TeamViewComponent,
+    PlayerCreationComponent,
+    TeamListComponent,
+    PlayerDetailComponent,
+    WarningPopUpComponent,
+    DataFilterPipeTest]
 })
 export class MyApplicationModule { }

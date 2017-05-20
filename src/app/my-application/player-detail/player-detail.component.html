@@ -1,7 +1,62 @@
 <div class="detail-player">
   <button (click)="closePopUp()">X</button>
-  <div class="form-group">
-  <label>Nombre</label>
-  <p>{{player.first_name}}</p>
-  </div>
+
+  <form [formGroup]="form" (ngSubmit)="updatePlayer($event)">
+
+    <div class="card-block">
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="document">Tipo de Documento</label>
+            <select formControlName="document_type" id="document_type" name="document_type" class="form-control" size="1">
+              <option value="0">Please select</option>
+              <option value="1">T.I.</option>
+              <option value="2">C.C.</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="document">Documento</label>
+            <input formControlName="document"  type="number" class="form-control" id="document" min="1" placeholder="Ingrese documento" [value]="player.document>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="first_name">Nombre</label>
+            <input formControlName="first_name"  type="text" class="form-control" id="first_name" placeholder="Ingrese nombre" [value]="player.first_name">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="last_name">Apellido</label>
+            <input formControlName="last_name" type="text" class="form-control" id="last_name" placeholder="Enter a last_name " [value]="player.last_name" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="email">Correo</label>
+            <input formControlName="email" type="text" class="form-control" id="email" placeholder="Enter a email " />
+          </div>
+        </div>
+      </div>
+
+    </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>Actualizar</button>
+      </div>
+  </form>
 </div>

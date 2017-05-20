@@ -13,7 +13,7 @@ import {Player} from '../classes/player';
 export class PlayerListComponent implements OnInit {
 
 
-  public players;
+  public players: Player[];
   public selectedPlayer: Player;
   public filterQuery = '';
   public showPlayer: boolean = false;
@@ -22,8 +22,7 @@ export class PlayerListComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private http: Http,
-              private apiService: ApiObservableService )
-  {
+              private apiService: ApiObservableService ) {
    /* http.get('data.json')
       .subscribe((data) => {
         setTimeout(() => {
@@ -31,9 +30,11 @@ export class PlayerListComponent implements OnInit {
         }, 2000);
       });*/
   }
-  ngOnInit(): void {
-    this.getPlayers();
-    console.log(this.players);
+  ngOnInit() {
+    this.getPlayers().subscribe(_ => {;
+      console.log('ngOnit after getUsers() ' + this.players);
+    });
+
   }
 
   public toInt(num: string) {
@@ -46,10 +47,15 @@ export class PlayerListComponent implements OnInit {
 
 
   getPlayers() {
-    this.apiService.getPlayers().subscribe(
-      playerList => this.players = playerList,
-      error => console.log(error)
-    );
+    return this.apiService.getPlayers().map(
+      (playerList) => {
+        console.log('players' + playerList)
+        this.players = playerList;
+      console.log( 'this.players ' + this.players ); }
+    ).catch((error) => {
+      console.log('error ' + error);
+      throw error;
+    });;
   }
   goToCreatePlayer(event) {
     console.log('DEBUG | goToCreatePlayer()', event);

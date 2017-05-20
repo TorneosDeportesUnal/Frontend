@@ -1,4 +1,4 @@
-export class Player{
+export class Player {
 	id_player: number;
   document: string;
   document_type: string;
@@ -14,4 +14,8 @@ export class Player{
   contact_emergency_phone: number;
   contact_emergency_name: string;
   team_ids: number[];
+
+  constructor(init?: Player) {
+    Object.assign(this, init);
+  }
 }

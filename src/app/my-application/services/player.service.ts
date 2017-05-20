@@ -39,9 +39,11 @@ export class PlayerService {
       .catch(this.handleError);
   }
 
-  updatePlayer(player: Player): Observable<Player> {
+  updatePlayer(player: any): Observable<Player> {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
+
+    console.log(player, 'player');
 
     const url = 'http://localhost:3000/players/' + player.id_player;
 
