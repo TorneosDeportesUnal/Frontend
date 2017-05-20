@@ -43,12 +43,7 @@ export class PlayerDetailComponent implements OnInit {
 
     const saveElem: any = {
       id_player: this.player['id'],
-      document: formModel.document as string,
-      document_type: formModel.document_type as string,
       first_name: formModel.first_name as string,
-      last_name: formModel.last_name as string,
-      email: formModel.email as string,
-      team_ids : ids
     };
 
 
@@ -60,7 +55,8 @@ export class PlayerDetailComponent implements OnInit {
     this.playerService.updatePlayer(player)
       .subscribe(
         () => {
-          this.router.navigate( ['/players/list-player'] );
+          this.closePopUp();
+          window.location.reload();
           console.log('hola entrando a succes de add() del update');
         }
         ,

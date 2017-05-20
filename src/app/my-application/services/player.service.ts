@@ -51,4 +51,16 @@ export class PlayerService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  deletePlayer(id_player: number): Observable<Player> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+
+    const url = 'http://localhost:3000/players/' + id_player;
+
+    return this.http.delete(url)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
 }

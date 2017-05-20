@@ -22,7 +22,7 @@
         <tr *ngFor="let player of mf.data">
           <td>{{player.first_name}}</td>
           <td><button (click)="openPlayer(player)" class="btn btn-sm btn-secondary  "> Editar</button></td>
-          <td><button type="button" class="btn btn-sm btn-secondary">Eliminar</button></td>
+          <td><button (click)="deletePlayer(player.id)" type="button" class="btn btn-sm btn-secondary">Eliminar</button></td>
         </tr>
         </tbody>
         <tfoot>

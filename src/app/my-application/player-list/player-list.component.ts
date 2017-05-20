@@ -22,14 +22,8 @@ export class PlayerListComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private http: Http,
-              private apiService: ApiObservableService ) {
-   /* http.get('data.json')
-      .subscribe((data) => {
-        setTimeout(() => {
-          this.data = data.json();
-        }, 2000);
-      });*/
-  }
+              private apiService: ApiObservableService ) {}
+
   ngOnInit() {
     this.getPlayers().subscribe(_ => {;
       console.log('ngOnit after getUsers() ' + this.players);
@@ -45,6 +39,13 @@ export class PlayerListComponent implements OnInit {
     return a.name.length;
   }
 
+  deletePlayer(id_player: number) {
+  this.playerService.deletePlayer(id_player).subscribe(
+    () => { console.log('success deletePlayer'); },
+    () => { console.log('error deletePlayer'); }
+  );
+
+  }
 
   getPlayers() {
     return this.apiService.getPlayers().map(

@@ -11,8 +11,8 @@
             <label for="document">Tipo de Documento</label>
             <select formControlName="document_type" id="document_type" name="document_type" class="form-control" size="1">
               <option value="0">Please select</option>
-              <option value="1">T.I.</option>
-              <option value="2">C.C.</option>
+              <option value="ti">T.I.</option>
+              <option value="cc">C.C.</option>
             </select>
           </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="document">Documento</label>
-            <input formControlName="document"  type="number" class="form-control" id="document" min="1" placeholder="Ingrese documento" [value]="player.document>
+            <input formControlName="document"  type="number" class="form-control" id="document" min="1" placeholder="Ingrese documento" [value]="player.document">
           </div>
         </div>
       </div>
