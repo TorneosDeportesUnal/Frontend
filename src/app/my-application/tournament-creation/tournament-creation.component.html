@@ -22,11 +22,11 @@
         <div class="form-group">
           <label for="name">Disciplina</label>
           <select formControlName="discipline" id="select" name="select" class="form-control" size="1" required>
-            <option value="0">Please select</option>
-            <option value="1">Fútbol</option>
-            <option value="2">Fútbol Sala</option>
-            <option value="3">Baloncesto</option>
-            <option value="4">Voleibol</option>
+            <option value="">Please select</option>
+            <option value="futbol">Fútbol</option>
+            <option value="futbol sala">Fútbol Sala</option>
+            <option value="baloncesto">Baloncesto</option>
+            <option value="voleibol">Voleibol</option>
           </select>
         </div>
       </div>
@@ -37,9 +37,9 @@
         <div class="form-group">
           <label for="name">Género</label>
           <select formControlName="gender" id="select_gender" name="select" class="form-control" size="1" required>
-            <option value="0">Please select</option>
-            <option value="1">Masculino</option>
-            <option value="2">Femenino</option>
+            <option value="">Please select</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
           </select>
         </div>
       </div>
@@ -67,11 +67,12 @@
 
     </div>
   </div>
+
+  </form>
   <div class="card-footer">
     <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
     <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
   </div>
-  </form>
 </div>
   </div>
 </div>
