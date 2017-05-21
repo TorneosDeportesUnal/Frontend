@@ -7,7 +7,7 @@
   </div>
   <form [formGroup]="createTourForm" (ngSubmit)="save($event); reset()">
   <div class="card-block">
-    <div style="width:48%; float:left;">
+
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
@@ -16,6 +16,8 @@
         </div>
       </div>
     </div>
+
+    <div style="width:48%; float:left;">
     <!--row-->
     <div class="row">
       <div class="col-sm-12">
@@ -66,13 +68,18 @@
     </div>
 
     </div>
+
+
+
   </div>
 
+    <div class="card-footer">
+      <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    </div>
+
+
   </form>
-  <div class="card-footer">
-    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
-    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
-  </div>
 </div>
   </div>
 </div>
