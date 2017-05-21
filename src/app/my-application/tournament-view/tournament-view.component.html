@@ -49,7 +49,7 @@
           <td>{{item.captain}}</td>
           <td>{{item.uniform_color | uppercase}}</td>
           <td><a [routerLink]="['/players/team-view', item.id]">View Detail</a></td>
-          <td><button (click)="deleteTeam(item.id)" type="button" class="btn btn-sm btn-outline-primary"><i class="fa fa-2x"></i>Eliminar</button></td>
+          <td><button (click)="deleteTeam(item.id)" type="button" class="btn btn-danger"><i class="fa fa-ban"></i>Eliminar</button></td>
         </tr>
         </tbody>
         <tfoot>

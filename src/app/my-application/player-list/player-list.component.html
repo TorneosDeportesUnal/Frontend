@@ -13,16 +13,52 @@
       <table class="table table-striped" [mfData]="players | dataFilterFirstName : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="10">
         <thead>
         <tr>
+          <th style="width: 5%">
+            <mfDefaultSorter by="email">TI</mfDefaultSorter>
+          </th>
           <th style="width: 10%">
-            Nombre
+            <mfDefaultSorter by="email">Documento</mfDefaultSorter>
+          </th>
+          <th style="width: 20%">
+            <mfDefaultSorter by="name">Nombre</mfDefaultSorter>
+          </th>
+          <th style="width: 20%">
+            <mfDefaultSorter by="name">Apellido</mfDefaultSorter>
+          </th>
+          <th style="width: 10%">
+            <mfDefaultSorter by="age">Email</mfDefaultSorter>
+          </th>
+          <th style="width: 10%">
+            <mfDefaultSorter by="age">Teléfono</mfDefaultSorter>
+          </th>
+          <th style="width: 10%">
+            <mfDefaultSorter by="age">Carrera</mfDefaultSorter>
+          </th>
+          <th style="width: 5%">
+            <mfDefaultSorter by="age">Semestre</mfDefaultSorter>
+          </th>
+          <th style="width: 10%">
+            <mfDefaultSorter by="city">Genero</mfDefaultSorter>
+          </th>
+          <th style="width: 5%">
+            <mfDefaultSorter by="city">Age</mfDefaultSorter>
           </th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let player of mf.data">
+          <td>{{player.document_type}}</td>
+          <td>{{player.document}}</td>
           <td>{{player.first_name}}</td>
-          <td><button (click)="openPlayer(player)" class="btn btn-sm btn-secondary  "> Editar</button></td>
-          <td><button (click)="deletePlayer(player.id)" type="button" class="btn btn-sm btn-secondary">Eliminar</button></td>
+          <td>{{player.last_name}}</td>
+          <td>{{player.email}}</td>
+          <td>{{player.contact_phone}}</td>
+          <td>{{player.career}}</td>
+          <td>{{player.semester}}</td>
+          <td>{{player.gender}}</td>
+          <td>{{player.age}}</td>
+          <td><button (click)="openPlayer(player)" class="btn btn-sm btn-outline-primary  "> Editar</button></td>
+          <td><button (click)="deletePlayer(player.id)" type="button" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
         </tr>
         </tbody>
         <tfoot>
