@@ -61,7 +61,7 @@ export class TeamCreationComponent implements OnInit {
       id: null,
       tournament_id: formModel.tournament_id as number,
       name: formModel.name as string,
-      coach_name: null,
+      coach_name: formModel.coach_name as string,
       captain: formModel.captain as string,
       delegate: formModel.delegate as string,
       uniform_color: formModel.uniform_color as string,

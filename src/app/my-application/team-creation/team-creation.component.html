@@ -3,14 +3,14 @@
 <div class="card">
 
   <div class="card-header">
-    <strong>Crear Equipos</strong>
+    <strong>Crear Equipo</strong>
     <small>Form</small>
   </div>
 
   <form [formGroup]="form" (ngSubmit)="createTeam($event); reset()">
 
     <div class="card-block">
-      <div style="width:48%; float:left;">
+
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
@@ -22,6 +22,7 @@
         </div>
       </div>
 
+      <div style="width:48%; float:left;">
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
@@ -41,14 +42,6 @@
       </div>
       </div>
       <div style="width:48%; float:right;">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label for="name">Encargado</label>
-          <input formControlName="delegate" type="text" class="form-control" id="delegate" placeholder="Enter a name " required />
-        </div>
-      </div>
-    </div>
 
     <div class="row">
       <div class="col-sm-12">
@@ -68,69 +61,17 @@
       </div>
     </div>
       </div>
-<!--
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="name">Goles en contra</label>
-            <input formControlName="goals_against" type="text" class="form-control" id="goals_against" placeholder="Enter a number" />
-          </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="name">Goles a favor</label>
-            <input formControlName="goals_in_favor" type="text" class="form-control" id="goals_in_favor" placeholder="Enter a number" />
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="name">Gol diferencia</label>
-            <input formControlName="goals_difference" type="text" class="form-control" id="goals_difference" placeholder="Favor - Against" />
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="name">Partidos ganados</label>
-            <input formControlName="wins" type="text" class="form-control" id="wins" placeholder="Enter a number" />
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="name">Partidos perdidos</label>
-            <input formControlName="loses" type="text" class="form-control" id="loses" placeholder="Enter a number" />
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="name">Partidos empatados</label>
-            <input formControlName="draws" type="text" class="form-control" id="draws" placeholder="Enter a number" />
-          </div>
-        </div>
-      </div>
--->
   </div> <!--end card-block-->
 
 
+    <div class="card-footer">
+      <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    </div>
+
   </form>
-  <div class="card-footer">
-    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
-    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
-  </div>
+
 </div>
   </div>
 </div>

@@ -8,6 +8,7 @@ import 'rxjs/add/operator/switchMap';
 import {TournamentService} from '../services/tournament.service';
 import {Tournament} from '../classes/tournament';
 import {isNullOrUndefined, isUndefined} from 'util';
+import {TeamService} from '../services/team.service';
 
 @Component({
   selector: 'app-player-list',
@@ -28,6 +29,7 @@ export class TournamentViewComponent implements OnInit {
               private apiService: ApiObservableService,
               private route: ActivatedRoute,
               private tournamentService: TournamentService,
+              private teamService: TeamService,
               private router: Router) {}
 
   ngOnInit() {
@@ -66,5 +68,16 @@ export class TournamentViewComponent implements OnInit {
       error => console.log(error)
     );
   }
+
+  deleteTeam(idTeam) {
+
+    this.teamService.deleteTeam(idTeam).subscribe(
+      () => { console.log('success deleteTeam');
+        window.location.reload(); },
+      () => { console.log('error deleteTeam'); }
+    );
+  }
+
+
 }
 
