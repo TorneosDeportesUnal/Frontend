@@ -1,27 +1,52 @@
 <div class="animated fadeIn">
   <div class="card">
-    <div class="card-header"><strong>Nombre Equipo</strong></div>
+    <div class="card-header"><strong>{{team?.name}}</strong></div>
+    <!-- Details of Team -->
+    <div class="card-header">
+      <div class="row mb-1">
+        <div class="col-md-4">
+          <label for="ot_capitan">Capitán :</label>
+          <output id="ot_capitan"> <small>{{team?.captain}}</small></output>
+          <label for="ot_uniform">Uniforme :</label>
+          <output id="ot_uniform"><small>{{team?.uniform_color}}</small></output>
+        </div>
+      </div>
+    </div>
     <div class="card-block">
+
+
+
       <div class="row mb-1">
         <div class="col-md-4 offset-md-8">
           <div class="input-group">
-            <h5 >Lista de Jugadores</h5>
             <span class="input-group-addon"><i class="fa fa-search"></i></span>
             <input type="text" class="form-control" [(ngModel)]="filterQuery" placeholder="Search by name"/>
           </div>
         </div>
       </div>
-      <table class="table table-striped" [mfData]="players | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="10">
+      <table class="table table-striped" [mfData]="players | dataFilterField : filterQuery : 'first_name'" #mf="mfDataTable" [mfRowsOnPage]="10">
         <thead>
         <tr>
           <th style="width: 50%">
-            <mfDefaultSorter by="email">Document</mfDefaultSorter>
+            <mfDefaultSorter by="email">Documento</mfDefaultSorter>
           </th>
           <th style="width: 20%">
             <mfDefaultSorter by="name">Nombre</mfDefaultSorter>
           </th>
+          <th style="width: 20%">
+            <mfDefaultSorter by="name">Apellido</mfDefaultSorter>
+          </th>
           <th style="width: 10%">
             <mfDefaultSorter by="age">Email</mfDefaultSorter>
+          </th>
+          <th style="width: 10%">
+            <mfDefaultSorter by="age">Teléfono</mfDefaultSorter>
+          </th>
+          <th style="width: 10%">
+            <mfDefaultSorter by="age">Carrera</mfDefaultSorter>
+          </th>
+          <th style="width: 10%">
+            <mfDefaultSorter by="age">Semestre</mfDefaultSorter>
           </th>
           <th style="width: 20%">
             <mfDefaultSorter by="city">Genero</mfDefaultSorter>
@@ -32,10 +57,14 @@
         </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of players">
+          <tr *ngFor="let item of mf.data">
             <td>{{item.document}}</td>
-            <td>{{item.first_name}} {{item.last_name}}</td>
+            <td>{{item.first_name}}</td>
+            <td>{{item.last_name}}</td>
             <td>{{item.email}}</td>
+            <td>{{item.contact_phone}}</td>
+            <td>{{item.career}}</td>
+            <td>{{item.semester}}</td>
             <td>{{item.gender}}</td>
             <td>{{item.age}}</td>
           </tr>

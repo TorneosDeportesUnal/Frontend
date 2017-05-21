@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TeamService} from '../services/team.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
+import {Team} from "../classes/team";
 
 @Component({
   selector: 'app-team-view',
@@ -11,7 +12,7 @@ import {isNullOrUndefined} from 'util';
 export class TeamViewComponent implements OnInit {
 
   public players: any;
-  public team: any;
+  public team: Team;
 
   constructor ( private teamService: TeamService,
                private route: ActivatedRoute,

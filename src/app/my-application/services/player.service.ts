@@ -59,7 +59,6 @@ export class PlayerService {
     const url = 'http://localhost:3000/players/' + id_player;
 
     return this.http.delete(url)
-      .map(this.extractData)
       .catch(this.handleError);
   }
 

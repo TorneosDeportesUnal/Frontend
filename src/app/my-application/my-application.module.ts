@@ -33,6 +33,7 @@ import { TeamListComponent } from './team-list/team-list.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
 import { WarningPopUpComponent } from './warning-pop-up/warning-pop-up.component';
 import {DataFilterPipeTest} from '../plugins/datatable/datafilterpipeFirstName';
+import {DataFilterPipeField} from './pipes/datafilterpipefield';
 
 @NgModule({
   imports: [
@@ -62,6 +63,7 @@ import {DataFilterPipeTest} from '../plugins/datatable/datafilterpipeFirstName';
     TeamListComponent,
     PlayerDetailComponent,
     WarningPopUpComponent,
-    DataFilterPipeTest]
+    DataFilterPipeTest,
+    DataFilterPipeField]
 })
 export class MyApplicationModule { }

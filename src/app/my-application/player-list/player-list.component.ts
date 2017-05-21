@@ -41,10 +41,10 @@ export class PlayerListComponent implements OnInit {
 
   deletePlayer(id_player: number) {
   this.playerService.deletePlayer(id_player).subscribe(
-    () => { console.log('success deletePlayer'); },
+    () => { console.log('success deletePlayer');
+            window.location.reload(); },
     () => { console.log('error deletePlayer'); }
   );
-
   }
 
   getPlayers() {

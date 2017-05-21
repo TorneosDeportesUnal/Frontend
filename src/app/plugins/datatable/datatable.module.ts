@@ -12,6 +12,7 @@ import { DataTableComponent } from './datatable.component';
 //Routing
 import { DatatableRoutingModule } from './datatable-routing.module';
 import {DataFilterPipeTest} from './datafilterpipeFirstName';
+import {DataFilterPipeField} from '../../my-application/pipes/datafilterpipefield';
 //
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import {DataFilterPipeTest} from './datafilterpipeFirstName';
     DataTableComponent,
     DataFilterPipe,
     DataFilterPipeTest,
+    DataFilterPipeField
   ]
 })
 export class DatatableInitModule { }

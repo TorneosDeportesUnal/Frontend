@@ -10,26 +10,21 @@
   <form [formGroup]="form" (ngSubmit)="createPlayer($event); reset()">
 
     <div class="card-block">
-      <div style="width:48%; float:left;">
 
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="last_name">Equipo</label>
-            <p>{{idTeam}}</p>
-          </div>
-        </div>
+
+      <div>
+        <strong>{{idTeam}}</strong>
       </div>
 
-
+      <div style="width:48%; float:left;">
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
             <label for="document">Tipo de Documento</label>
             <select formControlName="document_type" id="document_type" name="document_type" class="form-control" size="1" required>
               <option value="0">Please select</option>
-              <option value="1">T.I.</option>
-              <option value="2">C.C.</option>
+              <option value="ti">T.I.</option>
+              <option value="cc">C.C.</option>
             </select>
           </div>
         </div>
@@ -65,18 +60,18 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <label for="last_name">Correo</label>
+            <label for="email">Correo</label>
             <input formControlName="email" type="email" class="form-control" id="email" required placeholder="Enter a valid email address" />
           </div>
         </div>
       </div>
       </div>
-      <div style="width:48%; float:right;">
+      <div style="width:48%; position:relative; float: right">
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <label for="first_name">Semestre</label>
-            <input formControlName="semester" type="number" class="form-control" name="semester" min="1" max="20" placeholder="Enter a number" required />
+            <label for="semester">Semestre</label>
+            <input formControlName="semester" type="number" class="form-control" id="semester" name="semester" min="1" max="20" placeholder="Enter a number" required />
           </div>
         </div>
       </div>
@@ -84,7 +79,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <label for="last_name">Carrera</label>
+            <label for="career">Carrera</label>
             <select formControlName="career" id="career" name="career" class="form-control" size="1" required>
               <option value="">Please select</option>
               <option value="Ing. Agrícola">Ing. Agrícola</option>
@@ -105,7 +100,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <label for="first_name">Genero</label>
+            <label for="gender">Genero</label>
             <select formControlName="gender" id="gender" name="gender" class="form-control" size="1" required>
               <option value="">Please select</option>
               <option value="femenino">Femenino</option>
@@ -118,8 +113,8 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <label for="first_name">Edad</label>
-            <input formControlName="age" type="number" class="form-control" name="age" min="15" max="70" placeholder="Enter age" required />
+            <label for="age">Edad</label>
+            <input formControlName="age" id="age" type="number" class="form-control" name="age" min="15" max="70" placeholder="Enter age" required />
           </div>
         </div>
       </div>
@@ -127,50 +122,23 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <label for="last_name">Número de contacto</label>
+            <label for="contact_phone">Número de contacto</label>
             <input formControlName="contact_phone" type="number" class="form-control" id="contact_phone" min="1" placeholder="Enter a contact phone " required />
           </div>
         </div>
       </div>
       </div>
-      <!--
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="form-group">
-                  <label for="last_name">EPS</label>
-                  <input formControlName="eps" type="text" class="form-control" id="eps" placeholder="Enter a EPS " required />
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="form-group">
-                  <label for="last_name">Nombre de contacto de emergencia</label>
-                  <input formControlName="contact_emergency_name" type="text" class="form-control" id="contact_emergency_name" placeholder="Enter a name " required />
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="form-group">
-                  <label for="last_name">Número de contacto de emergencia</label>
-                  <input formControlName="contact_emergency_phone" type="number" class="form-control" id="contact_emergency_phone" min="1" placeholder="Enter a contact phone " required />
-                </div>
-              </div>
-            </div>
-    -->
 
 
           </div> <!--end card-block-->
 
+    <div class="card-footer">
+      <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    </div>
 
   </form>
-  <div class="card-footer">
-    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
-    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
-  </div>
+
 </div>
 
   </div>
