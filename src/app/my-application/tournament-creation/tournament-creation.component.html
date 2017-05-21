@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-sm-6">
 <div class="card">
   <div class="card-header">
     <strong>Crear Torneo</strong>
@@ -9,7 +11,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="name">Name</label>
-          <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter your name" />
+          <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter your name" required />
         </div>
       </div>
     </div>
@@ -18,7 +20,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="name">Disciplina</label>
-          <select formControlName="discipline" id="select" name="select" class="form-control" size="1">
+          <select formControlName="discipline" id="select" name="select" class="form-control" size="1" required>
             <option value="0">Please select</option>
             <option value="1">Fútbol</option>
             <option value="2">Fútbol Sala</option>
@@ -33,7 +35,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="name">Género</label>
-          <select formControlName="gender" id="select_gender" name="select" class="form-control" size="1">
+          <select formControlName="gender" id="select_gender" name="select" class="form-control" size="1" required>
             <option value="0">Please select</option>
             <option value="1">Masculino</option>
             <option value="2">Femenino</option>
@@ -46,7 +48,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="name">Fecha Inicio  </label>
-          <input formControlName="begin_date" type="date" class="form-control" name="fecha"/>
+          <input formControlName="begin_date" type="date" class="form-control" name="fecha" required/>
         </div>
       </div>
     </div>
@@ -55,7 +57,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="name">Fecha Final  </label>
-          <input formControlName="end_date" type="date" class="form-control" name="fecha"/>
+          <input formControlName="end_date" type="date" class="form-control" name="fecha" required/>
         </div>
       </div>
     </div>
@@ -65,4 +67,6 @@
     <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
   </div>
   </form>
+</div>
+  </div>
 </div>

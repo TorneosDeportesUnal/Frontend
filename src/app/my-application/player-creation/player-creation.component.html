@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-sm-6">
 <div class="card">
 
   <div class="card-header">
@@ -24,7 +26,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="document">Tipo de Documento</label>
-            <select formControlName="document_type" id="document_type" name="document_type" class="form-control" size="1">
+            <select formControlName="document_type" id="document_type" name="document_type" class="form-control" size="1" required>
               <option value="0">Please select</option>
               <option value="1">T.I.</option>
               <option value="2">C.C.</option>
@@ -37,7 +39,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="document">Documento</label>
-            <input formControlName="document"  type="number" class="form-control" id="document" min="1" placeholder="Ingrese documento">
+            <input formControlName="document"  type="number" class="form-control" id="document" min="1" placeholder="Ingrese documento" required>
           </div>
         </div>
       </div>
@@ -46,7 +48,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="first_name">Nombre</label>
-            <input formControlName="first_name"  type="text" class="form-control" id="first_name" placeholder="Ingrese nombre">
+            <input formControlName="first_name"  type="text" class="form-control" id="first_name" placeholder="Ingrese nombre" required>
           </div>
         </div>
       </div>
@@ -55,7 +57,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="last_name">Apellido</label>
-            <input formControlName="last_name" type="text" class="form-control" id="last_name" placeholder="Enter a last_name " />
+            <input formControlName="last_name" type="text" class="form-control" id="last_name" placeholder="Enter a last_name "  required />
           </div>
         </div>
       </div>
@@ -64,7 +66,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="last_name">Correo</label>
-            <input formControlName="email" type="text" class="form-control" id="email" placeholder="Enter a email " />
+            <input formControlName="email" type="email" class="form-control" id="email" required placeholder="Enter a valid email address" />
           </div>
         </div>
       </div>
@@ -73,7 +75,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="first_name">Semestre</label>
-            <input formControlName="semester" type="number" class="form-control" name="semester" min="1" max="20" placeholder="Enter a number"/>
+            <input formControlName="semester" type="number" class="form-control" name="semester" min="1" max="20" placeholder="Enter a number" required />
           </div>
         </div>
       </div>
@@ -82,7 +84,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="last_name">Carrera</label>
-            <select formControlName="career" id="career" name="career" class="form-control" size="1">
+            <select formControlName="career" id="career" name="career" class="form-control" size="1" required>
               <option value="0">Please select</option>
               <option value="1">Ingeniería Agrícola</option>
               <option value="2">Ingeniería Agronómica</option>
@@ -103,7 +105,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="first_name">Genero</label>
-            <select formControlName="gender" id="gender" name="gender" class="form-control" size="1">
+            <select formControlName="gender" id="gender" name="gender" class="form-control" size="1" required>
               <option value="0">Please select</option>
               <option value="1">Femenino</option>
               <option value="2">Masculino</option>
@@ -116,7 +118,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="first_name">Edad</label>
-            <input formControlName="age" type="number" class="form-control" name="age" min="15" max="70" placeholder="Enter age"/>
+            <input formControlName="age" type="number" class="form-control" name="age" min="15" max="70" placeholder="Enter age" required />
           </div>
         </div>
       </div>
@@ -125,41 +127,41 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="last_name">Número de contacto</label>
-            <input formControlName="contact_phone" type="number" class="form-control" id="contact_phone" min="1" placeholder="Enter a contact phone " />
+            <input formControlName="contact_phone" type="number" class="form-control" id="contact_phone" min="1" placeholder="Enter a contact phone " required />
           </div>
         </div>
       </div>
+      <!--
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="last_name">EPS</label>
+                  <input formControlName="eps" type="text" class="form-control" id="eps" placeholder="Enter a EPS " required />
+                </div>
+              </div>
+            </div>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="last_name">EPS</label>
-            <input formControlName="eps" type="text" class="form-control" id="eps" placeholder="Enter a EPS " />
-          </div>
-        </div>
-      </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="last_name">Nombre de contacto de emergencia</label>
+                  <input formControlName="contact_emergency_name" type="text" class="form-control" id="contact_emergency_name" placeholder="Enter a name " required />
+                </div>
+              </div>
+            </div>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="last_name">Nombre de contacto de emergencia</label>
-            <input formControlName="contact_emergency_name" type="text" class="form-control" id="contact_emergency_name" placeholder="Enter a name " />
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="last_name">Número de contacto de emergencia</label>
-            <input formControlName="contact_emergency_phone" type="number" class="form-control" id="contact_emergency_phone" min="1" placeholder="Enter a contact phone " />
-          </div>
-        </div>
-      </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="last_name">Número de contacto de emergencia</label>
+                  <input formControlName="contact_emergency_phone" type="number" class="form-control" id="contact_emergency_phone" min="1" placeholder="Enter a contact phone " required />
+                </div>
+              </div>
+            </div>
+    -->
 
 
-
-    </div> <!--end card-block-->
+          </div> <!--end card-block-->
 
     <div class="card-footer">
       <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
@@ -168,4 +170,5 @@
   </form>
 
 </div>
-
+  </div>
+</div>

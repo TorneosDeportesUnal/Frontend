@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-sm-6">
 <div class="card">
 
   <div class="card-header">
@@ -13,8 +15,8 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="name">Torneo</label>
-            <select formControlName="tournament_id" id="tournament_id" class="form-control" size="1">
-              <option *ngFor="let tournament of tournaments" [value]="tournament.id">{{tournament.name}}</option>
+            <select formControlName="tournament_id" id="tournament_id" class="form-control" size="1" required>
+              <option *ngFor="let tournament of tournaments" [value]="tournament.id">{{tournament.name}}</option >
             </select>
           </div>
         </div>
@@ -24,7 +26,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="name">Nombre del Equipo</label>
-            <input formControlName="name"  type="text" class="form-control" id="name" placeholder="Ingrese nombre del equipo">
+            <input formControlName="name"  type="text" class="form-control" id="name" placeholder="Ingrese nombre del equipo" required>
           </div>
         </div>
       </div>
@@ -33,7 +35,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="name">Tecnico</label>
-            <input formControlName="coach_name" type="text" class="form-control" id="coach_name" placeholder="Enter a name " />
+            <input formControlName="coach_name" type="text" class="form-control" id="coach_name" placeholder="Enter a name " required />
           </div>
         </div>
       </div>
@@ -42,7 +44,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="name">Encargado</label>
-          <input formControlName="delegate" type="text" class="form-control" id="delegate" placeholder="Enter a name " />
+          <input formControlName="delegate" type="text" class="form-control" id="delegate" placeholder="Enter a name " required />
         </div>
       </div>
     </div>
@@ -51,7 +53,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="name">Capitan</label>
-          <input formControlName="captain" type="text" class="form-control" id="captain" placeholder="Enter a captain name" />
+          <input formControlName="captain" type="text" class="form-control" id="captain" placeholder="Enter a captain name" required />
         </div>
       </div>
     </div>
@@ -60,7 +62,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="name">Color de Uniforme</label>
-          <input formControlName="uniform_color" type="text" class="form-control" id="uniform_color" placeholder="Enter a uniform color" />
+          <input formControlName="uniform_color" type="text" class="form-control" id="uniform_color" placeholder="Enter a uniform color" required />
         </div>
       </div>
     </div>
@@ -128,4 +130,5 @@
   </form>
 
 </div>
-
+  </div>
+</div>
