@@ -3,7 +3,7 @@ import { Tournament } from '../classes/tournament';
 import { FormBuilder, Validators } from '@angular/forms';
 import {ApiObservableService} from '../api-observable.service';
 
-//test redirigir
+// test redirigir
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,11 +14,7 @@ import { Router } from '@angular/router';
 export class TournamentCreationComponent implements OnInit {
 
 
-  ngOnInit() {
-  }
-
-
-  public errorMessage:string;
+  public errorMessage: string;
 
   public createTourForm = this.fb.group({
 
@@ -29,8 +25,32 @@ export class TournamentCreationComponent implements OnInit {
     end_date: ['', Validators.required]
 
   });
+
+  // test find document exist
+  public arrayTest: any[];
+
   constructor(public fb: FormBuilder, private apiService: ApiObservableService,  private router: Router ) {}
 
+
+  ngOnInit() {
+
+    // init test find document
+    this.arrayTest = [
+      {
+        name: 'julian',
+        document: '1',
+      }, {
+        value: 'camilo',
+        document: '2',
+      }
+    ];
+
+    const result = this.search(this.arrayTest, '1');
+    console.log('hola result' + result.name);
+    // end find document
+
+
+  }
 
   save(event) {
     console.log(event);
@@ -59,5 +79,13 @@ export class TournamentCreationComponent implements OnInit {
                       () => { this.router.navigate(['/players/list-tournament'])}
                       );
 }
+
+  // metod to find document
+  search(array: any[], field: string): any {
+      console.log(' hola search');
+      const ret = array.filter(item => item.document === field)[0];
+      console.log(ret);
+      return ret;
+  }
 
 }
