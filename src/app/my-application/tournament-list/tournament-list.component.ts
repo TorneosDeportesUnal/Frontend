@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import {ApiObservableService} from '../api-observable.service';
+import {TournamentService} from "../services/tournament.service";
 
 @Component({
   selector: 'app-tournament-list',
@@ -15,15 +16,11 @@ export class TournamentListComponent implements OnInit {
   public filterQuery = '';
 
   constructor(private http: Http,
-              private apiService: ApiObservableService )
-  {
-   /* http.get('data.json')
-      .subscribe((data) => {
-        setTimeout(() => {
-          this.data = data.json();
-        }, 2000);
-      });*/
+              private apiService: ApiObservableService,
+              private tournamentService: TournamentService) {
+
   }
+
   ngOnInit(): void {
     this.getTournaments();
     console.log(this.data);
@@ -41,6 +38,14 @@ export class TournamentListComponent implements OnInit {
     this.apiService.getTournaments().subscribe(
       tournamentList =>  {this.data = tournamentList},
       error => console.log(error)
+    );
+  }
+
+  deleteTournament(id_tournament: number) {
+    this.tournamentService.deleteTournament(id_tournament).subscribe(
+      () => { console.log('success deletePlayer');
+        window.location.reload(); },
+      () => { console.log('error deletePlayer'); }
     );
   }
 }

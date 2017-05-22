@@ -34,14 +34,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of mf.data">
-          <td class="text-left">{{item.id}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.gender}}</td>
-          <td>{{item.discipline}}</td>
-          <td>{{item.begin_date | date:'fullDate'}}</td>
-          <td>{{item.end_date | date:'fullDate'}}</td>
-          <td><a [routerLink]="['/players/teams-by-tournament', item.id]">View Detail</a></td>
+        <tr *ngFor="let tournament of mf.data">
+          <td class="text-left">{{tournament.id}}</td>
+          <td>{{tournament.name}}</td>
+          <td>{{tournament.gender}}</td>
+          <td>{{tournament.discipline}}</td>
+          <td>{{tournament.begin_date | date:'fullDate'}}</td>
+          <td>{{tournament.end_date | date:'fullDate'}}</td>
+          <td><a [routerLink]="['/players/teams-by-tournament', tournament.id]">View Detail</a></td>
+          <td><button (click)="openPlayer(tournament)" class="btn btn-sm btn-outline-primary  "> Editar</button></td>
+          <td><button (click)="deleteTournament(tournament.id)" type="button" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
         </tr>
         </tbody>
         <tfoot>
