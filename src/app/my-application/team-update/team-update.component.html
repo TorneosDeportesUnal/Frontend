@@ -1,5 +1,10 @@
 <div class="detail-team">
-  <button class="btn btn-danger" (click)="closePopUp()">x</button>
+
+  <div class="card-header-primary">
+    <button class="close" (click)="closePopUp()">x</button>
+
+  </div>
+
 
   <form [formGroup]="form" (ngSubmit)="updateTeam($event)">
 
@@ -54,5 +59,4 @@
 
   </form>
 
-
-</div>
+  </div>
