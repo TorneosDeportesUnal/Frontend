@@ -1,0 +1,58 @@
+<div class="detail-team">
+  <button class="btn btn-danger" (click)="closePopUp()">x</button>
+
+  <form [formGroup]="form" (ngSubmit)="updateTeam($event)">
+
+    <div class="card-block">
+
+      <div style="width:48%; float:left;">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="name">Nombre del Equipo</label>
+              <input formControlName="name"  type="text" class="form-control" id="name" placeholder="Ingrese nombre del equipo" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="coach_name">Tecnico</label>
+              <input formControlName="coach_name" type="text" class="form-control" id="coach_name" placeholder="Enter a name " required />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width:48%; float:right;">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="captain">Capitan</label>
+              <input formControlName="captain" type="text" class="form-control" id="captain" placeholder="Enter a captain name" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="uniform_color">Color de Uniforme</label>
+              <input formControlName="uniform_color" type="text" class="form-control" id="uniform_color" placeholder="Enter a uniform color" required />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!--end card-block-->
+
+
+    <div class="card-footer">
+      <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Actualizar </button>
+    </div>
+
+  </form>
+
+
+</div>

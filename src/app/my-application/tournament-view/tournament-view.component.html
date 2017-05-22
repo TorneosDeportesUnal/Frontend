@@ -42,14 +42,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of mf.data">
-          <td class="text-left">{{item.id}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.coach_name}}</td>
-          <td>{{item.captain}}</td>
-          <td>{{item.uniform_color | uppercase}}</td>
-          <td><a [routerLink]="['/players/team-view', item.id]">View Detail</a></td>
-          <td><button (click)="deleteTeam(item.id)" type="button" class="btn btn-danger"><i class="fa fa-ban"></i>Eliminar</button></td>
+        <tr *ngFor="let team of mf.data">
+          <td class="text-left">{{team.id}}</td>
+          <td>{{team.name}}</td>
+          <td>{{team.coach_name}}</td>
+          <td>{{team.captain}}</td>
+          <td>{{team.uniform_color | uppercase}}</td>
+          <td><a [routerLink]="['/players/team-view', team.id]">View Detail</a></td>
+          <td><button (click)="openTeam(team)" class="btn btn-sm btn-outline-primary"> Editar</button></td>
+          <td><button (click)="deleteTeam(team.id)" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
         </tr>
         </tbody>
         <tfoot>
@@ -66,3 +67,6 @@
     </div>
   </div>
 </div>
+
+<!-- pop-up update tournament -->
+<app-team-update *ngIf="showTeam" [team]="selectedTeam" (closeModal)="changeStatePopUp(false)"></app-team-update>

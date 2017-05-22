@@ -4,7 +4,7 @@ import { URLSearchParams } from '@angular/http';
 import { Headers, Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {Player} from '../classes/player';
-import {Tournament} from "../classes/tournament";
+import {Tournament} from '../classes/tournament';
 
 @Injectable()
 export class TournamentService {
@@ -61,7 +61,7 @@ export class TournamentService {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
 
-    console.log(tournament.id_tournament, 'tournmanet id 2');
+    console.log(tournament.id, 'tournmanet id 2');
     console.log(tournament, 'tournmanet');
 
     const url = 'http://localhost:3000/tournaments/' + tournament.id;

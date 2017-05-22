@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import {ApiObservableService} from '../api-observable.service';
 
-//to recive params of url in angular
+// to recive params of url in angular
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {TournamentService} from '../services/tournament.service';
@@ -24,6 +24,10 @@ export class TournamentViewComponent implements OnInit {
   // read parameters
   id: string;
   private sub: any;
+
+  // pop-up update team
+  public selectedTeam: Tournament;
+  public showTeam: boolean = false;
 
   constructor(private http: Http,
               private apiService: ApiObservableService,
@@ -78,6 +82,15 @@ export class TournamentViewComponent implements OnInit {
     );
   }
 
+  // metodos pop-up update tournament
 
+  openTeam(team) {
+    this.selectedTeam = team;
+    this.changeStatePopUp(true);
+  }
+
+  changeStatePopUp(value) {
+    this.showTeam = value;
+  }
 }
 

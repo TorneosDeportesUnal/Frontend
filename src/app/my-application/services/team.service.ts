@@ -4,6 +4,7 @@ import { URLSearchParams } from '@angular/http';
 import { Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {Player} from "../classes/player";
+import {Team} from "../classes/team";
 
 @Injectable()
 export class TeamService {
@@ -24,8 +25,14 @@ export class TeamService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
+  private extractData(res: Response) {
+    const body = res.json();
+    return body.data || { };
+  }
 
-  getPlayersByTeamId(id: string){
+  // ************ services ***************
+
+  getPlayersByTeamId(id: string) {
 
     const params = new URLSearchParams();
     params.set('id', id );
@@ -40,6 +47,20 @@ export class TeamService {
 
     const url = 'http://localhost:3000/teams_by_id';
     return this.http.get(url, { search: params }).map((response: Response) => response.json());
+  }
+
+  updateTeam(team: any): Observable<Team> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+
+    console.log(team.id, 'team id');
+    console.log(team, 'team');
+
+    const url = 'http://localhost:3000/teams/' + team.id;
+
+    return this.http.patch(url, team, options)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   deleteTeam(id_team: number): Observable<Player> {

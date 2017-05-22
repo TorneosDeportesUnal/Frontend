@@ -35,6 +35,7 @@ import { WarningPopUpComponent } from './warning-pop-up/warning-pop-up.component
 import {DataFilterPipeTest} from '../plugins/datatable/datafilterpipeFirstName';
 import {DataFilterPipeField} from './pipes/datafilterpipefield';
 import { TournamentUpdateComponent } from './tournament-update/tournament-update.component';
+import { TeamUpdateComponent } from './team-update/team-update.component';
 
 @NgModule({
   imports: [
@@ -66,6 +67,7 @@ import { TournamentUpdateComponent } from './tournament-update/tournament-update
     WarningPopUpComponent,
     DataFilterPipeTest,
     DataFilterPipeField,
-    TournamentUpdateComponent]
+    TournamentUpdateComponent,
+    TeamUpdateComponent]
 })
 export class MyApplicationModule { }
