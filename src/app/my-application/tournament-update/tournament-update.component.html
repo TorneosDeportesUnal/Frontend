@@ -1,0 +1,79 @@
+<div class="detail-tournament">
+  <button class="btn btn-danger" (click)="closePopUp()">x</button>
+
+  <form [formGroup]="form" (ngSubmit)="updateTournamet($event)">
+    <div class="card-block">
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter your name" required />
+          </div>
+        </div>
+      </div>
+
+      <div style="width:48%; float:left;">
+        <!--row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="name">Disciplina</label>
+              <select formControlName="discipline" id="select" name="select" class="form-control" size="1" required>
+                <option value="">Please select</option>
+                <option value="futbol">Fútbol</option>
+                <option value="futbol sala">Fútbol Sala</option>
+                <option value="baloncesto">Baloncesto</option>
+                <option value="voleibol">Voleibol</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!--row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="name">Género</label>
+              <select formControlName="gender" id="select_gender" name="select" class="form-control" size="1" required>
+                <option value="">Please select</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width:48%; float:right;">
+        <!--/.row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="begin_date">Fecha Inicio  </label>
+              <input formControlName="begin_date" id="begin_date" type="date" class="form-control" name="begin_date" required/>
+            </div>
+          </div>
+        </div>
+        <!--/.row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="end_date">Fecha Final  </label>
+              <input formControlName="end_date" id="end_date" type="date" class="form-control" name="end_date" required/>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+    <div class="card-footer">
+      <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+    </div>
+
+
+  </form>
+
+</div>

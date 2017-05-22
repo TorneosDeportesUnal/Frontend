@@ -61,7 +61,7 @@ export class TournamentService {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
 
-    console.log(tournament.id, 'tournmanet id');
+    console.log(tournament.id_tournament, 'tournmanet id 2');
     console.log(tournament, 'tournmanet');
 
     const url = 'http://localhost:3000/tournaments/' + tournament.id;

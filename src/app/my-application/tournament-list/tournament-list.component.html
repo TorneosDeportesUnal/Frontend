@@ -42,7 +42,7 @@
           <td>{{tournament.begin_date | date:'fullDate'}}</td>
           <td>{{tournament.end_date | date:'fullDate'}}</td>
           <td><a [routerLink]="['/players/teams-by-tournament', tournament.id]">View Detail</a></td>
-          <td><button (click)="openPlayer(tournament)" class="btn btn-sm btn-outline-primary  "> Editar</button></td>
+          <td><button (click)="openTournament(tournament)" class="btn btn-sm btn-outline-primary  "> Editar</button></td>
           <td><button (click)="deleteTournament(tournament.id)" type="button" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
         </tr>
         </tbody>
@@ -57,3 +57,6 @@
     </div>
   </div>
 </div>
+
+<!-- pop-up update tournament -->
+<app-tournament-update *ngIf="showPlayer" [tournament]="selectedTournament" (closeModal)="changeStatePopUp(false)"></app-tournament-update>

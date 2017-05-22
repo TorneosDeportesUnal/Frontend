@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import {ApiObservableService} from '../api-observable.service';
-import {TournamentService} from "../services/tournament.service";
+import {TournamentService} from '../services/tournament.service';
+import {Tournament} from '../classes/tournament';
 
 @Component({
   selector: 'app-tournament-list',
@@ -14,6 +15,9 @@ export class TournamentListComponent implements OnInit {
 
   public data;
   public filterQuery = '';
+  // pop-up update tournament
+  public selectedTournament: Tournament;
+  public showPlayer: boolean = false;
 
   constructor(private http: Http,
               private apiService: ApiObservableService,
@@ -48,4 +52,16 @@ export class TournamentListComponent implements OnInit {
       () => { console.log('error deletePlayer'); }
     );
   }
+
+  // metodos pop-up update tournament
+
+  openTournament(tournament) {
+    this.selectedTournament = tournament;
+    this.changeStatePopUp(true);
+  }
+
+  changeStatePopUp(value) {
+    this.showPlayer = value;
+  }
+
 }
