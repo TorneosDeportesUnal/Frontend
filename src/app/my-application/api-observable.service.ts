@@ -117,7 +117,7 @@ export class ApiObservableService {
     let params = new URLSearchParams();
     params.set('id', id );
 
-    const url = 'http://localhost:3000/teams_by_tournament';
+    const url = 'https://torneos-api-arka160.c9users.io/teams_by_tournament';
     return this.http.get(url, { search: params }).map((response: Response) => response.json());
   }
 

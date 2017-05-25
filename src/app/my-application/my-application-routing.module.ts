@@ -11,6 +11,8 @@ import { TeamListComponent } from './team-list/team-list.component';
 import { PhaseCreationComponent } from './phase-creation/phase-creation.component';
 import { TournamentViewComponent } from './tournament-view/tournament-view.component';
 import { TeamViewComponent } from './team-view/team-view.component';
+import { MatchListComponent } from './match-list/match-list.component';
+
 
 const routes: Routes = [
 
@@ -81,6 +83,13 @@ const routes: Routes = [
         component: PhaseCreationComponent,
         data: {
           title: 'Nuevo fase'
+        }
+      },
+      {
+        path: 'matchs',
+        component: MatchListComponent,
+        data: {
+          title: 'match list'
         }
       }
     ]

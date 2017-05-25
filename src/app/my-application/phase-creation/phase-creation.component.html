@@ -9,11 +9,9 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <label for="name">Tipo de Fase</label>
-          <select  formControlName="phase_type" id="select" name="select" class="form-control" size="1">
-
-            <option value="Groups">Grupos</option>
-            <option value="Eliminations">Eliminatorias</option>
+          <label for="name">Torneo</label>
+          <select (change)="setTeams()" formControlName="tournament_id" id="tournament_id" class="form-control" size="1" required>
+            <option *ngFor="let tournament of tournaments" [value]="tournament.id">{{tournament.name}}</option >
           </select>
         </div>
       </div>
@@ -22,11 +20,24 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <label for="name">Número de Fase</label>
-          <input formControlName="phase_number"  type="number" class="form-control" id="number" placeholder="Ingrese el Número de la Fase">
+          <label for="name">Tipo de Fase</label>
+          <select  formControlName="phase_type" id="select" name="select" class="form-control" size="1">
+
+            <option selected="Groups" value="Groups">Grupos</option>
+            <option value="Eliminations">Eliminatorias</option>
+          </select>
         </div>
       </div>
     </div>
+
+    <!--<div class="row">-->
+      <!--<div class="col-sm-12">-->
+        <!--<div class="form-group">-->
+          <!--<label for="name">Número de Fase</label>-->
+          <!--<input formControlName="phase_number"  type="number" class="form-control" id="number" placeholder="Ingrese el Número de la Fase">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
 
     <div class="row" *ngIf="form.value.phase_type==='Groups'">
       <div class="col-sm-12">
@@ -66,13 +77,13 @@
         </div >
 
         <div *ngIf="sortedFlag">
-          {{groups[i].team_ids}}
+          <!--{{groups[i].team_ids}}-->
 
           <div *ngFor="let id of groups[i].team_ids ">
 
             <div *ngFor="let team of teams">
               <div *ngIf="team.id == id">
-                <h2>{{team.id}}</h2>
+                <h2>{{team.name}}</h2>
               </div>
             </div>
 

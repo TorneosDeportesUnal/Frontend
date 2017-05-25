@@ -43,7 +43,8 @@ export class TournamentService {
   }
 
   getTournaments() {
-    const url = 'http://localhost:3000/tournaments';
+    const url = 'https://torneos-api-arka160.c9users.io/tournaments';
+
     return this.http.get(url)
       .map(response => response.json());
   }

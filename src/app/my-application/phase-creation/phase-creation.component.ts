@@ -4,6 +4,9 @@ import {ApiObservableService} from '../api-observable.service';
 import {TournamentPhase} from '../classes/tournament_phase';
 import {Team} from '../classes/team';
 import {Group} from '../classes/group';
+import {TournamentService} from '../services/tournament.service';
+import {getTemplate} from 'codelyzer/util/ngQuery';
+
 
 
 
@@ -13,6 +16,9 @@ import {Group} from '../classes/group';
   styleUrls: ['./phase-creation.component.scss']
 })
 export class PhaseCreationComponent implements OnInit {
+
+  public tournaments: any;
+  t_id: number = 1;
 
   phase: TournamentPhase;
   // let groupNumber: number;
@@ -29,20 +35,22 @@ export class PhaseCreationComponent implements OnInit {
 
     phase_number: ['', Validators.required],
     phase_type: ['', Validators.required],
-    group_number: ['', Validators.required]
+    group_number: ['', Validators.required],
+    tournament_id: ['', Validators.required]
 
 
   });
 
 
-  constructor(public fb: FormBuilder, private apiService: ApiObservableService ) {}
+  constructor(public fb: FormBuilder,
+              private tournamentService: TournamentService,
+              private apiService: ApiObservableService ) {}
 
   getRandomInt(min, max): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   sortTeamsInGroups() {
-
 
     this.groups = new Array(this.form.value.group_number);
     console.log(this.groups.length);
@@ -107,7 +115,7 @@ export class PhaseCreationComponent implements OnInit {
     const saveElem: TournamentPhase = {
 
       id: null,
-      tournament_id: 1,
+      tournament_id: formModel.tournament_id as number ,
       phase_number : formModel.phase_number as number,
       phase_type: formModel.phase_type as string,
       active: true,
@@ -125,7 +133,8 @@ export class PhaseCreationComponent implements OnInit {
   }
 
   getTeams() {
-    this.apiService.getTeams()
+    const id: string = this.form.value.tournament_id.toString();
+    this.apiService.getTeamsByTournamentId(id)
       .subscribe(
         teams => {
           return this.teams = teams;
@@ -140,8 +149,21 @@ export class PhaseCreationComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getTeams();
-    console.log(this.teams);
+
+
+    this.tournamentService.getTournaments()
+      .subscribe( tournaments => {
+        this.tournaments = tournaments;
+      });
+
+    // this.getTeams();
+    // console.log(this.teams);
+}
+
+  setTeams(){
+    if (this.form.value.tournament_id){
+      this.getTeams();
+    }
   }
 
 }

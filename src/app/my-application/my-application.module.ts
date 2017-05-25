@@ -31,11 +31,15 @@ import {PlayerService} from './services/player.service';
 import {TeamService} from './services/team.service';
 import { TeamListComponent } from './team-list/team-list.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
+
 import { WarningPopUpComponent } from './warning-pop-up/warning-pop-up.component';
 import {DataFilterPipeTest} from '../plugins/datatable/datafilterpipeFirstName';
 import {DataFilterPipeField} from './pipes/datafilterpipefield';
 import { TournamentUpdateComponent } from './tournament-update/tournament-update.component';
 import { TeamUpdateComponent } from './team-update/team-update.component';
+
+import { MatchListComponent } from './match-list/match-list.component';
+
 
 @NgModule({
   imports: [
@@ -68,6 +72,8 @@ import { TeamUpdateComponent } from './team-update/team-update.component';
     DataFilterPipeTest,
     DataFilterPipeField,
     TournamentUpdateComponent,
-    TeamUpdateComponent]
+    TeamUpdateComponent,
+    MatchListComponent]
+
 })
 export class MyApplicationModule { }
