@@ -5,6 +5,7 @@ import {ApiObservableService} from '../api-observable.service';
 
 // test redirigir
 import { Router } from '@angular/router';
+import {TournamentService} from '../services/tournament.service';
 
 @Component({
   selector: 'app-tournament-creation',
@@ -29,7 +30,7 @@ export class TournamentCreationComponent implements OnInit {
   // test find document exist
   public arrayTest: any[];
 
-  constructor(public fb: FormBuilder, private apiService: ApiObservableService,  private router: Router ) {}
+  constructor(public fb: FormBuilder, private tournamentService: TournamentService,  private router: Router ) {}
 
 
   ngOnInit() {
@@ -72,7 +73,7 @@ export class TournamentCreationComponent implements OnInit {
 	end_date: Date,
 	gender: string,
 	discipline: string) {
-  		this.apiService.createTournament( name, begin_date, end_date, gender, discipline )
+  		this.tournamentService.createTournament( name, begin_date, end_date, gender, discipline )
                    .subscribe(
                       tournament  => console.log('onNext'),
                       error => console.log('ERROR: ', error),

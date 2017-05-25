@@ -44,7 +44,7 @@ export class TournamentService {
   }
 
   getTournaments() {
-    const url = 'https://torneos-api-arka160.c9users.io/tournaments';
+    const url = 'http://localhost:3000/tournaments';
 
     return this.http.get(url)
       .map(response => response.json());
@@ -53,6 +53,18 @@ export class TournamentService {
   getTournamentById(id: string) {
     const url = 'http://localhost:3000/tournaments_by_id?id=' + id;
     return this.http.get(url).map((response: Response) => response.json());
+  }
+
+  createTournament(name: string, begin_date: Date,
+                   end_date: Date,
+                   gender: string,
+                   discipline: string): Observable<any> {
+
+    const url = 'http://localhost:3000/tournaments';
+
+    return this.http.post(url, { name, gender, discipline, begin_date, end_date})
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   updateTournament(tournament: any): Observable<Tournament> {

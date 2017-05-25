@@ -75,4 +75,4 @@
 <!-- pop-up update team -->
 <app-team-update *ngIf="showTeam" [team]="selectedTeam" (closeModal)="changeStatePopUp(false)"></app-team-update>
 <!-- pop-up delete team -->
-<app-warning-pop-up *ngIf="showDelete" [tournament]="selectedTeam" (closeModal)="changeStatePopUpDelete(false)"></app-warning-pop-up>
+<app-team-delete *ngIf="showDelete" [team]="selectedTeam" (closeModal)="changeStatePopUpDelete(false)"></app-team-delete>

@@ -12,8 +12,7 @@ export class TeamDeleteComponent implements OnInit {
   @Output() closeModal: EventEmitter<boolean> = new EventEmitter() ;
 
 
-  constructor(private teamService: TeamService, )
-  {
+  constructor(private teamService: TeamService, ) {
 
   }
 
@@ -29,21 +28,13 @@ export class TeamDeleteComponent implements OnInit {
     this.closeModal.emit(false);
   }
 
-  deleteTournament(id: any) {
+  deleteTeam(idTeam) {
 
-    this.teamService.deleteTeam(id)
-      .subscribe(
-        () => {
-          this.closePopUp();
-          window.location.reload();
-          console.log('hola entrando a success de add() del delete');
-        }
-        ,
-        error => {
-          error = error + 'errror | add()';
-        },
-        () => console.log('Lo intente | add()')
-      );
+    this.teamService.deleteTeam(idTeam).subscribe(
+      () => { console.log('success deleteTeam');
+        window.location.reload(); },
+      () => { console.log('error deleteTeam'); }
+    );
   }
 
 }
