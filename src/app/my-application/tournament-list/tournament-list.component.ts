@@ -19,6 +19,10 @@ export class TournamentListComponent implements OnInit {
   public selectedTournament: Tournament;
   public showPlayer: boolean = false;
 
+  // pop-up delete tournament
+
+  public showDelete: boolean = false;
+
   constructor(private http: Http,
               private apiService: ApiObservableService,
               private tournamentService: TournamentService) {
@@ -62,6 +66,16 @@ export class TournamentListComponent implements OnInit {
 
   changeStatePopUp(value) {
     this.showPlayer = value;
+  }
+
+  // metodos pop-up delete tournament
+
+  openTournamentDelete(tournament) {
+      this.selectedTournament = tournament;
+      this.changeStatePopUpDelete(true);
+  }
+  changeStatePopUpDelete(value) {
+    this.showDelete = value;
   }
 
 }

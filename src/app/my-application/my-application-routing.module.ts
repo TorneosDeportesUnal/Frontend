@@ -54,7 +54,7 @@ const routes: Routes = [
       {
         path: 'list-tournament',
         component: TournamentListComponent,
-        canActivate: [AuthGuard],
+       // canActivate: [AuthGuard],
         data: {
           title: 'Lista Torneos'
         }

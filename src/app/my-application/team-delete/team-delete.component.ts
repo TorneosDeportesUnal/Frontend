@@ -1,26 +1,25 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Tournament} from '../classes/tournament';
-import {TournamentService} from '../services/tournament.service';
+import {Team} from '../classes/team';
+import {TeamService} from '../services/team.service';
 
 @Component({
-  selector: 'app-warning-pop-up',
-  templateUrl: './warning-pop-up.component.html',
-  styleUrls: ['./warning-pop-up.component.scss']
+  selector: 'app-team-delete',
+  templateUrl: './team-delete.component.html',
+  styleUrls: ['./team-delete.component.scss']
 })
-export class WarningPopUpComponent implements OnInit {
-
-  @Input('tournament') tournament: Tournament;
+export class TeamDeleteComponent implements OnInit {
+  @Input('team') team: Team;
   @Output() closeModal: EventEmitter<boolean> = new EventEmitter() ;
 
 
-  constructor(private tournamentService: TournamentService, )
-    {
+  constructor(private teamService: TeamService, )
+  {
 
   }
 
   ngOnInit() {
 
-    console.log('id my Torneo' + this.tournament.id);
+    console.log('id my Team' + this.team.id);
 
   }
 
@@ -30,9 +29,9 @@ export class WarningPopUpComponent implements OnInit {
     this.closeModal.emit(false);
   }
 
-   deleteTournament(id: any) {
+  deleteTournament(id: any) {
 
-    this.tournamentService.deleteTournament(id)
+    this.teamService.deleteTeam(id)
       .subscribe(
         () => {
           this.closePopUp();
