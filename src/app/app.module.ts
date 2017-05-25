@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app.routing';
 //Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
+import {CookieService} from "ng2-cookies";
 
 
 @NgModule({
@@ -39,8 +40,10 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+    useClass: HashLocationStrategy,
+  },
+    CookieService
+  ],
   bootstrap: [ AppComponent]
 })
 export class AppModule { }

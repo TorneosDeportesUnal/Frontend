@@ -1,0 +1,48 @@
+<div class="app flex-row align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card-group mb-0">
+          <div class="card p-2">
+              <div class="card-block">
+                <h1>Login</h1>
+              <p class="text-muted">Sign In to your account</p>
+              <div class="input-group mb-1">
+                <span class="input-group-addon"><i class="icon-user"></i></span>
+                <input type="email" class="form-control" placeholder="Email" required [(ngModel)]="emailInput">
+              </div>
+              <div class="input-group mb-2">
+                <span class="input-group-addon"><i class="icon-lock"></i></span>
+                <input type="password" class="form-control" placeholder="Contraseña" required [(ngModel)]="passwordInput">
+              </div>
+              <div class="input-group mb-2">
+                <span class="alert-warning"><i class="icon-anchor"></i> {{error}}</span>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <button type="button" class="btn btn-primary px-2" (click)="login()">Login</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="card card-inverse card-primary py-3 hidden-md-down" style="width:44%">
+            <div class="card-block text-center">
+              <div>
+
+                <h1>FIX</h1>
+                <br>
+                <p>Bienvenido a FIX, una herramienta que le permitirá hacer el sorteo de sus torneos deportivos</p>
+                <!---
+                <img src="assets/img/avatars/logo.png" class="img-avatar" alt="admin@bootstrapmaster.com">
+
+                <button type="button" class="btn btn-primary active mt-1">Register Now!</button>
+                -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

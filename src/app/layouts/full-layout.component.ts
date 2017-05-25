@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ng2-cookies';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FullLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private _cookies: CookieService
+  ) { }
 
   public disabled:boolean = false;
   public status:{isopen:boolean} = {isopen: false};
@@ -22,4 +27,9 @@ export class FullLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  public logout(): void {
+    this._cookies.deleteAll();
+    this.router.navigate(['/players/login']);
+  }
 }

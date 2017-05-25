@@ -13,7 +13,7 @@ export const routes: Routes = [
     redirectTo: 'main',
     pathMatch: 'full',
   },
-  { 
+  {
     path: '',
     component: FullLayoutComponent,
     data: {

@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
-import {Http, RequestOptions} from '@angular/http';
+import { RequestOptions} from '@angular/http';
 import { URLSearchParams } from '@angular/http';
 import { Headers, Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {Player} from '../classes/player';
 import {Tournament} from '../classes/tournament';
+import {HttpService} from './http.service';
 
 @Injectable()
 export class TournamentService {
 
   private _currentTournament: any;
 
-  constructor( private http: Http ) {
+  constructor( public http: HttpService ) {
     console.log('initttttttttt');
   }
 
@@ -50,12 +51,8 @@ export class TournamentService {
   }
 
   getTournamentById(id: string) {
-
-    const params = new URLSearchParams();
-    params.set('id', id );
-
-    const url = 'http://localhost:3000/tournaments_by_id';
-    return this.http.get(url, { search: params }).map((response: Response) => response.json());
+    const url = 'http://localhost:3000/tournaments_by_id?id=' + id;
+    return this.http.get(url).map((response: Response) => response.json());
   }
 
   updateTournament(tournament: any): Observable<Tournament> {
