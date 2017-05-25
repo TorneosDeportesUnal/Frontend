@@ -11,6 +11,8 @@ import { TeamListComponent } from './team-list/team-list.component';
 import { PhaseCreationComponent } from './phase-creation/phase-creation.component';
 import { TournamentViewComponent } from './tournament-view/tournament-view.component';
 import { TeamViewComponent } from './team-view/team-view.component';
+import { MyloginComponent } from './mylogin/mylogin.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
 
@@ -20,6 +22,10 @@ const routes: Routes = [
       title: 'Torneos'
     },
     children: [
+      {
+        path: 'login',
+        component: MyloginComponent
+      },
       {
         path: 'player-creation/:id',
         component: PlayerCreationComponent,
@@ -44,6 +50,7 @@ const routes: Routes = [
       {
         path: 'list-tournament',
         component: TournamentListComponent,
+        canActivate: [AuthGuard],
         data: {
           title: 'Lista Torneos'
         }

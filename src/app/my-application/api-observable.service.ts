@@ -80,7 +80,7 @@ export class ApiObservableService {
   // }
 
   getTeams() {
-    const temporal_URL = 'https://torneos-api-arka160.c9users.io/teams';
+    const temporal_URL = 'http://localhost:3000/teams';
     return this.http.get(temporal_URL).map((response: Response) => response.json() as Team[]);
   }
 
@@ -90,7 +90,7 @@ export class ApiObservableService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    const url = 'https://torneos-api-arka160.c9users.io/tournament_phases';
+    const url = 'http://localhost:3000/tournament_phases';
 
     let wraper = {
       tournament_phase : phase

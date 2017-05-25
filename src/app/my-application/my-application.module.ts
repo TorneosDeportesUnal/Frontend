@@ -15,6 +15,7 @@ import { TournamentCreationComponent } from './tournament-creation/tournament-cr
 //services
 import { ApiObservableService } from './api-observable.service';
 import { TournamentService } from './services/tournament.service';
+import { UserService } from './services/user.service';
 
 //forms
 import { ReactiveFormsModule } from '@angular/forms';
@@ -36,6 +37,10 @@ import {DataFilterPipeTest} from '../plugins/datatable/datafilterpipeFirstName';
 import {DataFilterPipeField} from './pipes/datafilterpipefield';
 import { TournamentUpdateComponent } from './tournament-update/tournament-update.component';
 import { TeamUpdateComponent } from './team-update/team-update.component';
+import { MyloginComponent } from './mylogin/mylogin.component';
+import {CookieService} from 'ng2-cookies';
+import {AuthGuard} from './guard/auth.guard';
+import {HttpService} from './services/http.service';
 
 @NgModule({
   imports: [
@@ -50,7 +55,11 @@ import { TeamUpdateComponent } from './team-update/team-update.component';
     ApiObservableService,
     TournamentService,
     PlayerService,
-    TeamService
+    TeamService,
+    UserService,
+    CookieService,
+    AuthGuard,
+    HttpService
   ],
   declarations: [PlayerListComponent,
     DataFilterPipe,
@@ -68,6 +77,7 @@ import { TeamUpdateComponent } from './team-update/team-update.component';
     DataFilterPipeTest,
     DataFilterPipeField,
     TournamentUpdateComponent,
-    TeamUpdateComponent]
+    TeamUpdateComponent,
+    MyloginComponent]
 })
 export class MyApplicationModule { }
