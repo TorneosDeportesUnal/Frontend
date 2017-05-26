@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ApiObservableService} from '../api-observable.service';
 import {Http} from '@angular/http';
 import {Match} from '../classes/match';
@@ -11,8 +11,12 @@ import {Group} from '../classes/group';
 })
 export class MatchListComponent implements OnInit {
 
+  @Input() groupId;
+
   public matches: Match[];
   groups: Group[];
+
+
 
   public errorMessage: string;
   constructor(private apiService: ApiObservableService) { }
@@ -23,7 +27,7 @@ export class MatchListComponent implements OnInit {
   }
 
   getMatchesByGroupId() {
-    const id: string = '1';
+    const id: string = this.groupId.toString();
     this.apiService.getMatchesByGroupId(id)
       .subscribe(
         matches => {

@@ -47,6 +47,7 @@ import { MatchListComponent } from './match-list/match-list.component';
 import { TeamDeleteComponent } from './team-delete/team-delete.component';
 import { PlayerDeleteComponent } from './player-delete/player-delete.component';
 import { GroupsTeamListComponent } from './groups-team-list/groups-team-list.component';
+import { GroupsMatchListComponent } from './groups-match-list/groups-match-list.component';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { GroupsTeamListComponent } from './groups-team-list/groups-team-list.com
     MyloginComponent,
     TeamDeleteComponent,
     PlayerDeleteComponent,
-    GroupsTeamListComponent]
+    GroupsTeamListComponent,
+    GroupsMatchListComponent]
 })
 export class MyApplicationModule { }

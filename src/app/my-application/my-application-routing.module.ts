@@ -14,6 +14,8 @@ import { TeamViewComponent } from './team-view/team-view.component';
 
 import { MatchListComponent } from './match-list/match-list.component';
 import { GroupsTeamListComponent } from './groups-team-list/groups-team-list.component';
+import { GroupsMatchListComponent } from './groups-match-list/groups-match-list.component';
+
 
 
 
@@ -108,6 +110,13 @@ const routes: Routes = [
         component: GroupsTeamListComponent,
         data: {
           title: 'lista de grupos'
+        }
+      },
+      {
+        path: 'matches-list',
+        component: GroupsMatchListComponent,
+        data: {
+          title: 'Lista de Fechas por Grupo'
         }
       }
     ]
