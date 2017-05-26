@@ -9,6 +9,7 @@ import {TournamentPhase} from './classes/tournament_phase';
 
 //para enviar parametros en la url
 import { URLSearchParams } from '@angular/http';
+import {Match} from './classes/match';
 
 
 @Injectable()
@@ -119,6 +120,14 @@ export class ApiObservableService {
 
     const url = 'https://torneos-api-arka160.c9users.io/teams_by_tournament';
     return this.http.get(url, { search: params }).map((response: Response) => response.json());
+  }
+
+  getMatchesByGroupId(id: string) {
+    let params = new URLSearchParams();
+    params.set('id', id );
+
+    const url = 'https://torneos-api-arka160.c9users.io/matches_by_group';
+    return this.http.get(url, { search: params }).map((response: Response) => response.json() );
   }
 
 }

@@ -1,10 +1,11 @@
-export class Match{
-	id_match: number;
+export class Match {
+	id: number;
+  group_id: number;
 	game_field_location:string;
-	date:number;
+	date: Date;
 	judges:string;
 	observations:string;
 	winner_team:string;
 	loser_team:string;
-	
+
 }

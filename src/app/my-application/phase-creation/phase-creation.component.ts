@@ -18,10 +18,8 @@ import {getTemplate} from 'codelyzer/util/ngQuery';
 export class PhaseCreationComponent implements OnInit {
 
   public tournaments: any;
-  t_id: number = 1;
 
   phase: TournamentPhase;
-  // let groupNumber: number;
   groupArr_num  = Array;
 
   public teams: Team[];
