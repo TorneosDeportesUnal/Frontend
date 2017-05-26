@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <label for="name">Torneo</label>
+          <label for="tournament_id">Torneo</label>
           <select (change)="setTeams()" formControlName="tournament_id" id="tournament_id" class="form-control" size="1" required>
             <option *ngFor="let tournament of tournaments" [value]="tournament.id">{{tournament.name}}</option >
           </select>
@@ -20,8 +20,8 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <label for="name">Tipo de Fase</label>
-          <select  formControlName="phase_type" id="select" name="select" class="form-control" size="1">
+          <label for="select">Tipo de Fase</label>
+          <select  formControlName="phase_type" id="select" name="select" class="form-control" size="1" required>
 
             <option selected="Groups" value="Groups">Grupos</option>
             <option value="Eliminations">Eliminatorias</option>
@@ -42,8 +42,8 @@
     <div class="row" *ngIf="form.value.phase_type==='Groups'">
       <div class="col-sm-12">
         <div class="form-group">
-          <label for="name">Número de Grupos</label>
-          <input formControlName="group_number" type="number" class="form-control" id="group_number" placeholder="Ingrese el Número de grupos en la fase">
+          <label for="group_number">Número de Grupos</label>
+          <input formControlName="group_number" type="number" class="form-control" min="1" max="10" id="group_number" placeholder="Ingrese el Número de grupos en la fase" required>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
         <div class="form-group row">
           <label class="col-sm-6 form-control-label" for="input-small">Número de Equipos</label>
           <div class="col-sm-6">
-            <input [(ngModel)]="groupArr_num[i]" class="form-control input-sm" id="input-small" name="input-small" placeholder="#" type="number">
+            <input required [(ngModel)]="groupArr_num[i]" class="form-control input-sm"  min="2" max="5" id="input-small" name="input-small" placeholder="#" type="number">
           </div>
         </div >
 

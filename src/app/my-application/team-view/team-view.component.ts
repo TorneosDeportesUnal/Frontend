@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TeamService} from '../services/team.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
-import {Team} from "../classes/team";
+import {Team} from '../classes/team';
 
 @Component({
   selector: 'app-team-view',

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ApiObservableService} from '../api-observable.service';
 import {Group} from '../classes/group';
 import {Team} from '../classes/team';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-groups-team-list',
@@ -14,7 +15,8 @@ export class GroupsTeamListComponent implements OnInit {
   groups: Group[];
   teams: Team[];
 
-  constructor(private apiService: ApiObservableService) { }
+  constructor(private apiService: ApiObservableService,
+              private route: ActivatedRoute) { }
 
   ngOnInit( ) {
 
@@ -23,9 +25,9 @@ export class GroupsTeamListComponent implements OnInit {
   }
 
   getGroups() {
-    const id: string = '1';
-
-    this.apiService.getGroupsByTournamentId(id)
+    // const id: string = '1';
+    this.route.params
+      .flatMap( (params: Params) => this.apiService.getGroupsByTournamentId(params['id']))
       .subscribe(
         groups => {
           return this.groups = groups;

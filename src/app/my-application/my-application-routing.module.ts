@@ -106,7 +106,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'group-list',
+        path: 'group-list/:id',
         component: GroupsTeamListComponent,
         data: {
           title: 'lista de grupos'
