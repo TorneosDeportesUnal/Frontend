@@ -1,5 +1,5 @@
 import {Component, group, OnInit} from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ApiObservableService} from '../api-observable.service';
 import {TournamentPhase} from '../classes/tournament_phase';
 import {Team} from '../classes/team';
@@ -153,6 +153,18 @@ export class PhaseCreationComponent implements OnInit {
       .subscribe( tournaments => {
         this.tournaments = tournaments;
       });
+
+    // Update form model
+    const oldTournament = {
+      phase_type: 'Groups',
+      phase_number: null,
+      group_number: null,
+      tournament_id: null
+
+    };
+
+    (<FormGroup>this.form)
+      .setValue(oldTournament, { onlySelf: true });
 
     // this.getTeams();
     // console.log(this.teams);

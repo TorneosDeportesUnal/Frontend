@@ -1,3 +1,4 @@
+import {Team} from './team';
 export class Match {
 	id: number;
   group_id: number;
@@ -7,5 +8,6 @@ export class Match {
 	observations:string;
 	winner_team:string;
 	loser_team:string;
+	teams: Team[];
 
 }
