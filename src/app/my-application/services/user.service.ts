@@ -19,7 +19,7 @@ export class UserService {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({headers: headers});
 
-    const url = 'http://localhost:3000/auth/sign_in';
+    const url = 'https://torneos-api-arka160.c9users.io/auth/sign_in';
 
     return this._http.post(url, {email: email, password: password}, options);
   }

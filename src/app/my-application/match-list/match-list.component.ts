@@ -14,7 +14,6 @@ export class MatchListComponent implements OnInit {
   @Input() groupId;
 
   public matches: Match[];
-  groups: Group[];
 
 
 
