@@ -1,14 +1,16 @@
 <div class="animated fadeIn">
   <div class="card">
-    <div class="card-header"><strong>{{team?.name}}</strong></div>
+    <div class="card-header"><h2>{{team?.name}}</h2></div>
     <!-- Details of Team -->
     <div class="card-header">
       <div class="row mb-1">
         <div class="col-md-4">
-          <label for="ot_capitan">Capitán :</label>
-          <output id="ot_capitan"> <small>{{team?.captain}}</small></output>
-          <label for="ot_uniform">Uniforme :</label>
-          <output id="ot_uniform"><small>{{team?.uniform_color}}</small></output>
+          <strong for="ot_capitan">Capitán :</strong>
+          <output id="ot_capitan"> <small>{{team?.captain}}</small></output> &nbsp; &nbsp;
+          <strong for="ot_coach_name">Tecnico :</strong>
+          <output id="ot_coach_name"> <small>{{team?.coach_name}}</small></output> &nbsp; &nbsp;
+          <strong for="ot_uniform">Uniforme :</strong>
+          <output id="ot_uniform"><small>{{team?.uniform_color}}</small></output> &nbsp; &nbsp;
         </div>
       </div>
     </div>

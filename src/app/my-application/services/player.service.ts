@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Player} from '../classes/player';
-import {Observable} from 'rxjs/Observable';
-import {Headers, Http, RequestOptions, Response} from '@angular/http';
+import { Player } from '../classes/player';
+import { Observable } from 'rxjs/Observable';
+import { Headers, Http, RequestOptions, Response } from '@angular/http';
+import { HttpService } from './http.service';
 
 @Injectable()
 export class PlayerService {
@@ -19,7 +20,7 @@ export class PlayerService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-  constructor(private http: Http) { }
+  constructor(private http: HttpService) { }
 
   private extractData(res: Response) {
     const body = res.json();

@@ -1,3 +1,21 @@
-<p>
-  warning-pop-up works!
-</p>
+<div class="detail-tournament">
+  <button class="btn btn-danger" (click)="closePopUp()">x</button>
+
+
+    <div class="card-block">
+
+      <p>Esta seguro que desea eliminar este torneo</p>
+
+    </div>
+
+    <div class="card-footer">
+      <button type="button" (click)="deleteTournament(tournament.id)" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Eliminar</button>
+      <button type="button" (click)="closePopUp()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Cancelar</button>
+
+    </div>
+
+
+
+
+
+</div>

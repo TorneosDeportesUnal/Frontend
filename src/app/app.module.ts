@@ -15,10 +15,11 @@ import { BreadcrumbsComponent } from './shared/breadcrumb.component';
 // Routing Module
 import { AppRoutingModule } from './app.routing';
 
-//Layouts
+// Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
-import {CookieService} from "ng2-cookies";
+import { CookieService } from 'ng2-cookies';
+import { AuthGuard } from './my-application/guard/auth.guard';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {CookieService} from "ng2-cookies";
     provide: LocationStrategy,
     useClass: HashLocationStrategy,
   },
-    CookieService
+    CookieService,
+    AuthGuard
   ],
   bootstrap: [ AppComponent]
 })

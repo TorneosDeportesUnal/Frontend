@@ -1,13 +1,17 @@
 <div class="animated fadeIn">
   <div class="card">
-    <div class="card-header"><strong>{{tournament?.name}}</strong></div>
+    <div class="card-header"><h2>{{tournament?.name}}</h2></div>
     <div class="card-header">
       <div class="row mb-1">
         <div class="col-md-4">
-          <label for="ot_discipline">Disciplina :</label>
-          <output id="ot_discipline"> <small>{{tournament?.discipline}}</small></output>
-          <label for="ot_gender">Género :</label>
-          <output id="ot_gender"><small>{{tournament?.gender}}</small></output>
+          <strong for="ot_discipline">Disciplina :</strong>
+          <output id="ot_discipline"> <small>{{tournament?.discipline}}</small></output> &nbsp; &nbsp;
+          <strong for="ot_gender">Género :</strong>
+          <output id="ot_gender"><small>{{tournament?.gender}}</small></output> &nbsp; &nbsp;
+          <strong for="ot_begin_date">Fecha Inicio :</strong>
+          <output id="ot_begin_date"> <small>{{tournament?.begin_date}}</small></output> &nbsp; &nbsp;
+          <strong for="ot_end_date">Fecha Final :</strong>
+          <output id="ot_end_date"> <small>{{tournament?.end_date}}</small></output> &nbsp; &nbsp;
         </div>
       </div>
     </div>
@@ -50,7 +54,7 @@
           <td>{{team.uniform_color | uppercase}}</td>
           <td><a [routerLink]="['/players/team-view', team.id]">View Detail</a></td>
           <td><button (click)="openTeam(team)" class="btn btn-sm btn-outline-primary"> Editar</button></td>
-          <td><button (click)="deleteTeam(team.id)" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
+          <td><button (click)="openTeamDelete(team)" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
         </tr>
         </tbody>
         <tfoot>
@@ -68,5 +72,7 @@
   </div>
 </div>
 
-<!-- pop-up update tournament -->
+<!-- pop-up update team -->
 <app-team-update *ngIf="showTeam" [team]="selectedTeam" (closeModal)="changeStatePopUp(false)"></app-team-update>
+<!-- pop-up delete team -->
+<app-team-delete *ngIf="showDelete" [team]="selectedTeam" (closeModal)="changeStatePopUpDelete(false)"></app-team-delete>

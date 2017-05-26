@@ -30,6 +30,6 @@ export class FullLayoutComponent implements OnInit {
 
   public logout(): void {
     this._cookies.deleteAll();
-    this.router.navigate(['/players/login']);
+    this.router.navigate(['/pages/login']);
   }
 }
