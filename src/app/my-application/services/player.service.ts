@@ -36,8 +36,7 @@ export class PlayerService {
     console.log(player, 'Player');
     console.log(JSON.stringify(player));
     return this.http.post(url, {player: player}, options)
-      .map(this.extractData)
-      .catch(this.handleError);
+      .map(this.extractData);
   }
 
   updatePlayer(player: any): Observable<Player> {

@@ -6,6 +6,7 @@ import {ApiObservableService} from '../api-observable.service';
 // test redirigir
 import { Router } from '@angular/router';
 import {TournamentService} from '../services/tournament.service';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-tournament-creation',
@@ -29,8 +30,10 @@ export class TournamentCreationComponent implements OnInit {
 
   // test find document exist
   public arrayTest: any[];
+  public result: any[];
 
   constructor(public fb: FormBuilder, private tournamentService: TournamentService,  private router: Router ) {}
+
 
 
   ngOnInit() {
@@ -46,8 +49,14 @@ export class TournamentCreationComponent implements OnInit {
       }
     ];
 
-    const result = this.search(this.arrayTest, '1');
-    console.log('hola result' + result.name);
+    this.result = this.search(this.arrayTest, '2');
+    console.log('hola result' + this.result);
+    if (isNullOrUndefined(this.result)) {
+      console.log('Hola estoy vacio - sin resultados');
+    }else {
+      console.log('hola tengo un elemnto');
+      console.log(this.result);
+    }
     // end find document
 
 

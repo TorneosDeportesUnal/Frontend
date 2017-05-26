@@ -68,15 +68,13 @@ export class TournamentService {
   }
 
   updateTournament(tournament: any): Observable<Tournament> {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
 
     console.log(tournament.id, 'tournmanet id 2');
     console.log(tournament, 'tournmanet');
 
     const url = 'http://localhost:3000/tournaments/' + tournament.id;
 
-    return this.http.patch(url, tournament, options)
+    return this.http.patch(url, tournament)
       .map(this.extractData)
       .catch(this.handleError);
   }

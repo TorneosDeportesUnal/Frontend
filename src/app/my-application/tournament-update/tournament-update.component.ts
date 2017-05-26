@@ -40,8 +40,8 @@ export class TournamentUpdateComponent implements OnInit {
       name: this.tournament.name,
       discipline: this.tournament.discipline,
       gender: this.tournament.gender,
-      begin_date: this.tournament.begin_date,
-      end_date: this.tournament.end_date
+      begin_date: new Date(this.tournament.begin_date),
+      end_date: new Date(this.tournament.end_date)
     };
 
     (<FormGroup>this.form)
