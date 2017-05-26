@@ -18,6 +18,10 @@ export class PlayerListComponent implements OnInit {
   public filterQuery = '';
   public showPlayer: boolean = false;
 
+  // pop-up delete player
+
+  public showDelete: boolean = false;
+
   constructor(private playerService: PlayerService,
               private route: ActivatedRoute,
               private router: Router,
@@ -70,6 +74,16 @@ export class PlayerListComponent implements OnInit {
 
   changeStatePopUp(value) {
     this.showPlayer = value;
+  }
+
+  // metodos pop-up delete player
+
+  openPlayerDelete(player) {
+    this.selectedPlayer = player;
+    this.changeStatePopUpDelete(true);
+  }
+  changeStatePopUpDelete(value) {
+    this.showDelete = value;
   }
 }
 
