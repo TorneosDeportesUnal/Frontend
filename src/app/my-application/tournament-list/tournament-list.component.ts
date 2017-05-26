@@ -3,6 +3,7 @@ import {Http} from '@angular/http';
 import {ApiObservableService} from '../api-observable.service';
 import {TournamentService} from '../services/tournament.service';
 import {Tournament} from '../classes/tournament';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-tournament-list',
@@ -25,6 +26,8 @@ export class TournamentListComponent implements OnInit {
 
   constructor(private http: Http,
               private apiService: ApiObservableService,
+              private route: ActivatedRoute,
+              private router: Router,
               private tournamentService: TournamentService) {
 
   }
@@ -47,6 +50,11 @@ export class TournamentListComponent implements OnInit {
       tournamentList =>  {this.data = tournamentList},
       error => console.log(error)
     );
+  }
+
+  goToCreateTournament(event) {
+    console.log('DEBUG | goToCreateTournament()', event);
+    this.router.navigate(['/players/tournament-creation']);
   }
 
   deleteTournament(id_tournament: number) {
