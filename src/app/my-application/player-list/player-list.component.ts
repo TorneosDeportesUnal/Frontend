@@ -60,7 +60,7 @@ export class PlayerListComponent implements OnInit {
     ).catch((error) => {
       console.log('error ' + error);
       throw error;
-    });;
+    });
   }
   goToCreatePlayer(event) {
     console.log('DEBUG | goToCreatePlayer()', event);

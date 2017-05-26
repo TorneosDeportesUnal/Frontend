@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Player} from '../classes/player';
-import {PlayerService} from '../services/player.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Player } from '../classes/player';
+import { PlayerService } from '../services/player.service';
 
 @Component({
   selector: 'app-player-delete',
@@ -9,6 +9,7 @@ import {PlayerService} from '../services/player.service';
 })
 
 export class PlayerDeleteComponent implements OnInit {
+
   @Input('player') player: Player;
   @Output() closeModal: EventEmitter<boolean> = new EventEmitter() ;
 
@@ -19,8 +20,7 @@ export class PlayerDeleteComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log('id my Player' + this.player.id_player);
-
+    console.log('id my Player' + this.player['id']);
   }
 
   // metodos
@@ -29,7 +29,7 @@ export class PlayerDeleteComponent implements OnInit {
     this.closeModal.emit(false);
   }
 
-  deletePlayer(idPlayer) {
+  deletePlayer(idPlayer: number) {
 
     this.playerService.deletePlayer(idPlayer).subscribe(
       () => { console.log('success deletePlayer');
