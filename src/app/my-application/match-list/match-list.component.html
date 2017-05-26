@@ -14,6 +14,8 @@
           <th>Partido</th>
           <th>Fecha</th>
           <th>Locación</th>
+          <th>Editar</th>
+
 
         </tr>
         </thead>
@@ -29,6 +31,10 @@
           </td>
           <td>{{match.date | date:  'dd/MM/yyyy HH:mm'}}</td>
           <td>{{match.game_field_location}}</td>
+          <td>
+            <app-match-edit-modal [match]="match" [team]="match.teams" [groupId]="groupId" ></app-match-edit-modal>
+          </td>
+
         </tr>
 
 

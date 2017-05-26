@@ -48,7 +48,9 @@ import { TeamDeleteComponent } from './team-delete/team-delete.component';
 import { PlayerDeleteComponent } from './player-delete/player-delete.component';
 import { GroupsTeamListComponent } from './groups-team-list/groups-team-list.component';
 import { GroupsMatchListComponent } from './groups-match-list/groups-match-list.component';
+import { MatchEditModalComponent } from './match-edit-modal/match-edit-modal.component';
 
+import { ModalModule } from 'ng2-bootstrap/modal';
 
 @NgModule({
   imports: [
@@ -57,7 +59,8 @@ import { GroupsMatchListComponent } from './groups-match-list/groups-match-list.
     HttpModule,
     FormsModule,
     DataTableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
   providers: [
     ApiObservableService,
@@ -91,6 +94,7 @@ import { GroupsMatchListComponent } from './groups-match-list/groups-match-list.
     TeamDeleteComponent,
     PlayerDeleteComponent,
     GroupsTeamListComponent,
-    GroupsMatchListComponent]
+    GroupsMatchListComponent,
+    MatchEditModalComponent]
 })
 export class MyApplicationModule { }
