@@ -91,7 +91,7 @@ export class ApiObservableService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    const url = 'http://localhost:3000/tournament_phases';
+    const url = 'https://torneos-api-arka160.c9users.io/tournament_phases';
 
     let wraper = {
       tournament_phase : phase
@@ -118,7 +118,7 @@ export class ApiObservableService {
     let params = new URLSearchParams();
     params.set('id', id );
 
-    const url = 'http://localhost:3000/teams_by_tournament';
+    const url = 'https://torneos-api-arka160.c9users.io/teams_by_tournament';
     return this.http.get(url, { search: params }).map((response: Response) => response.json());
   }
 
@@ -127,6 +127,22 @@ export class ApiObservableService {
     params.set('id', id );
 
     const url = 'https://torneos-api-arka160.c9users.io/matches_by_group';
+    return this.http.get(url, { search: params }).map((response: Response) => response.json() );
+  }
+
+  getGroupsByTournamentId(id: string) {
+    let params = new URLSearchParams();
+    params.set('id', id );
+
+    const url = 'https://torneos-api-arka160.c9users.io/groups_by_tournament';
+    return this.http.get(url, { search: params }).map((response: Response) => response.json() );
+  }
+
+  getTeamsByGroupId(id: string) {
+    let params = new URLSearchParams();
+    params.set('id', id );
+
+    const url = 'https://torneos-api-arka160.c9users.io/groups_by_tournament';
     return this.http.get(url, { search: params }).map((response: Response) => response.json() );
   }
 

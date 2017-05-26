@@ -46,6 +46,7 @@ import {HttpService} from './services/http.service';
 import { MatchListComponent } from './match-list/match-list.component';
 import { TeamDeleteComponent } from './team-delete/team-delete.component';
 import { PlayerDeleteComponent } from './player-delete/player-delete.component';
+import { GroupsTeamListComponent } from './groups-team-list/groups-team-list.component';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { PlayerDeleteComponent } from './player-delete/player-delete.component';
     MatchListComponent,
     MyloginComponent,
     TeamDeleteComponent,
-    PlayerDeleteComponent]
+    PlayerDeleteComponent,
+    GroupsTeamListComponent]
 })
 export class MyApplicationModule { }

@@ -13,6 +13,8 @@ import { TournamentViewComponent } from './tournament-view/tournament-view.compo
 import { TeamViewComponent } from './team-view/team-view.component';
 
 import { MatchListComponent } from './match-list/match-list.component';
+import { GroupsTeamListComponent } from './groups-team-list/groups-team-list.component';
+
 
 
 import { MyloginComponent } from './mylogin/mylogin.component';
@@ -99,6 +101,13 @@ const routes: Routes = [
         component: MatchListComponent,
         data: {
           title: 'match list'
+        }
+      },
+      {
+        path: 'group-list',
+        component: GroupsTeamListComponent,
+        data: {
+          title: 'lista de grupos'
         }
       }
     ]

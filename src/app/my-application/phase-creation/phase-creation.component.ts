@@ -67,12 +67,13 @@ export class PhaseCreationComponent implements OnInit {
 
       }
       let toAdd: Group = {
-        //id: null,
+        id: null,
         active: true,
         winners_number: 1,
         name: iterator.toString() as string,
         //tournament_phase_id: null,
-        team_ids: ids
+        team_ids: ids,
+        teams: null
 
       };
 
