@@ -6,9 +6,19 @@ import { LoginComponent } from './login.component';
 import { RegisterComponent } from './register.component';
 
 import { PagesRoutingModule } from './pages-routing.module';
+import { UserService } from '../my-application/services/user.service';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
-  imports: [ PagesRoutingModule ],
+  imports: [
+    PagesRoutingModule,
+    FormsModule,
+    HttpModule,
+  ],
+  providers: [
+    UserService
+  ],
   declarations: [
     p404Component,
     p500Component,
