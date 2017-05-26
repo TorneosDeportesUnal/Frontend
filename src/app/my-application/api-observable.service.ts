@@ -7,19 +7,20 @@ import {Team} from './classes/team';
 import {observableToBeFn} from 'rxjs/testing/TestScheduler';
 import {TournamentPhase} from './classes/tournament_phase';
 
-//para enviar parametros en la url
+// para enviar parametros en la url
 import { URLSearchParams } from '@angular/http';
 import {Match} from './classes/match';
+import {HttpService} from './services/http.service';
 
 
 @Injectable()
 export class ApiObservableService {
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpService) { }
 
 
   private extractData(res: Response) {
-    let body = res.json();
+    const body = res.json();
     return body.data || { };
   }
 
@@ -40,14 +41,13 @@ export class ApiObservableService {
 
 
   createTournament(name: string, begin_date: Date,
-	end_date:Date,
-	gender:string,
-	discipline:string): Observable<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+	end_date: Date,
+	gender: string,
+	discipline: string): Observable<any> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     const url = 'http://localhost:3000/tournaments';
-	    let id = 12334;
 
     return this.http.post(url, { name, gender, discipline, begin_date, end_date}, options)
                     .map(this.extractData)
@@ -57,8 +57,8 @@ export class ApiObservableService {
 
   createTeam(team: Team): Observable<Team> {
 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     const url = 'http://localhost:3000/teams';
 
@@ -86,21 +86,20 @@ export class ApiObservableService {
   }
 
 
-  createTournamentPhase(phase: TournamentPhase): Observable<TournamentPhase> {
+  createTournamentPhase(phase: TournamentPhase) {
 
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
-    const url = 'https://torneos-api-arka160.c9users.io/tournament_phases';
+    const url = 'http://localhost:3000/tournament_phases';
 
-    let wraper = {
+    const wraper = {
       tournament_phase : phase
     };
 
     console.log(JSON.stringify(wraper));
     return this.http.post(url, JSON.stringify( wraper ) , options)
-      .map(this.extractData)
-      .catch(this.handleError);
+      .map((response: Response) => response.json());
   }
 
   getTournaments() {
@@ -112,37 +111,45 @@ export class ApiObservableService {
     const url = 'http://localhost:3000/players';
     return this.http.get(url).map((response: Response) => response.json());
   }
-  //servicio
+  // servicio
   getTeamsByTournamentId(id: string) {
 
-    let params = new URLSearchParams();
+    const params = new URLSearchParams();
     params.set('id', id );
 
-    const url = 'https://torneos-api-arka160.c9users.io/teams_by_tournament';
+    const url = 'http://localhost:3000/teams_by_tournament';
     return this.http.get(url, { search: params }).map((response: Response) => response.json());
   }
 
   getMatchesByGroupId(id: string) {
-    let params = new URLSearchParams();
+    const params = new URLSearchParams();
     params.set('id', id );
 
-    const url = 'https://torneos-api-arka160.c9users.io/matches_by_group';
+    const url = 'http://localhost:3000/matches_by_group';
     return this.http.get(url, { search: params }).map((response: Response) => response.json() );
   }
 
   getGroupsByTournamentId(id: string) {
-    let params = new URLSearchParams();
+    const params = new URLSearchParams();
     params.set('id', id );
 
-    const url = 'https://torneos-api-arka160.c9users.io/groups_by_tournament';
+    const url = 'http://localhost:3000/groups_by_tournament';
     return this.http.get(url, { search: params }).map((response: Response) => response.json() );
   }
 
   getTeamsByGroupId(id: string) {
-    let params = new URLSearchParams();
+    const params = new URLSearchParams();
     params.set('id', id );
 
-    const url = 'https://torneos-api-arka160.c9users.io/groups_by_tournament';
+    const url = 'http://localhost:3000/groups_by_tournament';
+    return this.http.get(url, { search: params }).map((response: Response) => response.json() );
+  }
+
+  getCreateMatches(id_phase: string) {
+    const params = new URLSearchParams();
+    params.set('id', id_phase );
+
+    const url = 'http://localhost:3000/create_matches';
     return this.http.get(url, { search: params }).map((response: Response) => response.json() );
   }
   getTeamMatch(teamId: string, matchId: string ) {

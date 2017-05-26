@@ -6,6 +6,7 @@ import {Team} from '../classes/team';
 import {Group} from '../classes/group';
 import {TournamentService} from '../services/tournament.service';
 import {getTemplate} from 'codelyzer/util/ngQuery';
+import {Router} from '@angular/router';
 
 
 
@@ -39,10 +40,13 @@ export class PhaseCreationComponent implements OnInit {
 
   });
 
+  public id_tournament: number;
+  public id_phase: number;
 
   constructor(public fb: FormBuilder,
               private tournamentService: TournamentService,
-              private apiService: ApiObservableService ) {}
+              private apiService: ApiObservableService,
+              private router: Router) {}
 
   getRandomInt(min, max): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -71,7 +75,7 @@ export class PhaseCreationComponent implements OnInit {
         active: true,
         winners_number: 1,
         name: iterator.toString() as string,
-        //tournament_phase_id: null,
+        // tournament_phase_id: null,
         team_ids: ids,
         teams: null
 
@@ -99,6 +103,8 @@ export class PhaseCreationComponent implements OnInit {
     // console.log(this.teams);
     // console.log(this.teams[1].id);
 
+    console.log('este es el id del torneo : ' + this.id_tournament);
+    this.router.navigate( ['players/group-list', this.id_tournament] );
 
 
 
@@ -121,6 +127,10 @@ export class PhaseCreationComponent implements OnInit {
       groups_attributes: this.groups
 
     };
+
+    this.id_tournament = formModel.tournament_id as number;
+    console.log('holaaaaaaaaaaaaa' + this.id_tournament);
+
     return saveElem;
   }
 
@@ -128,7 +138,17 @@ export class PhaseCreationComponent implements OnInit {
   add(phase: TournamentPhase) {
 
     this.apiService.createTournamentPhase(phase)
-      .subscribe(error =>  this.errorMessage = <any>error);
+      .subscribe(
+        (data) => {
+          console.log('creacion exitosa phase , toma tu id' + data['id']);
+          this.id_phase = data['id'];
+          // this.createMatches(this.id_phase.toString());
+        },
+        (error) => {
+          this.errorMessage = <any>error;
+          console.log('error create phase' + this.errorMessage);
+        }
+      );
   }
 
   getTeams() {
@@ -139,11 +159,6 @@ export class PhaseCreationComponent implements OnInit {
           return this.teams = teams;
         },
         error =>  this.errorMessage = <any>error);
-
-    // this.apiService.getTeams().subscribe(
-    //   playerList =>  {this.teams = playerList; } ,
-    //   error => console.log(error)
-    // );
   }
 
 
@@ -171,10 +186,22 @@ export class PhaseCreationComponent implements OnInit {
     // console.log(this.teams);
 }
 
-  setTeams(){
+  setTeams() {
     if (this.form.value.tournament_id){
       this.getTeams();
     }
   }
 
+  createMatches(id_phase: string) {
+    this.apiService.getCreateMatches(id_phase)
+      .subscribe(
+        (data) => {
+          console.log('succes creacion de matches');
+        },
+        (error) => {
+          this.errorMessage = <any>error;
+          console.log('error creando matches');
+        }
+      );
+  }
 }
