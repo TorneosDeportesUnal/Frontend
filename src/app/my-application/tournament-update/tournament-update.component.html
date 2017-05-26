@@ -1,5 +1,8 @@
 <div class="detail-tournament">
-  <button class="btn btn-danger" (click)="closePopUp()">x</button>
+  <div class="card-header-primary">
+    <p align="center"><strong><span>ID : {{tournament?.id}}</span></strong></p>
+  </div>
+  <button class="close" (click)="closePopUp()">x</button>
 
   <form [formGroup]="form" (ngSubmit)="updateTournamet($event)">
     <div class="card-block">
@@ -43,6 +46,10 @@
             </div>
           </div>
         </div>
+
+        <div class="card-footer">
+          <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+        </div>
       </div>
       <div style="width:48%; float:right;">
         <!--/.row-->
@@ -70,9 +77,7 @@
 
     </div>
 
-    <div class="card-footer">
-      <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
-    </div>
+
 
 
   </form>

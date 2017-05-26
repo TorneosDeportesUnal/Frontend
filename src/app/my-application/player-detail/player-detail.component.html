@@ -1,5 +1,9 @@
 <div class="detail-player">
-  <button class="btn btn-danger" (click)="closePopUp()">x</button>
+  <div class="card-header-primary">
+    <p align="center"><strong><span>Jugador</span></strong></p>
+
+  </div>
+  <button class="close" (click)="closePopUp()">x</button>
 
   <form [formGroup]="form" (ngSubmit)="updatePlayer($event);">
 

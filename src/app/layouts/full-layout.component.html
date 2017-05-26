@@ -7,7 +7,7 @@
   <a class="nav-link navbar-toggler sidebar-toggler" href="#">&#9776;</a>
   </li>
   </ul>
-  
+
   <ul class="nav navbar-nav ml-auto">
 
 
@@ -40,7 +40,7 @@
         </li>
 
         <li class="nav-item nav-dropdown" routerLinkActive="open">
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-note"></i>Edición</a>
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-note"></i>Crear</a>
           <ul class="nav-dropdown-items">
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/tournament-creation']"><i class="icon-note"></i> Torneos</a>
@@ -237,36 +237,15 @@
 -->
         <li class="divider m-h"></li>
         <li class="nav-title text-center">
-          <span>Torneos</span>
+          <span>Listas</span>
         </li>
         <li class="nav-item nav-dropdown">
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-male fa-lg"></i> Torneos </a>
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-male fa-lg"></i> Listas </a>
           <ul class="nav-dropdown-items">
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list-tournament']"><i class="fa fa-list-ol fa-lg"></i> Lista de Torneos</a>
             </li>
           </ul>
-        </li>
-
-        <li class="divider m-h"></li>
-        <li class="nav-title text-center">
-          <span>Equipos</span>
-        </li>
-        <li class="nav-item nav-dropdown">
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-male fa-lg"></i> Equipos </a>
-          <ul class="nav-dropdown-items">
-            <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list-team']"><i class="fa fa-list-ol fa-lg"></i> Lista de Equipos</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="divider m-h"></li>
-        <li class="nav-title text-center">
-          <span>Jugadores</span>
-        </li>
-        <li class="nav-item nav-dropdown">
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-male fa-lg"></i> Jugadores </a>
           <ul class="nav-dropdown-items">
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/list-player']"><i class="fa fa-list-ol fa-lg"></i> Lista de Jugadores</a>
@@ -274,6 +253,13 @@
           </ul>
         </li>
 
+        <li class="divider m-h"></li>
+        <li class="nav-title text-center">
+          <span>Sorteo</span>
+        </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/players/phase']"><i class="fa fa-list-ol fa-lg"></i> Sorteo de Torneos</a>
+            </li>
 
       </ul>
     </nav>
@@ -281,8 +267,8 @@
 
   <!-- Main content -->
   <main class="main">
+  <br>
 
-   
 
     <div class="container-fluid">
       <router-outlet></router-outlet>

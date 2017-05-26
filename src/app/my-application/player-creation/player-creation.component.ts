@@ -12,6 +12,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 export class PlayerCreationComponent implements OnInit {
 
   public idTeam: number;
+  public error: string = '';
 
   public form = this.fb.group({
     document: ['', Validators.required],
@@ -82,8 +83,9 @@ export class PlayerCreationComponent implements OnInit {
           console.log('hola entrando a succes de add()');
           }
       ,
-        error => {
-         error = error + 'errror | add()';
+        (error) => {
+          this.error = error.json().document ? 'Cédula ya existe!' : 'Error!';
+          console.error('aqui esta el error' + this.error);
         },
         () => console.log('Lo intente | add()')
       );
