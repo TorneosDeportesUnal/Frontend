@@ -1,6 +1,6 @@
 
 <button type="button" class="btn btn-warning" data-toggle="modal" (click)="warningModal.show()">
-  Warning modal
+  Editar Partido
 </button>
 
 <div bsModal #warningModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -85,7 +85,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="warningModal.hide()">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" (click)="warningModal.hide()">Save changes</button>
       </div>
 
     </div><!-- /.modal-content -->

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiObservableService} from '../api-observable.service';
 import {Group} from 'app/my-application/classes/group';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-groups-match-list',
@@ -12,16 +13,21 @@ export class GroupsMatchListComponent implements OnInit {
   public errorMessage: string;
   groups: Group[];
 
-  constructor(private apiService: ApiObservableService) { }
+  public id_tournament: string;
+
+  constructor(private apiService: ApiObservableService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getGroups();
   }
 
   getGroups() {
-    const id: string = '1';
+    const id: string = '2';
 
-    this.apiService.getGroupsByTournamentId(id)
+    this.route.params
+    // (+) converts string 'id' to a number
+      .flatMap( (params: Params) => this.apiService.getGroupsByTournamentId(params['id']))
       .subscribe(
         groups => {
           return this.groups = groups;

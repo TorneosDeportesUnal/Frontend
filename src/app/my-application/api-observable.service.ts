@@ -157,7 +157,7 @@ export class ApiObservableService {
     params.set('teamId', teamId );
     params.set('matchId', matchId );
 
-    const url = 'https://torneos-api-arka160.c9users.io/team_match_search';
+    const url = 'http://localhost:3000/team_match_search';
     return this.http.get(url, { search: params }).map((response: Response) => response.json() );
   }
 
@@ -166,7 +166,7 @@ export class ApiObservableService {
     params.set('teamId', teamId );
     params.set('groupId', groupId );
 
-    const url = 'https://torneos-api-arka160.c9users.io/team_group_search';
+    const url = 'http://localhost:3000/team_group_search';
     return this.http.get(url, { search: params }).map((response: Response) => response.json() );
   }
 }

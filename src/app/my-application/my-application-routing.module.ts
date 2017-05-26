@@ -113,7 +113,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'matches-list',
+        path: 'matches-list/:id',
         component: GroupsMatchListComponent,
         data: {
           title: 'Lista de Fechas por Grupo'

@@ -142,7 +142,7 @@ export class PhaseCreationComponent implements OnInit {
         (data) => {
           console.log('creacion exitosa phase , toma tu id' + data['id']);
           this.id_phase = data['id'];
-          // this.createMatches(this.id_phase.toString());
+          this.createMatches(this.id_phase.toString());
         },
         (error) => {
           this.errorMessage = <any>error;
