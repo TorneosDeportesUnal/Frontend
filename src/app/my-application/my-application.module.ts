@@ -44,6 +44,8 @@ import {AuthGuard} from './guard/auth.guard';
 import {HttpService} from './services/http.service';
 
 import { MatchListComponent } from './match-list/match-list.component';
+import { TeamDeleteComponent } from './team-delete/team-delete.component';
+import { PlayerDeleteComponent } from './player-delete/player-delete.component';
 
 
 @NgModule({
@@ -83,6 +85,8 @@ import { MatchListComponent } from './match-list/match-list.component';
     TournamentUpdateComponent,
     TeamUpdateComponent,
     MatchListComponent,
-    MyloginComponent]
+    MyloginComponent,
+    TeamDeleteComponent,
+    PlayerDeleteComponent]
 })
 export class MyApplicationModule { }

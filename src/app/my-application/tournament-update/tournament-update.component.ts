@@ -77,7 +77,7 @@ export class TournamentUpdateComponent implements OnInit {
         () => {
           this.closePopUp();
           window.location.reload();
-          console.log('hola entrando a succes de add() del update');
+          console.log('hola entrando a success de add() del update');
         }
         ,
         error => {

@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import {Http, RequestOptions, Headers} from '@angular/http';
 import { URLSearchParams } from '@angular/http';
 import { Response } from '@angular/http';
-import {Observable} from 'rxjs/Observable';
-import {Player} from "../classes/player";
-import {Team} from "../classes/team";
+import { Observable } from 'rxjs/Observable';
+import { Player } from '../classes/player';
+import { Team } from '../classes/team';
+import { HttpService } from './http.service';
 
 @Injectable()
 export class TeamService {
 
-  constructor( private http: Http) { }
+  constructor( private http: HttpService) { }
 
 
   private handleError (error: Response | any) {

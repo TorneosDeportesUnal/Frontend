@@ -58,7 +58,7 @@
           <td>{{player.gender}}</td>
           <td>{{player.age}}</td>
           <td><button (click)="openPlayer(player)" class="btn btn-sm btn-outline-primary  "> Editar</button></td>
-          <td><button (click)="deletePlayer(player.id)" type="button" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
+          <td><button (click)="openPlayerDelete(player)" type="button" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
         </tr>
         </tbody>
         <tfoot>
@@ -77,3 +77,5 @@
 </div>
 
 <app-player-detail *ngIf="showPlayer" [player]="selectedPlayer" (closeModal)="changeStatePopUp(false)"></app-player-detail>
+<!-- pop-up delete team -->
+<app-player-delete *ngIf="showDelete" [player]="selectedPlayer" (closeModal)="changeStatePopUpDelete(false)"></app-player-delete>
